@@ -17,6 +17,7 @@ public class TextScrollingScript : MonoBehaviour
 
     void Start()
     {
+        inputText = CharacterSript.CHARACTERS["Nessie"]["RomanceLVL1"];
         for (int i = 0; i < inputText.Length; i++)
         {
             StartCoroutine(PrintInOrder(i, inputText[i]));
