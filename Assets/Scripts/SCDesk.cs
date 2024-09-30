@@ -22,7 +22,7 @@ public class SCDesk : MonoBehaviour
 
     void SceneChangeLeft()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("KeyRackScene");
     }
 
     void SceneChangeRight()
