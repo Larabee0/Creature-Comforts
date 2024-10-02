@@ -11,7 +11,6 @@ public class TextScrollingScript : MonoBehaviour
     int pos = 0;
 
     public TextMeshProUGUI tmp;
-    public float scrollSpeed = 0.04f;
 
     string buildUpString = "";
 
@@ -25,7 +24,7 @@ public class TextScrollingScript : MonoBehaviour
 
     IEnumerator PrintInOrder(int i, char s)
     {
-        yield return new WaitForSeconds(scrollSpeed * i);
+        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
         buildUpString += s;
         tmp.text = buildUpString;
     }
