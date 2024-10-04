@@ -4,18 +4,16 @@ using TMPro;
 using UnityEngine;
 
 public class TextScrollingScript : MonoBehaviour
-{
-    string inputText = "This is a text scrolling test. The text should be scrolling naturally. Test. Test. Test. Test. Test. Test. Test. Test.";
-
+{ 
     float letterClock = 0f;
     int pos = 0;
 
     public TextMeshProUGUI tmp;
-
     string buildUpString = "";
 
-    void Start()
-    {
+    public void ScrollText(string name = "NO_NAME_GIVEN", string inputText = "NO_TEXT_GIVEN")
+    { 
+        buildUpString = name;
         for (int i = 0; i < inputText.Length; i++)
         {
             StartCoroutine(PrintInOrder(i, inputText[i]));

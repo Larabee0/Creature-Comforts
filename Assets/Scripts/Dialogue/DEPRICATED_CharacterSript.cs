@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class CharacterSript
+public static class DEPRICATED_CharacterSript
 {
     public static Dictionary<string, Dictionary<string, string>> CHARACTERS = new Dictionary<string, Dictionary<string, string>>()
     {
