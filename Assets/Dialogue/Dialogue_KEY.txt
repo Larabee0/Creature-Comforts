@@ -1,0 +1,17 @@
+Chunk number    = #1
+Name            = <Name>
+Next line       = <!>
+Choice          = <?>
+Chice points to = <@1>
+
+Example text:
+    #0
+    <Rachel>: Hello.<!> 
+    <Rachel>: This is how the text works!<!>
+    <Me><?>: Thats cool!<@1> Thats boring!<@2>
+
+    #1
+    <Rachel>: Thanks. :)
+
+    #2
+    <Rachel>: Guess I'll change it...
