@@ -1,0 +1,18 @@
+KEY:
+Chunk number  = #[id]
+New line      = <!>
+Question      = <?>
+Answer target = <@[id]>
+
+Example--
+
+#0
+Character1: Hello.<!>
+Character1: How's it going?<!>
+<?>Character2: It's going well.<@1> It's going bad!<@2>
+
+#1
+Character1: That's good.<!>
+
+#2
+Character2: That's unfortunate.<!>
