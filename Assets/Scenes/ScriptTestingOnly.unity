@@ -340,10 +340,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 225218803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a43a5477aeb3544d82c65efa821eb57, type: 3}
+  m_Script: {fileID: 11500000, guid: 22dbbc1d4502a354baecc51e666d8ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ts: {fileID: 225218808}
+  tss: {fileID: 225218808}
+  chunk: 0
+  line: 0
+  talking: 1
+  questionLinks: 
 --- !u!1 &584375472
 GameObject:
   m_ObjectHideFlags: 0

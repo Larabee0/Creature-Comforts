@@ -10,10 +10,10 @@ public class DialogueInteractor : MonoBehaviour
     public TextScrollingScript tss;
     public int chunk;
     [SerializeField] int line;
-    [SerializeField] bool talking;
+    [SerializeField] bool talking = true;
     bool question = false;
-    int answers = 0;
     int i = 0;
+    [SerializeField] List<int> questionLinks = new List<int>();
 
     string nameToPrint = "";
     string textToPrint = "";
@@ -23,8 +23,12 @@ public class DialogueInteractor : MonoBehaviour
         chunk = Chunk;
         line = 0;
         talking = true;
-        answers = 0;
         question = false;
+        nameToPrint = "";
+        textToPrint = "";
+        i = 0;
+        questionLinks.Clear();
+        PrintLine();
     }
 
     void PrintLine()
@@ -34,10 +38,26 @@ public class DialogueInteractor : MonoBehaviour
             nameToPrint += ChunkedDialogue.dialogue[chunk][line][i];
             if (ChunkedDialogue.dialogue[chunk][line][i] == ':')
             {
+                i++;
                 break;
             }
         }
+        for (; i < ChunkedDialogue.dialogue[chunk][line].Length; i++)
+        {
+            // look for questions 
+            if (ChunkedDialogue.dialogue[chunk][line][i] == '@')
+            {
+                questionLinks.Add(ChunkedDialogue.dialogue[chunk][line][i+1] - '0');
+                question = true;
+                i++;
+            }
 
+            // compose string
+            else
+            {
+                textToPrint += ChunkedDialogue.dialogue[chunk][line][i];
+            }
+        }
 
         tss.ScrollText(nameToPrint, textToPrint);
     }
@@ -50,6 +70,49 @@ public class DialogueInteractor : MonoBehaviour
             if (!question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+            }
+
+            if (question)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) && questionLinks.Count >= 1)
+                {
+                    chunk = questionLinks[0];
+                    line = 0;
+                    question = false;
+                    nameToPrint = "";
+                    textToPrint = "";
+                    i = 0;
+                    questionLinks.Clear();
+                    PrintLine();
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2) && questionLinks.Count >= 2)
+                {
+                    chunk = questionLinks[1];
+                    line = 0;
+                    question = false;
+                    nameToPrint = "";
+                    textToPrint = "";
+                    i = 0;
+                    questionLinks.Clear();
+                    PrintLine();
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3) && questionLinks.Count >= 3)
+                {
+                    chunk = questionLinks[2];
+                    line = 0;
+                    question = false;
+                    nameToPrint = "";
+                    textToPrint = "";
+                    i = 0;
+                    questionLinks.Clear();
+                    PrintLine();
+                }
             }
         }
     }
