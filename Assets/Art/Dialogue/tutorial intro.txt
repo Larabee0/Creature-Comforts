@@ -1,0 +1,50 @@
+TUTORIAL SCENE
+
+[Player dialogue box prompt]
+
+<on screen tutorial display text?>
+
+-Ringing Sound effect as phone shakes-
+
+Narrator: The phone on your desk is ringing. It’s probably your boss.
+
+[Pick up the phone.]
+
+B: Oh good, you picked up. Welcome back to work, it’s almost like you never left. Ok, here’s the sitch: It’s opening day for our autumn season and I need you to be on FULL alert. Plenty of customers will be checking in today and I can’t have you slacking. The usual admin will be waiting for you on our Motel Systems, just look at the computer behind you. 
+
+<Press BACK arrow to switch screens>
+
+B: It’s been a while, I suppose I’ll have to run you through it. This is the reception desk computer. Before you ask, yes it still takes floppy disks. Not like you’ll be needing to use that feature though. Anyways, this monitor will act as your personal database for everything [MOTEL NAME] related. I’ll be sending you EMAILS with your tasks for each day. Make sure to complete them all or I won’t let you go home. Haha! Just kidding (not).
+
+B: Feel free to spy and be nosy about our residents using the GUESTS application. Just don’t go prying too much… I can see everything you do on here. No GAMES at work, got it? 
+
+[Begrudgingly accept.]
+
+<Press UP arrow to switch screens>
+
+B: There’s only so much time in the day so I’ll take you through the rest real quick so you can get yourself settled. Over here to the LEFT is the handy dandy key rack, where everything related to room service is located. Need to check in a guest? Here is where to go.
+
+<Press LEFT arrow to switch screens>
+
+B: Over on the RIGHT is the community noticeboard. If you ever get stuck the answer is sure to be on here…uh… somewhere. All the information a good receptionist could ever need.
+
+<Press RIGHT arrow to switch screens>
+
+B: Now that we’ve established that, why don’t you pay me a visit?
+
+<bell rings>
+
+B: Just tap on the bell to greet anyone that decides to come to the desk. 
+
+<Tap on bell- pans up to a weird figure in a trench coat>
+
+B: I bet you’re dying to know who this is… Well SPOILERS! It is NOT me. Just some guy I sent down from accounting to show you how this all works. Say hello, Jeremy!
+
+J: [whispered small font] help…me…
+
+B: Well, someone woke up on the wrong side of the bed. Did you catch all of that? Don’t worry, it’s all on the board if you forget. I’ll be back at the end of your shift to evaluate your performance. Have a good day!
+
+<opens up to player control>
+
+there's a post it note on the desk under the phone that reads: STUCK? HELP? ADVICE? Call Me xx - Your Boss
+
