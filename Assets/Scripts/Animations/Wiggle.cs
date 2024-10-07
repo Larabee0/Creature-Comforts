@@ -13,6 +13,7 @@ public class Wiggle : MonoBehaviour
 
     private void Start()
     {
+        tf = gameObject.transform;
         startRot = tf.rotation.eulerAngles;
     }
 
