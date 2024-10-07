@@ -20,6 +20,26 @@ public class SCDesk : MonoBehaviour
         bD.onClick.AddListener(SceneChangeDown);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SceneChangeLeft();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SceneChangeRight();
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            SceneChangeUp();
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            SceneChangeDown();
+        }
+    }
+
     void SceneChangeLeft()
     {
         SceneManager.LoadScene("KeyRackScene");

@@ -14,6 +14,14 @@ public class SCKeys : MonoBehaviour
         bR.onClick.AddListener(SceneChangeRight);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SceneChangeRight();
+        }
+    }
+
     void SceneChangeRight()
     {
         SceneManager.LoadScene("DeskScene");
