@@ -5,12 +5,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueInteractor : MonoBehaviour
+public class Tut_DialogueInteractor : MonoBehaviour
 {
-    public TextScrollingScript tss;
+    public Tut_TextScrollingScript tss;
     public int chunk;
     [SerializeField] int line;
-    public bool talking = true;
+    public bool talking = false;
     bool question = false;
     int i = 0;
     [SerializeField] List<int> questionLinks = new List<int>();
@@ -34,21 +34,21 @@ public class DialogueInteractor : MonoBehaviour
 
     void PrintLine()
     {
-        for (; i < ChunkedDialogue.dialogue[chunk][line].Length; i++)
+        for (; i < Tut_ChunkedDialogue.dialogue[chunk][line].Length; i++)
         {
-            nameToPrint += ChunkedDialogue.dialogue[chunk][line][i];
-            if (ChunkedDialogue.dialogue[chunk][line][i] == ':')
+            nameToPrint += Tut_ChunkedDialogue.dialogue[chunk][line][i];
+            if (Tut_ChunkedDialogue.dialogue[chunk][line][i] == ':')
             {
                 i++;
                 break;
             }
         }
-        for (; i < ChunkedDialogue.dialogue[chunk][line].Length; i++)
+        for (; i < Tut_ChunkedDialogue.dialogue[chunk][line].Length; i++)
         {
             // look for questions 
-            if (ChunkedDialogue.dialogue[chunk][line][i] == '@')
+            if (Tut_ChunkedDialogue.dialogue[chunk][line][i] == '@')
             {
-                questionLinks.Add(ChunkedDialogue.dialogue[chunk][line][i+1] - '0'); // Doesn't work for chunk id's > 9
+                questionLinks.Add(Tut_ChunkedDialogue.dialogue[chunk][line][i + 1] - '0'); // Doesn't work for chunk id's > 9
                 question = true;
                 i++;
             }
@@ -56,7 +56,7 @@ public class DialogueInteractor : MonoBehaviour
             // compose string
             else
             {
-                textToPrint += ChunkedDialogue.dialogue[chunk][line][i];
+                textToPrint += Tut_ChunkedDialogue.dialogue[chunk][line][i];
             }
         }
 
@@ -69,7 +69,7 @@ public class DialogueInteractor : MonoBehaviour
     {
         if (talking && !pause)
         {
-            if (!question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            if (textToPrint != " Press DOWN ARROW to switch to the computer screen." && !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
                 question = false;
@@ -115,6 +115,17 @@ public class DialogueInteractor : MonoBehaviour
                     questionLinks.Clear();
                     PrintLine();
                 }
+            }
+            if (textToPrint == " Press DOWN ARROW to switch to the computer screen." && Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                chunk = 1;
+                line = 0;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
             }
         }
     }
