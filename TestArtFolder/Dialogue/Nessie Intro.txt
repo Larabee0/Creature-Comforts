@@ -1,0 +1,13 @@
+[bell rings a bunch of times at once]
+
+“Nessie: Hi, hello sorry I’m late, I got stuck behind a fallen tree in the river system and I had to swim around it and-”,
+“Narrator: The new guest appears frazzled and upset.”,
+“You: 1. Reassure them”,
+“Narrator: You smile in a friendly manner and they seem to calm down.”,
+“Nessie: I’m SO sorry. Let me just fetch my information…It’ll only be a minute!”,
+“Nessie: Here you go!!! I hope it’s still alright I got here late.”,
+“Narrator: You nod along and process their paperwork.”,
+“Nessie: Thank you so so much, I’m here to research something really important and I’d hate to waste that opportunity because of a silly delay.”,
+“Nessie: Maybe I’ll tell you about it next time… I’ll see you around, ok? Thanks again!”,
+“Narrator: After they run into the distance with a bundle of bags you take a glance at their paperwork. Loch Ness Monster (Nessie). Scientist/Researcher/Curious Person or whatever you want to call it :) Here to look at plants!!! Room 82. 
+“You: 1. Return to work, a little more tired than before.”,
