@@ -7,9 +7,6 @@ public class TextScrollingScript : MonoBehaviour
 { 
     public DialogueInteractor interactor;
 
-    float letterClock = 0f;
-    int pos = 0;
-
     public TextMeshProUGUI tmp;
     string buildUpString = "";
 

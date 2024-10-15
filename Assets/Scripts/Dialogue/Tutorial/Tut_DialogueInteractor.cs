@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Tut_DialogueInteractor : MonoBehaviour
 {
+    public Wiggle phon;
+    public PsudoSceneChange psc;
     public Tut_TextScrollingScript tss;
     public int chunk;
     [SerializeField] int line;
@@ -16,8 +18,13 @@ public class Tut_DialogueInteractor : MonoBehaviour
     [SerializeField] List<int> questionLinks = new List<int>();
     public bool pause = false;
 
-    string nameToPrint = "";
-    string textToPrint = "";
+    [SerializeField]string nameToPrint = "";
+    [SerializeField]string textToPrint = "";
+
+    private void Start()
+    {
+        StartTalking(0);
+    }
 
     public void StartTalking(int Chunk)
     {
@@ -69,7 +76,11 @@ public class Tut_DialogueInteractor : MonoBehaviour
     {
         if (talking && !pause)
         {
-            if (textToPrint != " Press DOWN ARROW to switch to the computer screen." && !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            if (textToPrint != " The phone on your desk is ringing. It’s probably your boss." && 
+                textToPrint != " Press DOWN ARROW to switch to the computer screen." && 
+                textToPrint != " Press the UP ARROW to switch back to the desk." && 
+                textToPrint != " press the UP ARROW to greet anyone that decides to come to the desk" &&
+                !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
                 question = false;
@@ -116,6 +127,8 @@ public class Tut_DialogueInteractor : MonoBehaviour
                     PrintLine();
                 }
             }
+
+            // FOR SPECIFIC INPUTS
             if (textToPrint == " Press DOWN ARROW to switch to the computer screen." && Input.GetKeyDown(KeyCode.DownArrow))
             {
                 chunk = 1;
@@ -126,6 +139,33 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 i = 0;
                 questionLinks.Clear();
                 PrintLine();
+                psc.LRVal = 1;
+                psc.UDVal = 0;
+                psc.UpdateCanvass();
+            }
+            else if (textToPrint == " The phone on your desk is ringing. It’s probably your boss." && !phon.wiggling)
+            {
+                line = 1;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+            }
+            else if (textToPrint == " Press the UP ARROW to switch back to the desk." && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                chunk = 2;
+                line = 0;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+                psc.LRVal = 1;
+                psc.UDVal = 1;
+                psc.UpdateCanvass();
             }
         }
     }

@@ -16,6 +16,11 @@ public class PsudoSceneChange : MonoBehaviour
     public bool tutorial = true;
     public DialogueInteractor interactor;
 
+    private void Start()
+    {
+        UpdateCanvass();
+    }
+
     void Update()
     {
         if (!tutorial && !interactor.talking)

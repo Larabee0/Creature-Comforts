@@ -30,11 +30,11 @@ B: Over on the RIGHT is the community noticeboard. If you ever get stuck the ans
 
 <Press RIGHT arrow to switch screens>
 
-B: Now that we’ve established that, why don’t you pay me a visit?
+B: Now that we’ve established that, why don’t I send someone to pay you a visit?
 
 <bell rings>
 
-B: Just tap on the bell to greet anyone that decides to come to the desk. 
+TUTORIAL: Tap on the UP ARROW to greet anyone that decides to come to the desk. 
 
 <Tap on bell- pans up to a weird figure in a trench coat>
 

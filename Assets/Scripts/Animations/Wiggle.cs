@@ -17,7 +17,7 @@ public class Wiggle : MonoBehaviour
         startRot = tf.rotation.eulerAngles;
     }
 
-    [SerializeField] bool wiggling;
+    public bool wiggling;
 
     public void SetWiggling(bool b)
     {
