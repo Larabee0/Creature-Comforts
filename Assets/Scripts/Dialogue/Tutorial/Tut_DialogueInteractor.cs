@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Tut_DialogueInteractor : MonoBehaviour
 {
+    public Image jeremy;
+    public DialogueInteractor di;
     public Wiggle phon;
     public PsudoSceneChange psc;
     public Tut_TextScrollingScript tss;
@@ -80,6 +82,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 textToPrint != " Press DOWN ARROW to switch to the computer screen." && 
                 textToPrint != " Press the UP ARROW to switch back to the desk." && 
                 textToPrint != " press the UP ARROW to greet anyone that decides to come to the desk" &&
+                textToPrint != " Did you catch all of that? Don’t worry, it’s all on the board if you forget." &&
                 !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
@@ -91,7 +94,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 PrintLine();
             }
 
-            if (question)
+            else if (question)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) && questionLinks.Count >= 1)
                 {
@@ -129,7 +132,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
             }
 
             // FOR SPECIFIC INPUTS
-            if (textToPrint == " Press DOWN ARROW to switch to the computer screen." && Input.GetKeyDown(KeyCode.DownArrow))
+            else if (textToPrint == " Press DOWN ARROW to switch to the computer screen." && Input.GetKeyDown(KeyCode.DownArrow))
             {
                 chunk = 1;
                 line = 0;
@@ -167,6 +170,35 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 psc.UDVal = 1;
                 psc.UpdateCanvass();
             }
+            else if (textToPrint == " press the UP ARROW to greet anyone that decides to come to the desk" && Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                chunk = 3;
+                line = 0;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+                psc.LRVal = 1;
+                psc.UDVal = 2;
+                psc.UpdateCanvass();
+            }
+            else if (textToPrint == " Did you catch all of that? Don’t worry, it’s all on the board if you forget." && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            {
+                line++;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+                jeremy.enabled = false;
+                psc.LRVal = 1;
+                psc.UDVal = 1;
+                psc.UpdateCanvass();
+            }
+            else if () // last line of tutorial triggers leave tut
         }
     }
 }

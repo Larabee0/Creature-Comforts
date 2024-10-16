@@ -42,6 +42,17 @@ public static class Tut_ChunkedDialogue
             "Boss: All the information a good receptionist could ever need.",
             "Boss: Now that we’ve established that, why don’t I send someone to pay you a visit?",
             "Tutorial: press the UP ARROW to greet anyone that decides to come to the desk"
+        },
+
+        // 3
+        new List<string>()
+        {
+            "Boss: I bet you’re dying to know who this is… Well SPOILERS! It is NOT me.",
+            "Boss: Just some guy I sent down from accounting to show you how this all works. Say hello, Jeremy!",
+            "Jeremy: help…me…",
+            "Boss: Well, someone woke up on the wrong side of the bed.",
+            "Boss: Did you catch all of that? Don’t worry, it’s all on the board if you forget.",
+            "Boss: I’ll be back at the end of your shift to evaluate your performance. Have a good day!"
         }
     };
 }
