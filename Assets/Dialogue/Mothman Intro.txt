@@ -14,4 +14,3 @@
 “Mothman: I’m on a business trip so will be quite vacant this week, regardless I expect timely service.”,
 “Narrator: They leave a check in slip behind. The details read: Mothman. Author. Business Trip (how about none of YOUR business).”,
 “You: 1. How vague… You return to your desk work, albeit slightly perplexed.”,
-

@@ -69,7 +69,12 @@ public class DialogueInteractor : MonoBehaviour
     {
         if (talking && !pause)
         {
-            if (!question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            if (!question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && line == ChunkedDialogue.dialogue[chunk].Count - 1)
+            {
+                talking = false;
+            }
+
+            else if (!question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
                 question = false;
@@ -80,7 +85,7 @@ public class DialogueInteractor : MonoBehaviour
                 PrintLine();
             }
 
-            if (question)
+            else if (question)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1) && questionLinks.Count >= 1)
                 {

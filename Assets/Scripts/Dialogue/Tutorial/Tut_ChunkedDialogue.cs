@@ -24,7 +24,7 @@ public static class Tut_ChunkedDialogue
         {
             "Boss: It’s been a while, I suppose I’ll have to run you through it. This is the reception desk computer.",
             "Boss: Before you ask, yes it still takes floppy disks. Not like you’ll be needing to use that feature though.",
-            "Boss: Anyways, this monitor will act as your personal database for everything [MOTEL NAME] related.",
+            "Boss: Anyways, this monitor will act as your personal database for everything Foggy Lake related.",
             "Boss: I’ll be sending you EMAILS with your tasks for each day. Make sure to complete them all or I won’t let you go home.",
             "Boss: Haha! Just kidding (not).",
             "Boss: Feel free to spy and be nosy about our residents using the GUESTS application.",

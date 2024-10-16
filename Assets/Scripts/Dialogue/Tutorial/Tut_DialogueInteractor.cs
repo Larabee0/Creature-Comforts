@@ -83,6 +83,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 textToPrint != " Press the UP ARROW to switch back to the desk." && 
                 textToPrint != " press the UP ARROW to greet anyone that decides to come to the desk" &&
                 textToPrint != " Did you catch all of that? Don’t worry, it’s all on the board if you forget." &&
+                textToPrint != " I’ll be back at the end of your shift to evaluate your performance. Have a good day!" &&
                 !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
@@ -198,7 +199,12 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 psc.UDVal = 1;
                 psc.UpdateCanvass();
             }
-            else if () // last line of tutorial triggers leave tut
+            else if (textToPrint == " I’ll be back at the end of your shift to evaluate your performance. Have a good day!" && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            {
+                talking = false;
+                di.StartTalking(0);
+                psc.tutorial = false;
+            }
         }
     }
 }
