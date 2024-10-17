@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Tut_DialogueInteractor : MonoBehaviour
 {
+    public AudioSFX sfx;
+    public Image mothman;
     public Image jeremy;
     public DialogueInteractor di;
     public Wiggle phon;
@@ -84,6 +86,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 textToPrint != " press the UP ARROW to greet anyone that decides to come to the desk" &&
                 textToPrint != " Did you catch all of that? Don’t worry, it’s all on the board if you forget." &&
                 textToPrint != " I’ll be back at the end of your shift to evaluate your performance. Have a good day!" &&
+                textToPrint != " Now that we’ve established that, why don’t I send someone to pay you a visit?" &&
                 !question && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
@@ -204,6 +207,18 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 talking = false;
                 di.StartTalking(0);
                 psc.tutorial = false;
+                mothman.enabled = true;
+            }
+            else if (textToPrint == " Now that we’ve established that, why don’t I send someone to pay you a visit?" && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            {
+                line++;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+                sfx.Bell();
             }
         }
     }

@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.MeshOperations;
+using UnityEngine.UI;
 
 public class PsudoSceneChange : MonoBehaviour
 {
+    public AudioSFX sfx;
+    public Bell bell;
+    public HungKeyEnabler hke;
+    public DialogueInteractor di;
+
     public Canvas desk;
     public Canvas customer;
     public Canvas keys;
@@ -81,6 +87,10 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = false;
             board.enabled    = false;
             computer.enabled = false;
+            if (hke.b15Hooked)
+            {
+                di.StartTalking(1);
+            }
         }
         else
         {
@@ -89,6 +99,11 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = true;
             board.enabled    = false;
             computer.enabled = false;
+            if (hke.b15Hooked)
+            {
+                bell.Press();
+                sfx.Bell();
+            }
         }
     }
 }
