@@ -3564,8 +3564,8 @@ MonoBehaviour:
   dia: {fileID: 964334892}
   img: {fileID: 96672336}
   tmp: {fileID: 1159450550}
-  nameTag: {fileID: 0}
-  speaker: {fileID: 0}
+  nameTag: {fileID: 2059256075}
+  speaker: {fileID: 1286227544}
 --- !u!1 &1159450549
 GameObject:
   m_ObjectHideFlags: 0

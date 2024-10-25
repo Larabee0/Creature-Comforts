@@ -4,6 +4,6 @@ using UnityEngine;
 
 public static class SettingsScript
 {
-    public static float textScrollSpeed = 10;
+    public static float textScrollSpeed = 5;
     public static int dialogueChunk = 0;
 }

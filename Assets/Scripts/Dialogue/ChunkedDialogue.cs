@@ -36,7 +36,7 @@ public static class ChunkedDialogue
         {
             "Mothman: Aren’t you going to get that?",
             "Narrator: You better answer that bell.",
-            "Mothman: Greetings, afternoon, or whatever time of day it's supposed to be.", 
+            "Mothman: <size=40%>Greetings</size=20%>, afternoon, <b>or</b> whatever time of day it's supposed to be.", 
             "Mothman: The fog outside does seem to ruin any sense of time, doesn’t it? ",
             "You: That’s why we are called Foggy Lake.",
             "Mothman: Hmm, how pleasant.",
