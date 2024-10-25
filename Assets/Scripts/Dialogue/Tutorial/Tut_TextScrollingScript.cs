@@ -8,11 +8,13 @@ public class Tut_TextScrollingScript : MonoBehaviour
     public Tut_DialogueInteractor interactor;
 
     public TextMeshProUGUI tmp;
+    public TextMeshProUGUI speaker;
     string buildUpString = "";
 
     public void ScrollText(string name = "NO_NAME_GIVEN", string inputText = "NO_TEXT_GIVEN")
     {
-        buildUpString = name;
+        speaker.text = name;
+        buildUpString = "";
         int strLen = inputText.Length;
         for (int i = 0; i < strLen; i++)
         {

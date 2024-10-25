@@ -11,6 +11,8 @@ public class ShowTextBox : MonoBehaviour
 
     public Image img;
     public TextMeshProUGUI tmp;
+    public Image nameTag;
+    public TextMeshProUGUI speaker;
 
     void Update()
     {
@@ -18,12 +20,16 @@ public class ShowTextBox : MonoBehaviour
         {
             img.enabled = true;
             tmp.enabled = true;
+            speaker.enabled = true;
+            nameTag.enabled = true;
         }
 
         else
         {
             img.enabled = false;
             tmp.enabled = false;
+            nameTag.enabled = false;
+            speaker.enabled = false;
         }
     }
 }

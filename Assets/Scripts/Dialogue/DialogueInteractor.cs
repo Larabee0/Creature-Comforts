@@ -41,6 +41,7 @@ public class DialogueInteractor : MonoBehaviour
 
     void PrintLine()
     {
+        // splits off name up to and including ':'
         for (; i < ChunkedDialogue.dialogue[chunk][line].Length; i++)
         {
             nameToPrint += ChunkedDialogue.dialogue[chunk][line][i];
