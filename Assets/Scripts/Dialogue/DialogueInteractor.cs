@@ -146,17 +146,17 @@ public class DialogueInteractor : MonoBehaviour
             // specific line interactions
             else if (textToPrint == " You better answer that bell.")
             {
-                if (psc.UDVal == 2 && psc.LRVal == 1 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
-                {
-                    line++;
-                    question = false;
-                    nameToPrint = "";
-                    textToPrint = "";
-                    i = 0;
-                    questionLinks.Clear();
-                    PrintLine();
-                }
-                else if (Input.GetKeyDown(KeyCode.UpArrow))
+                //if (psc.UDVal == 2 && psc.LRVal == 1 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+                //{
+                //    line++;
+                //    question = false;
+                //    nameToPrint = "";
+                //    textToPrint = "";
+                //    i = 0;
+                //    questionLinks.Clear();
+                //    PrintLine();
+                //}
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     line++;
                     question = false;
