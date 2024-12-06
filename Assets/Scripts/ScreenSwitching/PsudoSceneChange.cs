@@ -99,11 +99,6 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = true;
             board.enabled    = false;
             computer.enabled = false;
-            if (hke.b15Hooked)
-            {
-                bell.Press();
-                sfx.Bell();
-            }
         }
     }
 }

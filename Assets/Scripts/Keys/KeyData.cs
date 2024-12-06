@@ -9,7 +9,8 @@ public class KeyData : MonoBehaviour
 
     public int[] boardVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     int[] keyVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-    public Dictionary<int, int> KeyToHookPairs = new Dictionary<int, int>();
+    public Dictionary<int, int> keyToLocationPairs = new Dictionary<int, int>();
+    public Dictionary<int, int> locationToHookPairs = new Dictionary<int, int>();
 
     public void GenerateBoard()
     {
@@ -33,18 +34,18 @@ public class KeyData : MonoBehaviour
             int keyVal = keyVals[i];
             int hookVal = boardVals[i];
 
-            KeyToHookPairs.Add(keyVal, hookVal);
+            keyToLocationPairs.Add(keyVal, hookVal);
         }
     }
 
     public void PlaceKey(int key, int hook)
     {
-        KeyToHookPairs[key] = hook;
+        keyToLocationPairs[key] = hook;
     }
 
     public bool CheckForSuccess()
     {
-        foreach(KeyValuePair<int, int> khp in KeyToHookPairs)
+        foreach(KeyValuePair<int, int> khp in keyToLocationPairs)
         {
             if (khp.Key != khp.Value)
                 return false;
@@ -54,7 +55,7 @@ public class KeyData : MonoBehaviour
 
     public void ClearKeys()
     {
-        KeyToHookPairs.Clear();
+        keyToLocationPairs.Clear();
     }
 
     void ShuffleArray(int[] array, System.Random rng)
