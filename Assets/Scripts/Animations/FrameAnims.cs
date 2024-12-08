@@ -1,22 +1,21 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FrameAnims : MonoBehaviour
 {
-    Sprite img;
+    SpriteRenderer img;
     
-    public List<Image> frames = new List<Image>();
+    public List<Sprite> frames = new List<Sprite>();
     public float fps = 10f;
 
     private void Start()
     {
-        img = GetComponent<Image>();
+        img = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        img.texture = frames[0];
+        img.sprite = frames[0];
     }
 }

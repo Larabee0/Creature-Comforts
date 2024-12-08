@@ -8,7 +8,7 @@ public class KeyData : MonoBehaviour
 {
 
     public int[] boardVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-    int[] keyVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+    public int[] keyVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public Dictionary<int, int> keyToLocationPairs = new Dictionary<int, int>();
     public Dictionary<int, int> locationToHookPairs = new Dictionary<int, int>();
 
@@ -16,6 +16,10 @@ public class KeyData : MonoBehaviour
     {
         System.Random rng = new System.Random();
         ShuffleArray(boardVals, rng);
+        for (int i = 0; i < 18; i++)
+        {
+            locationToHookPairs.Add(i+1, boardVals[i]);
+        }
     }
 
     public void GenerateKeys(int numberOfKeys = 1)
@@ -68,5 +72,10 @@ public class KeyData : MonoBehaviour
             array[n] = array[k];
             array[k] = temp;
         }
+    }
+
+    public int GetBoardValAtLocation(int pos)
+    {
+        return locationToHookPairs[pos];
     }
 }
