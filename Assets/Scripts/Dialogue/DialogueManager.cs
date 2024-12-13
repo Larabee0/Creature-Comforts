@@ -10,9 +10,9 @@ public class DialogueManager : MonoBehaviour
     public bool isTalking = false;
 
     static Story story; //story from inkfile
-    Text nametag;
-    Text message;
-    List<string> tags;
+    string nametag;
+    string message;
+    List<string> tags; //list to hold tags coresponding to a given line
     static Choice choiceSelected; //which choice was chosen
 
     private void Start()
@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
         story = new Story(inkFile.text); //load in story
         tags = new List<string>();
         choiceSelected = null; //no choice made yet
-        message.text = "NOTASSIGNED"; //temporary name
+        message = "NOTASSIGNED"; //temporary name
     }
 
     private void Update()
@@ -30,7 +30,8 @@ public class DialogueManager : MonoBehaviour
             //if more story
             if (story.canContinue)
             {
-                message.text = AdvanceDialogue();
+                message = AdvanceDialogue();
+                ParseTags();
 
                 //Are there any choices?
                 if (story.currentChoices.Count != 0)
@@ -38,7 +39,7 @@ public class DialogueManager : MonoBehaviour
                     //show choices to player
                 }
             }
-
+            
             //if no more story
             else
             {
@@ -82,9 +83,14 @@ public class DialogueManager : MonoBehaviour
     void ParseTags()
     {
         tags = story.currentTags;
+        if (tags.Count >= 1)
+        {
+            nametag = tags[0];
+        }
+
         foreach (string t in tags)
         {
-            // do something
+            Debug.Log(t);
         }
     }
 }
