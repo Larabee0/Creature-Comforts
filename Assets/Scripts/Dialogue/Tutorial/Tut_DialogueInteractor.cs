@@ -8,7 +8,10 @@ using UnityEngine.UI;
 public class Tut_DialogueInteractor : MonoBehaviour
 {
     public AudioSFX sfx;
+    public Image bellIcon;
     public Image mothman;
+    public Image mothmanArms;
+    public Image mothmanHead;
     public Image jeremy;
     public DialogueInteractor di;
     public Wiggle phon;
@@ -187,6 +190,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 psc.LRVal = 1;
                 psc.UDVal = 2;
                 psc.UpdateCanvass();
+                bellIcon.enabled = false;
             }
             else if (textToPrint == " Did you catch all of that? Don’t worry, it’s all on the board if you forget." && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
@@ -208,6 +212,10 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 di.StartTalking(0);
                 psc.tutorial = false;
                 mothman.enabled = true;
+                mothmanArms.enabled = true;
+                mothmanHead.enabled = true;
+                sfx.Bell();
+                bellIcon.enabled = true;
             }
             else if (textToPrint == " Now that we’ve established that, why don’t I send someone to pay you a visit?" && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
@@ -219,6 +227,7 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 questionLinks.Clear();
                 PrintLine();
                 sfx.Bell();
+                bellIcon.enabled = true;
             }
         }
     }

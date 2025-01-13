@@ -1,31 +1,4 @@
-using NUnit.Framework;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Timers;
-using TreeEditor;
-using UnityEditor;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.PackageManager;
-using UnityEditor.PackageManager.Requests;
-using UnityEngine;
-using UnityEngine.Diagnostics;
-using UnityEngine.ProBuilder;
-using UnityEngine.ProBuilder.Shapes;
-using UnityEngine.Rendering.VirtualTexturing;
-using UnityEngine.Timeline;
-using UnityEngine.UIElements;
-using UnityEngine.UIElements.Experimental;
-using UnityEngine.XR;
-using static UnityEditor.UIElements.ToolbarMenu;
-using static UnityEngine.ProBuilder.AutoUnwrapSettings;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public static class ChunkedDialogue
 {
@@ -34,7 +7,6 @@ public static class ChunkedDialogue
         // 0
         new List<string>()
         {
-            "Mothman: Aren’t you going to get that?",
             "Narrator: You better answer that bell.",
             "Mothman: Greetings, afternoon, or whatever time of day it's supposed to be.", 
             "Mothman: The fog outside does seem to ruin any sense of time, doesn’t it? ",

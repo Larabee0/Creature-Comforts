@@ -8,8 +8,13 @@ using UnityEngine.UI;
 public class DialogueInteractor : MonoBehaviour
 {
     public AudioSFX sfx;
+    public Image bellIcon;
     public Canvas end;
     public Image mothman;
+    public Image mothmanHead;
+    public Sprite MMnormal;
+    public Sprite MMbored;
+    public Image mothmanArms;
     public Image nessie;
     public PsudoSceneChange psc;
     public TextScrollingScript tss;
@@ -82,6 +87,8 @@ public class DialogueInteractor : MonoBehaviour
             {
                 talking = false;
                 mothman.enabled = false;
+                mothmanArms.enabled = false;
+                mothmanHead.enabled = false;
                 nessie.enabled = false;
                 if (chunk == 1)
                 {
@@ -94,7 +101,9 @@ public class DialogueInteractor : MonoBehaviour
                      textToPrint != " You better answer that bell." &&
                      textToPrint != " I’m on a business trip so will be quite vacant this week, regardless I expect timely service." &&
                      textToPrint != " Maybe I’ll tell you about it next time… I’ll see you around, ok? Thanks again!" &&
-                     textToPrint != " Aren’t you going to get that?")
+                     textToPrint != " Aren’t you going to get that?" &&
+                     textToPrint != " That’s why we are called Foggy Lake." &&
+                     textToPrint != " Hmm, how pleasant.")
             {
                 line++;
                 question = false;
@@ -155,6 +164,7 @@ public class DialogueInteractor : MonoBehaviour
                     i = 0;
                     questionLinks.Clear();
                     PrintLine();
+                    bellIcon.enabled = false;
                 }
                 else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
@@ -168,11 +178,14 @@ public class DialogueInteractor : MonoBehaviour
                     psc.UDVal = 2;
                     psc.LRVal = 1;
                     psc.UpdateCanvass();
+                    bellIcon.enabled = false;
                 }
             }
             else if (textToPrint == " I’m on a business trip so will be quite vacant this week, regardless I expect timely service." && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 mothman.enabled = false;
+                mothmanArms.enabled = false;
+                mothmanHead.enabled = false;
                 line++;
                 question = false;
                 nameToPrint = "";
@@ -192,7 +205,7 @@ public class DialogueInteractor : MonoBehaviour
                 questionLinks.Clear();
                 PrintLine();
             }
-            else if (textToPrint == " Aren’t you going to get that?" && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            else if (textToPrint == " That’s why we are called Foggy Lake." && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
             {
                 line++;
                 question = false;
@@ -201,7 +214,18 @@ public class DialogueInteractor : MonoBehaviour
                 i = 0;
                 questionLinks.Clear();
                 PrintLine();
-                sfx.Bell();
+                mothmanHead.sprite = MMbored;
+            }
+            else if (textToPrint == " Hmm, how pleasant." && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
+            {
+                line++;
+                question = false;
+                nameToPrint = "";
+                textToPrint = "";
+                i = 0;
+                questionLinks.Clear();
+                PrintLine();
+                mothmanHead.sprite = MMnormal;
             }
         }
     }
