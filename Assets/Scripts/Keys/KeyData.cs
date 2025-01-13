@@ -9,13 +9,19 @@ public class KeyData : MonoBehaviour
 
     public int[] boardVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public int[] keyVals = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-    public Dictionary<int, int> keyToLocationPairs = new Dictionary<int, int>();
-    public Dictionary<int, int> locationToHookPairs = new Dictionary<int, int>();
+    public Dictionary<int, int> keyToLocationPairs = new Dictionary<int, int>(); //shows where each key is
+    public Dictionary<int, int> locationToHookPairs = new Dictionary<int, int>(); //shows hook value at each location
 
+    /// <summary>
+    /// shuffles hook number locations
+    /// </summary>
     public void GenerateBoard()
     {
+        //shuffle the hooks
         System.Random rng = new System.Random();
         ShuffleArray(boardVals, rng);
+
+        //for each location attach the corresponding hook
         for (int i = 0; i < 18; i++)
         {
             locationToHookPairs.Add(i+1, boardVals[i]);

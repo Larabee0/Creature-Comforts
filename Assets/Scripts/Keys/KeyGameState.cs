@@ -7,22 +7,24 @@ using UnityEngine.UI;
 public class KeyGameState : MonoBehaviour
 {
     KeyData data;
-    int[] localBoard;
+    int[] localBoard; //refrence to the board layout
 
-    public List<GameObject> buttons = new List<GameObject>();
+    public List<GameObject> buttons = new List<GameObject>(); //refrence to the buttons
 
     void Start()
     {
-        data = GetComponent<KeyData>();
+        data = GetComponent<KeyData>(); //gets instance of keydata
 
-        data.GenerateBoard();
-        localBoard = data.boardVals;
+        data.GenerateBoard(); //randomise the board
+        localBoard = data.boardVals; //update board to reflect new randomness
 
+        //for each button call ButtonClicked function while passing corresponding val
         for (int i = 0; i < buttons.Count; i++)
         {
             int x = i+1;
             buttons[i].GetComponent<Button>().onClick.AddListener(() => ButtonClicked(x));
         }
+        //for debugging
         for (int i = 0; i < buttons.Count; i++)
         {
             int x = localBoard[i];
@@ -34,6 +36,7 @@ public class KeyGameState : MonoBehaviour
     {
         Debug.Log(buttonNo);
 
+        //temp
         if (data.GetBoardValAtLocation(buttonNo) == 15)
         {
             Image img = buttons[buttonNo - 1].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
