@@ -5,9 +5,12 @@ using UnityEngine;
 public class NPC_Expr_Injector : MonoBehaviour
 {
     [SerializeField] string nameTag;
-    public List<Sprite> spriteList = new List<Sprite>();
+    public List<Sprite> headList = new List<Sprite>();
+    public List<Sprite> armsList = new List<Sprite>();
+    public List<Sprite> bodyList = new List<Sprite>();
     void Start()
     {
-        GetComponent<NPC_Expr>().characterExpressions.Add(nameTag, spriteList);
+        NPC_Expr NPCE = GetComponent<NPC_Expr>();
+        NPCE.characters.Add(NPCE.MakeCharacter(nameTag, headList, armsList, bodyList));
     }
 }

@@ -11825,8 +11825,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTag: Jeremy
-  spriteList:
-  - {fileID: 21300000, guid: e466c3e4a58be9949a0b2f8fbf494ba2, type: 3}
+  headList: []
+  armsList: []
+  bodyList: []
 --- !u!114 &1916201683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11840,11 +11841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTag: Nessie
-  spriteList:
-  - {fileID: 21300000, guid: a93f15c0963b9814591e7a6075a3c4e5, type: 3}
-  - {fileID: 21300000, guid: a5966cefd504e994c944379c4f9e90e1, type: 3}
-  - {fileID: 21300000, guid: 5f8c720ddf23e59438baa8ea581ad958, type: 3}
-  - {fileID: 21300000, guid: 787301e0b67a24c46a4145c4286070d2, type: 3}
+  headList: []
+  armsList: []
+  bodyList: []
 --- !u!114 &1916201684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11858,11 +11857,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameTag: Mothman
-  spriteList:
-  - {fileID: 21300000, guid: 2ade1ee680e085e40bd93fc0b1929ad3, type: 3}
-  - {fileID: 21300000, guid: e5b9d343d6127db46897fb543cf521aa, type: 3}
-  - {fileID: 21300000, guid: 1acea50245653ee41b4d0d716d782df3, type: 3}
-  - {fileID: 21300000, guid: 937097ee39a669443a548df18aa82d0e, type: 3}
+  headList:
+  - {fileID: 21300000, guid: 77154a5bb34e5964eb0573dd27fc9feb, type: 3}
+  armsList:
+  - {fileID: 21300000, guid: c44dee20694ec794495127cd08f7872e, type: 3}
+  bodyList:
+  - {fileID: 21300000, guid: bc403cae17381ed4d8b0ab0ebfc1dada, type: 3}
 --- !u!114 &1916201685
 MonoBehaviour:
   m_ObjectHideFlags: 0
