@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class DialogueInteractor : MonoBehaviour
 {
+    public bool END = false;
     public AudioSFX sfx;
     public Image bellIcon;
     public Canvas end;
@@ -41,7 +42,10 @@ public class DialogueInteractor : MonoBehaviour
         questionLinks.Clear();
         PrintLine();
         if (chunk == 1)
+        {
             nessie.enabled = true;
+            bellIcon.enabled = false;
+        }
     }
 
     void PrintLine()
@@ -93,6 +97,7 @@ public class DialogueInteractor : MonoBehaviour
                 if (chunk == 1)
                 {
                     end.enabled = true;
+                    END = true;
                 }
             }
 

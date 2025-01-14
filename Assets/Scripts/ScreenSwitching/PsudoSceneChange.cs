@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PsudoSceneChange : MonoBehaviour
 {
+    public KeyData kd;
+    public KeyGameState kgs;
+
     public AudioSFX sfx;
     public Bell bell;
     public HungKeyEnabler hke;
@@ -29,7 +32,7 @@ public class PsudoSceneChange : MonoBehaviour
 
     void Update()
     {
-        if (!tutorial && !interactor.talking)
+        if (!tutorial && !interactor.talking && !interactor.END)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow) && LRVal < 2)
             {
@@ -63,6 +66,8 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = false;
             board.enabled    = false;
             computer.enabled = false;
+            kd.GenerateKeys(4);
+            kgs.StartKeyGame();
         }
         else if (LRVal == 2)
         {
@@ -87,7 +92,7 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = false;
             board.enabled    = false;
             computer.enabled = false;
-            if (hke.b15Hooked)
+            if (kgs.won)
             {
                 di.StartTalking(1);
             }
@@ -99,11 +104,6 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = true;
             board.enabled    = false;
             computer.enabled = false;
-            if (hke.b15Hooked)
-            {
-                bell.Press();
-                sfx.Bell();
-            }
         }
     }
 }

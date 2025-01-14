@@ -5,7 +5,6 @@ using UnityEngine;
 public class FollowMouse : MonoBehaviour
 {
     [SerializeField] Vector3 offset;
-    public bool holding = false;
 
     void Update()
     {
