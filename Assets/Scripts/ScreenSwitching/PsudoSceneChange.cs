@@ -8,8 +8,9 @@ public class PsudoSceneChange : MonoBehaviour
 {
     public AudioSFX sfx;
     public Bell bell;
-    public HungKeyEnabler hke;
+    //public HungKeyEnabler hke;
     public DialogueInteractor di;
+    public DialogueAgent agent;
 
     public Canvas desk;
     public Canvas customer;
@@ -19,17 +20,18 @@ public class PsudoSceneChange : MonoBehaviour
 
     public int LRVal = 1;
     public int UDVal = 1;
-    public bool tutorial = true;
+    public bool tutorial = false;
     public DialogueInteractor interactor;
 
     private void Start()
     {
         UpdateCanvass();
+        agent = GetComponent<DialogueAgent>();
     }
 
     void Update()
     {
-        if (!tutorial && !interactor.talking)
+        if (!tutorial)
         {
             if (Input.GetKeyDown(KeyCode.RightArrow) && LRVal < 2)
             {
@@ -87,10 +89,11 @@ public class PsudoSceneChange : MonoBehaviour
             desk.enabled     = false;
             board.enabled    = false;
             computer.enabled = false;
-            if (hke.b15Hooked)
-            {
-                di.StartTalking(1);
-            }
+            agent.StartStory();
+            //if (hke.b15Hooked)
+            //{
+            //    di.StartTalking(1);
+            //}
         }
         else
         {

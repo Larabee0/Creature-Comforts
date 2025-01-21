@@ -24,7 +24,7 @@ public class KeyData : MonoBehaviour
         //for each location attach the corresponding hook
         for (int i = 0; i < 18; i++)
         {
-            locationToHookPairs.Add(i+1, boardVals[i]);
+            locationToHookPairs.Add(i + 1, boardVals[i]);
         }
     }
 
@@ -55,11 +55,12 @@ public class KeyData : MonoBehaviour
 
     public bool CheckForSuccess()
     {
-        foreach(KeyValuePair<int, int> khp in keyToLocationPairs)
+        foreach (KeyValuePair<int, int> khp in keyToLocationPairs)
         {
-            if (khp.Key != khp.Value)
+            if (khp.Key != GetHookValAtLocation(khp.Value))
                 return false;
         }
+        Debug.Log("WIN!");
         return true;
     }
 
@@ -80,8 +81,18 @@ public class KeyData : MonoBehaviour
         }
     }
 
-    public int GetBoardValAtLocation(int pos)
+    public int GetHookValAtLocation(int pos)
     {
         return locationToHookPairs[pos];
+    }
+
+    public int GetKeyValAtBoardLocation(int pos)
+    {
+        foreach (KeyValuePair<int, int> kvp in keyToLocationPairs)
+        {
+            if (kvp.Value == pos)
+                return kvp.Key;
+        }
+        return 0;
     }
 }

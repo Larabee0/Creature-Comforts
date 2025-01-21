@@ -71,6 +71,6 @@ public class TextScrollingScript : MonoBehaviour
     IEnumerator UnpauseInputs(int i)
     {
         yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        interactor.pause = false;
+        //interactor.pause = false;
     }
 }
