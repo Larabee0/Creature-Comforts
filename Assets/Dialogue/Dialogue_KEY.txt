@@ -1,17 +1,18 @@
-Chunk number    = #1
-Name            = <Name>
-Next line       = <!>
-Choice          = <?>
-Chice points to = <@1>
+KEY:
+Chunk number  = #[id]
+New line      = <!>
+Question      = <?>
+Answer target = <@[id]>
 
-Example text:
-    #0
-    <Rachel>: Hello.<!> 
-    <Rachel>: This is how the text works!<!>
-    <Me><?>: Thats cool!<@1> Thats boring!<@2>
+Example--
 
-    #1
-    <Rachel>: Thanks. :)
+#0
+Character1: Hello.<!>
+Character1: How's it going?<!>
+<?>Character2: It's going well.<@1> It's going bad!<@2>
 
-    #2
-    <Rachel>: Guess I'll change it...
+#1
+Character1: That's good.<!>
+
+#2
+Character2: That's unfortunate.<!>
