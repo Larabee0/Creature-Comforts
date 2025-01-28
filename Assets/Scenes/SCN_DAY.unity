@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2360b33b7aa737c48bfdc51d82ed9821, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d10aefcd3c2f7614ea2ad673994370de, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -502,6 +502,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8f734c6070b60bf429ef731d12d96995, type: 3}
   - {fileID: 21300000, guid: b17f57cd42764a744b6daa525e626bd3, type: 3}
   - {fileID: 21300000, guid: f6202b741a7d1774288fcbe95dd15894, type: 3}
+  npcExpr: {fileID: 1678643769}
+  head: {fileID: 99831961}
+  arms: {fileID: 2050210520}
+  body: {fileID: 442053599}
 --- !u!114 &599929591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7266369444788397104, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
@@ -812,10 +816,6 @@ GameObject:
   - component: {fileID: 1133634178}
   - component: {fileID: 1133634185}
   - component: {fileID: 1133634184}
-  - component: {fileID: 1133634183}
-  - component: {fileID: 1133634182}
-  - component: {fileID: 1133634181}
-  - component: {fileID: 1133634180}
   m_Layer: 5
   m_Name: Canvas_Customer
   m_TagString: Untagged
@@ -867,66 +867,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1133634180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133634177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4a01953fde7924785bdca0f4946851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameTag: 
-  headList: []
-  armsList: []
-  bodyList: []
---- !u!114 &1133634181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133634177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4a01953fde7924785bdca0f4946851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameTag: 
-  headList: []
-  armsList: []
-  bodyList: []
---- !u!114 &1133634182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133634177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4a01953fde7924785bdca0f4946851, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameTag: 
-  headList: []
-  armsList: []
-  bodyList: []
---- !u!114 &1133634183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133634177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b4cebe2345d544daf7362ffc7cbe56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1133634184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,7 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameTag: Mothman
   headList:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fd698c07990cfbc4e958c3f20ef965d1, type: 3}
   - {fileID: 21300000, guid: 70142dc29f7730e4a95df9708d72183c, type: 3}
   - {fileID: 21300000, guid: d00f38377acbecc4989fd854a9689b0d, type: 3}
   - {fileID: 21300000, guid: e1cabe4fa60890c44a73d799c4a6b692, type: 3}
@@ -1146,12 +1086,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2e329c0260d8ffa419969ed2be67a3ae, type: 3}
   - {fileID: 21300000, guid: 8b258bb77a24c944baa36701b7855dc5, type: 3}
   armsList:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fd698c07990cfbc4e958c3f20ef965d1, type: 3}
   - {fileID: 21300000, guid: 4e5fc282f0a17d244af390c5817b41d7, type: 3}
   - {fileID: 21300000, guid: 3906968e455e99547af2ed9a23d726f6, type: 3}
   - {fileID: 21300000, guid: fbb646d274f5c244aa9d818abc6cc81d, type: 3}
   bodyList:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: fd698c07990cfbc4e958c3f20ef965d1, type: 3}
   - {fileID: 21300000, guid: 2360b33b7aa737c48bfdc51d82ed9821, type: 3}
   - {fileID: 21300000, guid: d10aefcd3c2f7614ea2ad673994370de, type: 3}
   - {fileID: 21300000, guid: 5a6a0e49a29ee46429da3a33976bc1c6, type: 3}

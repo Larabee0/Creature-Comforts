@@ -44,4 +44,43 @@ public class NPC_Expr : MonoBehaviour
         Sprite[] arr = { head, arms, body };
         return arr;
     }
+
+    public Sprite GetHead(string n, int h)
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].name == n)
+            {
+                return characters[i].heads[h];
+            }
+        }
+        Debug.Log("err: no character name match found");
+        return null;
+    }
+
+    public Sprite GetBody(string n, int b)
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].name == n)
+            {
+                return characters[i].bodys[b];
+            }
+        }
+        Debug.Log("err: no character name match found");
+        return null;
+    }
+
+    public Sprite GetArms(string n, int a)
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].name == n)
+            {
+                return characters[i].arms[a];
+            }
+        }
+        Debug.Log("err: no character name match found");
+        return null;
+    }
 }

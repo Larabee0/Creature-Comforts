@@ -6,7 +6,7 @@
 // e        = end tag
 
 “Good Morning, am I the first one here?” # s Mothman 
-You consider the early hour, thinking back to the start of your shift. # s You
+You consider the early hour, thinking back to the start of your shift. # s You # h 4 # a 1 # b 1
 
 *[“I’ve seen other guests come through today.”] -> option1
 *[“I thought moths were nocturnal…”] -> option2
