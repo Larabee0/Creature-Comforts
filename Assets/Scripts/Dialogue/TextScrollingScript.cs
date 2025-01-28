@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextScrollingScript : MonoBehaviour
-{ 
-    public DialogueInteractor interactor;
+{
+    public DialogueAgent agent;
 
     public TextMeshProUGUI tmp;
     public TextMeshProUGUI speaker;
     string buildUpString = "";
 
+    public Image endMarker;
+
+    private void Start()
+    {
+        agent = GetComponent<DialogueAgent>();
+    }
+
     public void ScrollText(string name = "NO_NAME_GIVEN", string inputText = "NO_TEXT_GIVEN")
     { 
+        endMarker.enabled = false;
         List<string> constructionParts = new List<string>();
         string stringPart = "";
         for (int i = 0; i < inputText.Length; i++)
@@ -71,6 +80,7 @@ public class TextScrollingScript : MonoBehaviour
     IEnumerator UnpauseInputs(int i)
     {
         yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        //interactor.pause = false;
+        endMarker.enabled = true;
+        agent.pause = false;
     }
 }

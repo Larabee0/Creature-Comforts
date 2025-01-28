@@ -10,12 +10,19 @@ public class DialogueAgent : MonoBehaviour {
 
 	TextScrollingScript tss;
 
+	public bool pause;
+
 	public TextAsset inkJSONAsset = null;
 	public Story story;
 
 	// UI Prefabs
 	[SerializeField]
 	List<Button> buttons = new List<Button>();
+
+	[SerializeField]
+	Image nameTag;
+	[SerializeField]
+	List<Sprite> nameTags = new List<Sprite>();
 
     private void Start()
     {
@@ -25,7 +32,7 @@ public class DialogueAgent : MonoBehaviour {
 
     private void Update()
     {
-        if (story != null && story.currentChoices.Count == 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+        if (story != null && story.currentChoices.Count == 0 && !pause && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
 		{
 			RefreshView();
 		}
@@ -41,7 +48,6 @@ public class DialogueAgent : MonoBehaviour {
 	// Destroys all the old content and choices.
 	// Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
 	void RefreshView () {
-
 		// Read all the content until we can't continue any more
 		if (story.canContinue)
 		{
@@ -84,13 +90,59 @@ public class DialogueAgent : MonoBehaviour {
 
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
-		story.ChooseChoiceIndex (choice.index);
-		RefreshView();
+		if (!pause)
+		{
+			story.ChooseChoiceIndex (choice.index);
+			RefreshView();
+		}
 	}
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
 		Debug.Log (text);
+		if (story.currentTags.Count > 0)
+		{
+			ParseTags();
+		}
+		pause = true;
 		tss.ScrollText("TEMP", text);
+	}
+
+	void ParseTags ()
+	{
+		Debug.Log("there is a tag");
+
+		List<string> tags = new List<string>();
+
+		tags = story.currentTags;
+		foreach (string tag in tags)
+		{
+			string prefix = tag.Split(' ')[0].ToLower();
+
+			switch (prefix)
+			{
+				case "s":
+					nameTag.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+					string suffix = tag.Split(" ")[1].ToLower();
+					if (suffix == "mothman")
+						nameTag.sprite = nameTags[0];
+					else if (suffix == "you")
+						nameTag.sprite = nameTags[1];
+					else if (suffix == "nessie")
+						nameTag.sprite = nameTags[2];
+					else if (suffix == "boss")
+						nameTag.sprite = nameTags[3];
+					else
+					{
+						nameTag.sprite = nameTags[4];
+						nameTag.GetComponentInChildren<TextMeshProUGUI>().enabled=true;
+                        nameTag.GetComponentInChildren<TextMeshProUGUI>().text = tag.Split(" ")[1];
+                    }
+					break;
+				default:
+					Debug.Log("tag err: " + tag);
+					break;
+			}
+		}
 	}
 }
