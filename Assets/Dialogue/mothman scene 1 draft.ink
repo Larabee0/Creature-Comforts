@@ -8,20 +8,23 @@ You consider the early hour, thinking back to the start of your shift.
 === option1 ===
 
 “That’s just great. This could be a big problem.”
-“Why does trouble always seem to follow my vacation leave…” -> lastnight
+“Why does trouble always seem to follow my vacation leave…” 
+-> lastnight
 
 === option2 ===
 
 “Excuse me? You’re far too nosy for a receptionist.”
 “There are better things to do than pry into guests' personal matters.”
 “In regards to your question, I get up when I please. Happy now?”
-You crack a small smile, which he doesn’t seem to find amusing.-> lastnight
+You crack a small smile, which he doesn’t seem to find amusing.
+-> lastnight
 
 
 === option3 ===
 
 “Splendid. There may still be time yet to fix this.”
-“My early tendencies have always served me well.” -> lastnight
+“My early tendencies have always served me well.” 
+-> lastnight
 
 === lastnight ===
 

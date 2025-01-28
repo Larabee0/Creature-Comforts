@@ -20,11 +20,12 @@ public class DialogueAgent : MonoBehaviour {
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
+		StartStory();
     }
 
     private void Update()
     {
-        if (story.currentChoices.Count == 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+        if (story != null && story.currentChoices.Count == 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
 		{
 			RefreshView();
 		}
