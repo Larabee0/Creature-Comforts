@@ -11,19 +11,22 @@ public class NPC_Expr : MonoBehaviour
         public List<Sprite> heads;
         public List<Sprite> arms;
         public List<Sprite> bodys;
-        public Character(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b)
+        public List<Sprite> hair;
+        public Character(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> t)
         {
             name = n;
             heads = h;
             arms = a;
             bodys = b;
+            hair = t;
         }
     }
-    public List<Character> characters;
 
-    public Character MakeCharacter(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b)
+    public List<Character> characters = new List<Character>();
+
+    public Character MakeCharacter(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> t)
     {
-        return new Character(n, h, a, b);
+        return new Character(n, h, a, b, t);
     }
 
     public Sprite[] GetSprites(string n, int h, int a, int b)
@@ -78,6 +81,19 @@ public class NPC_Expr : MonoBehaviour
             if (characters[i].name == n)
             {
                 return characters[i].arms[a];
+            }
+        }
+        Debug.Log("err: no character name match found");
+        return null;
+    }
+
+    public Sprite GetHair(string n, int t)
+    {
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].name == n)
+            {
+                return characters[i].arms[t];
             }
         }
         Debug.Log("err: no character name match found");

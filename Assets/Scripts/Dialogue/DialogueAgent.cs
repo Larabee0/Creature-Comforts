@@ -104,7 +104,6 @@ public class DialogueAgent : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		Debug.Log (text);
 		if (story.currentTags.Count > 0)
 		{
 			ParseTags();
@@ -115,8 +114,6 @@ public class DialogueAgent : MonoBehaviour {
 
 	void ParseTags ()
 	{
-		Debug.Log("there is a tag");
-
 		List<string> tags = new List<string>();
 
 		tags = story.currentTags;
@@ -150,11 +147,11 @@ public class DialogueAgent : MonoBehaviour {
 					break;
 
 				case "b":
-                    head.sprite = npcExpr.GetBody(npcTalking, int.Parse(tag.Split(" ")[1]));
+                    body.sprite = npcExpr.GetBody(npcTalking, int.Parse(tag.Split(" ")[1]));
                     break;
 
 				case "a":
-                    head.sprite = npcExpr.GetArms(npcTalking, int.Parse(tag.Split(" ")[1]));
+                    arms.sprite = npcExpr.GetArms(npcTalking, int.Parse(tag.Split(" ")[1]));
                     break;
 
 				default:
