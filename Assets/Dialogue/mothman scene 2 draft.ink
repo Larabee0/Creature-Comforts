@@ -19,9 +19,9 @@
 “Fine. It should be an associate of P. Pleasant Publishing.” # s Mothman
 “They will be wanting to hear about this situation.”
 
-<i>He pauses to sigh. Doesn’t seem like this vacation is going very smoothly.</i>
+<i>He pauses to sigh. Doesn’t seem like this vacation is going very smoothly.</i> # s You
 
-“Oh, and if anyone phones under the name Aubrey, please tell them I am very disappointed in them right now.”
+“Oh, and if anyone phones under the name Aubrey, please tell them I am very disappointed in them right now.” # s Mothman
 “Might be worth breaking the news yourself honestly, instead of myself."
 “They are most definitely fired.”
 
