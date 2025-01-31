@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 466277733}
   - component: {fileID: 466277736}
   - component: {fileID: 466277740}
+  - component: {fileID: 466277741}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -450,7 +451,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466277728}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 76403b22d802fb344873a3c7d0af0948, type: 3}
@@ -627,7 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: 0
-  inkJSONAsset: {fileID: 4900000, guid: dbfd31976a0a88a429b6d82c10997555, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 13b0b29c68de7974184baa1442ed446a, type: 3}
   buttons:
   - {fileID: 1329946316}
   - {fileID: 1988640700}
@@ -643,6 +644,22 @@ MonoBehaviour:
   head: {fileID: 99831961}
   arms: {fileID: 2050210520}
   body: {fileID: 442053599}
+  gs: {fileID: 466277741}
+--- !u!114 &466277741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466277728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f977b817d1d6c234ab962e5e7634f928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mt: {fileID: 1729869248}
+  da: {fileID: 466277740}
+  inkJSONAsset: {fileID: 4900000, guid: dbfd31976a0a88a429b6d82c10997555, type: 3}
 --- !u!114 &599929591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7266369444788397104, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
@@ -1420,6 +1437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1729869247}
+  - component: {fileID: 1729869248}
   m_Layer: 5
   m_Name: AFEWHOURSLATER
   m_TagString: Untagged
@@ -1448,6 +1466,20 @@ RectTransform:
   m_AnchoredPosition: {x: -355, y: 290}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1729869248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729869246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604fa7953a0f9154d8b3b29fc1f2ebf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moving: 0
+  gs: {fileID: 466277741}
 --- !u!114 &1936936301 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7027885232787357857, guid: 19cd849eb07ab2840ab9adf3a4b69b96,

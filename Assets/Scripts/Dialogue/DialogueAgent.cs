@@ -29,6 +29,8 @@ public class DialogueAgent : MonoBehaviour {
 	[SerializeField]
 	Image head, arms, body;
 
+	public GameState gs;
+
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
@@ -45,6 +47,7 @@ public class DialogueAgent : MonoBehaviour {
 
     // Creates a new Story object with the compiled story which we can then play!
     public void StartStory () {
+		pause = false;
 		story = new Story (inkJSONAsset.text);
 		RefreshView();
 	}
@@ -72,7 +75,8 @@ public class DialogueAgent : MonoBehaviour {
 		// If we've read all the content and there's no choices, the story is finished!
 		else if (!story.canContinue)
 		{
-			StartStory();
+			gs.UpdateGamestate();
+			pause = true;
 		}
 
 		// Display all the choices, if there are any!
