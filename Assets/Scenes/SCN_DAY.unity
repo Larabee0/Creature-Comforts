@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pause: 0
-  inkJSONAsset: {fileID: 4900000, guid: 65157b788ca705b47858974cbbc9c891, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: dbfd31976a0a88a429b6d82c10997555, type: 3}
   buttons:
   - {fileID: 1329946316}
   - {fileID: 1988640700}
