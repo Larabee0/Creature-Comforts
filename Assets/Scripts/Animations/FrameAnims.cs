@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FrameAnims : MonoBehaviour
 {
-    SpriteRenderer img;
+    Image img;
     
     public List<Sprite> frames = new List<Sprite>();
-    public float fps = 10f;
+    public float fps = 5f;
+
+    int currentFrame;
+    float clock = 0;
 
     private void Start()
     {
-        img = GetComponent<SpriteRenderer>();
+        img = GetComponent<Image>();
     }
 
     void Update()
     {
-        img.sprite = frames[0];
+        clock += Time.deltaTime;
+        if (clock >= 1 / fps)
+        {
+            currentFrame++;
+            if (currentFrame == frames.Count)
+                currentFrame = 0;
+            img.sprite = frames[currentFrame];
+            clock = 0;
+        }
     }
 }

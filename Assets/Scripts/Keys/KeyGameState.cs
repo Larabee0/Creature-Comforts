@@ -17,6 +17,8 @@ public class KeyGameState : MonoBehaviour
 
     public bool won = false;
     public bool gameRunning = false;
+    float clock = 0f;
+    public Image timer;
 
     KeyData data;
     int[] localBoard; //refrence to the board layout
@@ -33,13 +35,18 @@ public class KeyGameState : MonoBehaviour
             int x = i + 1;
             buttons[i].GetComponent<Button>().onClick.AddListener(() => ButtonClicked(x));
         }
-
         StartKeyGame();
     }
 
     private void Update()
     {
-        StartKeyGame();
+        //StartKeyGame();
+
+        if (gameRunning)
+        {
+            clock += Time.deltaTime;
+            timer.GetComponentInChildren<TextMeshProUGUI>().text = (int)clock + "." + ((int)(clock * 10) - (int)clock*10) + "s";
+        }
     }
 
     void ButtonClicked(int buttonNo)
@@ -52,7 +59,7 @@ public class KeyGameState : MonoBehaviour
         {
             if (holdingKey)
             {
-                if (valAtLoc == 0)
+                if (valAtLoc == 0 || valAtLoc == heldKeyVal)
                 {
                     holdingKey = false;
                     heldKey.GetComponent<Image>().enabled = false;
@@ -91,10 +98,11 @@ public class KeyGameState : MonoBehaviour
         }
     }
 
-    public void StartKeyGame(int difficulty = 3)
+    public void StartKeyGame(int difficulty = 1)
     {
         if (!gameRunning) 
         {
+            clock = 0;
             gameRunning = true;
             won = false;
             winImg.enabled = false;
