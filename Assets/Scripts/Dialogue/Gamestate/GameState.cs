@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class GameState : MonoBehaviour
 {
     int tracker = 0;
-    public DialogueAgent da;
-
-    public TextAsset scene1;
-    public TextAsset scene2;
     
-    string currentGameState = "scene1";
+    public string currentGameState = "scene1";
+
+    char grade1 = 'B';
+    char grade2 = 'B';
+
+    [Header("Outside Connections")]
+    public DialogueAgent agent;
+    public Canvas talking;
+    public TextAsset mothman1;
+    public TextAsset mothman2;
+    public KeyGameState keyGame;
 
     public void UpdateGamestate()
     {
@@ -19,13 +25,13 @@ public class GameState : MonoBehaviour
         switch (tracker)
         {
             case 1:
-                currentGameState = "key";
+                currentGameState = "key1";
                 break;
             case 2:
                 currentGameState = "scene2";
                 break;
             case 3:
-                currentGameState = "key";
+                currentGameState = "key2";
                 break;
             case 4:
                 currentGameState = "report";

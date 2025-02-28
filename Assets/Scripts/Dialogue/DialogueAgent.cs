@@ -34,7 +34,6 @@ public class DialogueAgent : MonoBehaviour {
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
-		StartStory();
     }
 
     private void Update()
@@ -76,6 +75,7 @@ public class DialogueAgent : MonoBehaviour {
 		else if (!story.canContinue)
 		{
 			gs.UpdateGamestate();
+			gs.talking.enabled = false;
 			pause = true;
 		}
 

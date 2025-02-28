@@ -20,6 +20,8 @@ public class KeyGameState : MonoBehaviour
     float clock = 0f;
     public Image timer;
 
+    public GameState gs;
+
     KeyData data;
     int[] localBoard; //refrence to the board layout
 
@@ -27,7 +29,12 @@ public class KeyGameState : MonoBehaviour
 
     void Start()
     {
+        heldKey.GetComponent<Image>().enabled = false;
+        heldKey.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+
         data = GetComponent<KeyData>(); //gets instance of keydata
+        timer.enabled = false;
+        timer.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
         //for each button call ButtonClicked function while passing corresponding val
         for (int i = 0; i < buttons.Count; i++)
@@ -35,7 +42,6 @@ public class KeyGameState : MonoBehaviour
             int x = i + 1;
             buttons[i].GetComponent<Button>().onClick.AddListener(() => ButtonClicked(x));
         }
-        StartKeyGame();
     }
 
     private void Update()
@@ -75,6 +81,7 @@ public class KeyGameState : MonoBehaviour
                     if (won)
                     {
                         WinScreen();
+                        gs.UpdateGamestate();
                     }
                 }
             }
@@ -102,6 +109,8 @@ public class KeyGameState : MonoBehaviour
     {
         if (!gameRunning) 
         {
+            timer.enabled = true;
+            timer.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             clock = 0;
             gameRunning = true;
             won = false;

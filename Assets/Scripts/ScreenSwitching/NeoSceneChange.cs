@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NeoSceneChange : MonoBehaviour
@@ -10,11 +11,17 @@ public class NeoSceneChange : MonoBehaviour
     public Canvas talk;
     public Canvas note;
 
-    Canvas currentCanvas;
+    [SerializeField] Canvas currentCanvas;
+
+    public GameState gamestate;
 
     private void Start()
     {
         currentCanvas = desk;
+        keys.enabled = false;
+        talk.enabled = false;
+        note.enabled = false;
+        gamestate.talking.enabled = false;
     }
 
     void Update()
@@ -38,11 +45,20 @@ public class NeoSceneChange : MonoBehaviour
 
         if (currentCanvas == desk)
         {
+            if (gamestate.currentGameState != "report")
             switch (dir)
             {
                 case 0:
                     currentCanvas = keys;
                     UpdateScene();
+                    if (gamestate.currentGameState == "key1")
+                    {
+                        gamestate.keyGame.StartKeyGame(5);
+                    }
+                    else if (gamestate.currentGameState == "key2")
+                    {
+                        gamestate.keyGame.StartKeyGame(10);
+                    }
                     break;
                 case 1:
                     currentCanvas = note;
@@ -51,6 +67,18 @@ public class NeoSceneChange : MonoBehaviour
                 case 2:
                     currentCanvas = talk;
                     UpdateScene();
+                    if (gamestate.currentGameState == "scene1")
+                    {
+                        gamestate.talking.enabled = true;
+                        gamestate.agent.inkJSONAsset = gamestate.mothman1;
+                        gamestate.agent.StartStory();
+                    }
+                    else if (gamestate.currentGameState == "scene2")
+                    {
+                        gamestate.talking.enabled = true;
+                        gamestate.agent.inkJSONAsset = gamestate.mothman2;
+                        gamestate.agent.StartStory();
+                    }
                     break;
                 default:
                     break;
@@ -58,7 +86,7 @@ public class NeoSceneChange : MonoBehaviour
         }
         else if (currentCanvas == keys)
         {
-            if (dir == 1)
+            if (dir == 1 && gamestate.currentGameState != "key1" && gamestate.currentGameState != "key2")
             {
                 currentCanvas = desk;
                 UpdateScene();
@@ -74,7 +102,7 @@ public class NeoSceneChange : MonoBehaviour
         }
         else if (currentCanvas == talk)
         {
-            if (dir == 3)
+            if (dir == 3 && gamestate.currentGameState != "scene1" && gamestate.currentGameState != "scene2")
             {
                 currentCanvas = desk;
                 UpdateScene();
