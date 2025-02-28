@@ -7,8 +7,7 @@
 
 “Good Morning, am I the first one here?” # s Mothman #h 2 # b 2 # a 2
 
-<i>You reflect on the time, amused that he seems to think anyone else would even be up at this early of an hour. 
-</i> # s You
+<i>You reflect on the time, amused that he seems to think anyone else would even be up at this early of an hour.</i> # s You
 
 <i>He is the first person you’ve seen…but will you choose to tell him as such?</i> # b 1 # a 3
 
@@ -19,7 +18,6 @@
 === seen1 ===
 
 <i>This is a blatant lie, but you have to find some way to keep yourself entertained in this dreary establishment.</i> # s You
-
 
 “That’s just <i>great</i>. I may already have a huge problem on my hands...” # s Mothman # h 5
 “Honestly, why does trouble <i>always</i> seem to follow my vacation leave!” # h 10
@@ -48,9 +46,9 @@
 === seen3 ===
 
 “Splendid. There may still be time yet to fix this. Perhaps they merely haven’t arrived yet.” # s Mothman # h 3
-“My punctuality has always been a burden when it comes to situations like this.” # h 9
+“My punctuality has always been a burden when it comes to situations like this.” # h 1
 
-<i>The obvious bragging does not escape your attention. You wonder who they might be expecting.</i> # s You
+<i>The obvious bragging does not escape your attention. You wonder who they might be expecting.</i> # s You # h 3
 
 -> lastnight
 
@@ -60,12 +58,13 @@
 “Although, it’s not like you seemed to be doing much before I arrived.” # h 3
 
 <i>The pile of guests’ paperwork you still have left to complete agrees with him.</i> # s You # h 2
-<i>You feel like he seems hesitant to ask you whatever is on his mind. He keeps glancing in the direction of your telephone with a worried expression. </i> # s You
+<i>You feel like he seems hesitant to ask you whatever is on his mind. He keeps glancing in the direction of your telephone with a worried expression. </i> # s You # h 5
 
 “I know I have already pried, but are you sure you haven’t seen anyone with the following description since last night?” # s Mothman # b 1 # a 1 # h 11 
 “They would be wearing a tie with a little red pocket square, and be carrying with them a rather large briefcase…” # h 2
 “… a briefcase full of newly printed, half signed, Advanced Readers Copies of my newest book…” # h 5
-“Let me assure you this is a purely professional, <i>not</i> personal matter. I have simply lost my Press Manager on the way here…somehow.” # h 1
+“Let me assure you this is a purely professional, <i>not</i> personal matter." # h 2
+"I have simply lost my Press Manager on the way here…somehow.” # h 1
 “I’m sure my publishers will compensate you for your troubles if you choose to help.” # h 3
 
 <i>You try to recall the events of last night. He seems like an important figure, famous, even.</i> # s You
@@ -77,12 +76,12 @@
 === lastnight1 ===
 
 “Seriously? Is this what you call customer service in this part of the woods?” # s Mothman # h 11 # b 2 # a 2
-“I could really use even a <i>tiny</i> ounce of co-operation right now.” # h 10
+“I could really use even a <i>tiny</i> ounce of co-operation right now.” # h 7
   
-<i>Oops. You seem to have annoyed him with your nonchalant act.</i> # s You
-<i>That self improvement book lied to you. So much for suggesting that being aloof makes you seem more interesting to strangers. # h 1
-</i> 
-<i>You cave and tell him what he wants to know.</i> 
+<i>Oops. You seem to have annoyed him with your nonchalant act.</i> # s You # h 11
+<i>That self improvement book lied to you. So much for suggesting that being aloof makes you seem more interesting to strangers.</i>  # h 1
+
+<i>You cave and tell him what he wants to know.</i>  # h 2
 
 “Just kidding… I haven’t seen who you are looking for.”
 
@@ -103,7 +102,9 @@
 “Yes… that’s the only logical explanation. Aubrey wouldn’t just abandon me like this.” # h 5
 “They are… <i>far</i> too clingy.” # h 1
 
-<i>They look around the lobby with an increasingly concerned expression. You feel like now is a good time to ask for some more context.</i> # s You # h 10
+<i>They look around the lobby with an increasingly concerned expression.</i> # s You # h 10
+
+<i>You feel like now is a good time to ask for some more context.</i> # h 5
 
  “So Aubrey is the person you are looking for? And they are… your manager?”
  
@@ -120,8 +121,8 @@
 === managerloc1 ===
 
 “Moths <i>no</i>, you’ve proved yourself rather useless already.” # s Mothman # h 10 # b 2 # a 2
-“It’s not as if you can make a person suddenly appear, and that is the only thing that will currently solve my problem.”
-“Ugh, I need a cup of coffee. Where is the machine?” # h 11
+“It’s not as if you can make a person suddenly appear, and that is the only thing that will currently solve my problem.” # h 11
+“Ugh, I need a cup of coffee. Where is the machine?” # h 10
 
 <i>You decide to sheepishly point him in the direction of the single lonely Motel coffee station.</i> # s You 
 
@@ -138,7 +139,7 @@
 “I can manage without that tasteless garbage being distributed under my name.” # h 1
 “Honestly, who thought the 'Roman Empire' was going to be more interesting than the Renaissance, or even the 1800s…” # h 7
 
-<i>He doesn’t appear to be paying attention to you any more, but realises this far too late.</i> # s You # b 1 # a 3
+<i>He doesn’t appear to be paying attention to you any more, but realises this far too late.</i> # s You # b 1 # a 3 # h 10
 
 “Pardon me, was I rambling off to myself again? I need to go back to my room and make some calls.” # s Mothman # h 2
 
