@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class DialogueAgent : MonoBehaviour {
+	string npcTalking = "Mothman";
 
 	TextScrollingScript tss;
 
@@ -24,10 +25,15 @@ public class DialogueAgent : MonoBehaviour {
 	[SerializeField]
 	List<Sprite> nameTags = new List<Sprite>();
 
+	public NPC_Expr npcExpr;
+	[SerializeField]
+	Image head, arms, body;
+
+	public GameState gs;
+
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
-		StartStory();
     }
 
     private void Update()
@@ -40,6 +46,7 @@ public class DialogueAgent : MonoBehaviour {
 
     // Creates a new Story object with the compiled story which we can then play!
     public void StartStory () {
+		pause = false;
 		story = new Story (inkJSONAsset.text);
 		RefreshView();
 	}
@@ -67,7 +74,9 @@ public class DialogueAgent : MonoBehaviour {
 		// If we've read all the content and there's no choices, the story is finished!
 		else if (!story.canContinue)
 		{
-			StartStory();
+			gs.UpdateGamestate();
+			gs.talking.enabled = false;
+			pause = true;
 		}
 
 		// Display all the choices, if there are any!
@@ -99,7 +108,6 @@ public class DialogueAgent : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		Debug.Log (text);
 		if (story.currentTags.Count > 0)
 		{
 			ParseTags();
@@ -110,8 +118,6 @@ public class DialogueAgent : MonoBehaviour {
 
 	void ParseTags ()
 	{
-		Debug.Log("there is a tag");
-
 		List<string> tags = new List<string>();
 
 		tags = story.currentTags;
@@ -139,6 +145,19 @@ public class DialogueAgent : MonoBehaviour {
                         nameTag.GetComponentInChildren<TextMeshProUGUI>().text = tag.Split(" ")[1];
                     }
 					break;
+
+				case "h":
+					head.sprite = npcExpr.GetHead(npcTalking ,int.Parse(tag.Split(" ")[1]));
+					break;
+
+				case "b":
+                    body.sprite = npcExpr.GetBody(npcTalking, int.Parse(tag.Split(" ")[1]));
+                    break;
+
+				case "a":
+                    arms.sprite = npcExpr.GetArms(npcTalking, int.Parse(tag.Split(" ")[1]));
+                    break;
+
 				default:
 					Debug.Log("tag err: " + tag);
 					break;
