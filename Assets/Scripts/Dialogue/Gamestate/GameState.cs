@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
@@ -9,8 +11,8 @@ public class GameState : MonoBehaviour
     
     public string currentGameState = "scene1";
 
-    char grade1 = 'B';
-    char grade2 = 'B';
+    public int grade1 = 0;
+    public int grade2 = 0;
 
     [Header("Outside Connections")]
     public DialogueAgent agent;
@@ -18,6 +20,9 @@ public class GameState : MonoBehaviour
     public TextAsset mothman1;
     public TextAsset mothman2;
     public KeyGameState keyGame;
+    public Transform hand;
+    public Transform report;
+    public TextMeshProUGUI grades;
 
     public void UpdateGamestate()
     {
