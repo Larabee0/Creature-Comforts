@@ -16,3 +16,5 @@ Please make sure you place all of your Terrain in a folder called "Terrain" or "
 Be aware that we have changed the settings to allow sub folders, this means you might accidently push as Unity project inside your Unity project so make sure you know what folder you are working from.
  
 Do you have any suggestions for improvements? Please submit a pull request!
+
+test
