@@ -81,29 +81,6 @@ public class KeyGameState : MonoBehaviour
                     if (won)
                     {
                         WinScreen();
-                        if (gs.grade1 == 0)
-                        {
-                            if (clock < 13)
-                                gs.grade1 = '4';
-                            else if (clock < 17)
-                                gs.grade1 = 3;
-                            else if (clock < 20)
-                                gs.grade1 = 2;
-                            else
-                                gs.grade1 = 1;
-                        }
-                        else
-                        {
-                            if (clock < 27)
-                                gs.grade2 = 4;
-                            else if (clock < 31)
-                                gs.grade2 = 3;
-                            else if (clock < 36)
-                                gs.grade2 = 2;
-                            else
-                                gs.grade2 = 1;
-                        }
-                        gs.UpdateGamestate();
                     }
                 }
             }
@@ -131,6 +108,8 @@ public class KeyGameState : MonoBehaviour
     {
         if (!gameRunning) 
         {
+            gs.HideKeyHud();
+
             timer.enabled = true;
             timer.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             clock = 0;
@@ -179,7 +158,32 @@ public class KeyGameState : MonoBehaviour
         winImg.enabled = true;
         gameRunning = false;
         Debug.Log("winscrn");
-        //sfx.Bell();
-        //bellIcon.enabled = true;
+        if (gs.grade1 == 0)
+        {
+            if (clock < 13)
+                gs.grade1 = 4;
+            else if (clock < 17)
+                gs.grade1 = 3;
+            else if (clock < 20)
+                gs.grade1 = 2;
+            else
+                gs.grade1 = 1;
+        }
+        else
+        {
+            if (clock < 27)
+                gs.grade2 = 4;
+            else if (clock < 31)
+                gs.grade2 = 3;
+            else if (clock < 36)
+                gs.grade2 = 2;
+            else
+                gs.grade2 = 1;
+        }
+        gs.UpdateGamestate();
+        if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2")
+        {
+            gs.ShowDialogueHud();
+        }
     }
 }

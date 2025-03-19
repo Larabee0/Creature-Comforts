@@ -48,6 +48,7 @@ public class DialogueAgent : MonoBehaviour {
     public void StartStory () {
 		pause = false;
 		story = new Story (inkJSONAsset.text);
+		gs.HideDialogueHud();
 		RefreshView();
 	}
 	
@@ -77,7 +78,12 @@ public class DialogueAgent : MonoBehaviour {
 			gs.UpdateGamestate();
 			gs.talking.enabled = false;
 			pause = true;
-		}
+			if (gs.currentGameState == "key1" || gs.currentGameState == "key2")
+			{
+				gs.ShowKeyHud();
+			}
+
+        }
 
 		// Display all the choices, if there are any!
 		if (story.currentChoices.Count > 0)

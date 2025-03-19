@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
 {
     int tracker = 0;
     
-    public string currentGameState = "scene1";
+    public string currentGameState = "m_d1_s2";
 
     public int grade1 = 0;
     public int grade2 = 0;
@@ -17,12 +17,14 @@ public class GameState : MonoBehaviour
     [Header("Outside Connections")]
     public DialogueAgent agent;
     public Canvas talking;
-    public TextAsset mothman1;
-    public TextAsset mothman2;
+    public TextAsset m_d1_s1;
+    public TextAsset m_d1_s2;
     public KeyGameState keyGame;
     public Transform hand;
     public Transform report;
     public TextMeshProUGUI grades;
+    public List<Image> keyHud = new List<Image>();
+    public List<Image> dialogueHud = new List<Image>();
 
     public void UpdateGamestate()
     {
@@ -33,7 +35,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key1";
                 break;
             case 2:
-                currentGameState = "scene2";
+                currentGameState = "m_d1_s2";
                 break;
             case 3:
                 currentGameState = "key2";
@@ -41,6 +43,38 @@ public class GameState : MonoBehaviour
             case 4:
                 currentGameState = "report";
                 break;
+        }
+    }
+
+    public void ShowKeyHud()
+    {
+        for (int i = 0; i < keyHud.Count; i++)
+        {
+            keyHud[i].enabled = true;
+        }
+    }
+
+    public void HideKeyHud()
+    {
+        for (int i = 0; i < keyHud.Count; i++)
+        {
+            keyHud[i].enabled = false;
+        }
+    }
+
+    public void ShowDialogueHud()
+    {
+        for (int i = 0; i < dialogueHud.Count; i++)
+        {
+            dialogueHud[i].enabled = true;
+        }
+    }
+
+    public void HideDialogueHud()
+    {
+        for (int i = 0; i < dialogueHud.Count; i++)
+        {
+            dialogueHud[i].enabled = false;
         }
     }
 

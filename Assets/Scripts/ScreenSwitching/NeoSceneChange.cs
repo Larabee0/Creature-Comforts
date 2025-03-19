@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NeoSceneChange : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class NeoSceneChange : MonoBehaviour
     public Canvas keys;
     public Canvas talk;
     public Canvas note;
+    public Canvas loby;
+    public Button mothmanB;
+    public Button nessieB;
 
     [SerializeField] Canvas currentCanvas;
 
@@ -21,7 +25,11 @@ public class NeoSceneChange : MonoBehaviour
         keys.enabled = false;
         talk.enabled = false;
         note.enabled = false;
+        loby.enabled = false;
         gamestate.talking.enabled = false;
+        mothmanB.onClick.AddListener(MothmanButtonClick);
+        //nessieB.onClick.AddListener(NessieButtonClick);
+        gamestate.HideKeyHud();
     }
 
     void Update()
@@ -65,22 +73,21 @@ public class NeoSceneChange : MonoBehaviour
                     UpdateScene();
                     break;
                 case 2:
-                    currentCanvas = talk;
-                    UpdateScene();
-                    if (gamestate.currentGameState == "scene1")
+                    if (gamestate.currentGameState == "m_d1_s1")
                     {
-                        gamestate.talking.enabled = true;
-                        gamestate.agent.inkJSONAsset = gamestate.mothman1;
-                        gamestate.agent.StartStory();
+                        currentCanvas = loby;
+                        UpdateScene();
                     }
-                    else if (gamestate.currentGameState == "scene2")
+                    else if (gamestate.currentGameState == "m_d1_s2")
                     {
-                        gamestate.talking.enabled = true;
-                        gamestate.agent.inkJSONAsset = gamestate.mothman2;
-                        gamestate.agent.StartStory();
+                        currentCanvas = loby;
+                        UpdateScene();
                     }
-                    break;
-                default:
+                    else
+                    {
+                        currentCanvas = loby;
+                        UpdateScene();
+                        }
                     break;
             }
         }
@@ -108,6 +115,44 @@ public class NeoSceneChange : MonoBehaviour
                 UpdateScene();
             }
         }
+        else if (currentCanvas = loby)
+        {
+            if (dir == 3)
+            {
+                currentCanvas = desk;
+                UpdateScene();
+            }
+        }
+    }
+
+    void MothmanButtonClick()
+    {
+        currentCanvas = talk;
+        UpdateScene();
+
+        gamestate.talking.enabled = true;
+
+        if      (gamestate.currentGameState == "m_d1_s1")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s1;
+        else if (gamestate.currentGameState == "m_d1_s2")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+
+        gamestate.agent.StartStory();
+    }
+
+    void NessieButtonClick()
+    {
+        currentCanvas = talk;
+        UpdateScene();
+
+        gamestate.talking.enabled = true;
+
+        if      (gamestate.currentGameState == "n_d1_s1")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s1;
+        else if (gamestate.currentGameState == "n_d1_s2")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+
+        gamestate.agent.StartStory();
     }
 
     void UpdateScene()
@@ -118,6 +163,7 @@ public class NeoSceneChange : MonoBehaviour
             keys.enabled = false;
             talk.enabled = false;
             note.enabled = false;
+            loby.enabled = false;
         }
         else if (currentCanvas == keys)
         {
@@ -125,6 +171,7 @@ public class NeoSceneChange : MonoBehaviour
             keys.enabled = true ;
             talk.enabled = false;
             note.enabled = false;
+            loby.enabled = false;
         }
         else if (currentCanvas == talk)
         {
@@ -132,6 +179,7 @@ public class NeoSceneChange : MonoBehaviour
             keys.enabled = false;
             talk.enabled = true ;
             note.enabled = false;
+            loby.enabled = false;
         }
         else if (currentCanvas == note)
         {
@@ -139,6 +187,15 @@ public class NeoSceneChange : MonoBehaviour
             keys.enabled = false;
             talk.enabled = false;
             note.enabled = true ;
+            loby.enabled = false;
+        }
+        else if (currentCanvas == loby)
+        {
+            desk.enabled = false;
+            keys.enabled = false;
+            talk.enabled = false;
+            note.enabled = false;
+            loby.enabled = true ;
         }
     }
 }
