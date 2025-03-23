@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56038b96794f83149ad8974804c4c664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fading: 0
   fadeTime: 0
   holdTime: 0
 --- !u!1 &82756406
@@ -2891,6 +2892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcTalking: Mothman
   pause: 0
   inkJSONAsset: {fileID: 4900000, guid: 13b0b29c68de7974184baa1442ed446a, type: 3}
   buttons:
@@ -2908,6 +2910,7 @@ MonoBehaviour:
   head: {fileID: 99831961}
   arms: {fileID: 2050210520}
   body: {fileID: 442053599}
+  hair: {fileID: 1951790980}
   gs: {fileID: 466277741}
 --- !u!114 &466277741
 MonoBehaviour:
@@ -2928,6 +2931,8 @@ MonoBehaviour:
   talking: {fileID: 755305761}
   m_d1_s1: {fileID: 4900000, guid: 67202373e3aa7804a8bb5620afa1caa1, type: 3}
   m_d1_s2: {fileID: 4900000, guid: fa54bc2a253f30645bccb595553ac165, type: 3}
+  n_d1_s1: {fileID: 4900000, guid: 02d1be71265d18940a8964d77703c5c8, type: 3}
+  n_d1_s2: {fileID: 4900000, guid: 68d510447b5c7464ba4095341b62d1fe, type: 3}
   keyGame: {fileID: 466277742}
   hand: {fileID: 1443953111}
   report: {fileID: 704240612}
@@ -3168,7 +3173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &530729835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7345,7 +7350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1048229960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7790,7 +7795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &1133634178
 Canvas:
   m_ObjectHideFlags: 0
@@ -11089,7 +11094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1676822857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11285,15 +11290,25 @@ MonoBehaviour:
   headList:
   - {fileID: 21300000, guid: ac6f927a3471ac94fa6382230a827b6b, type: 3}
   - {fileID: 21300000, guid: b4a677d015d2f804f8e739659c085a98, type: 3}
+  - {fileID: 21300000, guid: 233926558b88b3346876c2e54cdb6362, type: 3}
+  - {fileID: 21300000, guid: f3e88f126ce803647a308a6147d8859d, type: 3}
+  - {fileID: 21300000, guid: a4f00b0886dc45d46932e44c5e496e51, type: 3}
+  - {fileID: 21300000, guid: 8304d3a0203119844a2de8f65073e349, type: 3}
+  - {fileID: 21300000, guid: 854e90df4ee2163488656288ff7fa5e6, type: 3}
   armsList:
   - {fileID: 21300000, guid: ac6f927a3471ac94fa6382230a827b6b, type: 3}
   - {fileID: 21300000, guid: fb57a277ce701da408aa2456275b6ea3, type: 3}
+  - {fileID: 21300000, guid: c7dffdecf5b8d3c4098e8f5c1b932db6, type: 3}
+  - {fileID: 21300000, guid: fae8649acad384648b645dd9726ba492, type: 3}
   bodyList:
   - {fileID: 21300000, guid: ac6f927a3471ac94fa6382230a827b6b, type: 3}
   - {fileID: 21300000, guid: 5c36de31d2693bc48873e2112138a05c, type: 3}
+  - {fileID: 21300000, guid: c267367fd244d554990070aa3e6164e1, type: 3}
   hairList:
   - {fileID: 21300000, guid: ac6f927a3471ac94fa6382230a827b6b, type: 3}
   - {fileID: 21300000, guid: 2ce6bafb64d5f7c408cb30e81c6a6801, type: 3}
+  - {fileID: 21300000, guid: 47ef3ef0162e98e478c12b1626ceb076, type: 3}
+  - {fileID: 21300000, guid: cbe1f2612e324d941b1c194e01b23332, type: 3}
 --- !u!1 &1702758081
 GameObject:
   m_ObjectHideFlags: 0
@@ -14103,7 +14118,7 @@ PrefabInstance:
     - target: {fileID: 5426532962075169095, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7266369444788397104, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
         type: 3}

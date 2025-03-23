@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
 {
     int tracker = 0;
     
-    public string currentGameState = "m_d1_s2";
+    public string currentGameState = "m_d1_s1";
 
     public int grade1 = 0;
     public int grade2 = 0;
@@ -19,6 +19,8 @@ public class GameState : MonoBehaviour
     public Canvas talking;
     public TextAsset m_d1_s1;
     public TextAsset m_d1_s2;
+    public TextAsset n_d1_s1;
+    public TextAsset n_d1_s2;
     public KeyGameState keyGame;
     public Transform hand;
     public Transform report;
@@ -35,12 +37,21 @@ public class GameState : MonoBehaviour
                 currentGameState = "key1";
                 break;
             case 2:
-                currentGameState = "m_d1_s2";
+                currentGameState = "n_d1_s1";
                 break;
             case 3:
-                currentGameState = "key2";
+                currentGameState = "key1";
                 break;
             case 4:
+                currentGameState = "m_d1_s2";
+                break;
+            case 5:
+                currentGameState = "key2";
+                break;
+            case 6:
+                currentGameState = "n_d1_s2";
+                break;
+            case 7:
                 currentGameState = "report";
                 break;
         }

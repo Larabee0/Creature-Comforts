@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Transactions;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +26,7 @@ public class NeoSceneChange : MonoBehaviour
         loby.enabled = false;
         gamestate.talking.enabled = false;
         mothmanB.onClick.AddListener(MothmanButtonClick);
-        //nessieB.onClick.AddListener(NessieButtonClick);
+        nessieB.onClick.AddListener(NessieButtonClick);
         gamestate.HideKeyHud();
     }
 
@@ -67,27 +65,38 @@ public class NeoSceneChange : MonoBehaviour
                     {
                         gamestate.keyGame.StartKeyGame(10);
                     }
+                    else if (gamestate.currentGameState == "key3")
+                    {
+                        gamestate.keyGame.StartKeyGame(15);
+                    }
                     break;
                 case 1:
                     currentCanvas = note;
                     UpdateScene();
                     break;
                 case 2:
-                    if (gamestate.currentGameState == "m_d1_s1")
+                    if (gamestate.currentGameState ==  "m_d1_s1" || gamestate.currentGameState == "m_d1_s2")
                     {
-                        currentCanvas = loby;
-                        UpdateScene();
-                    }
-                    else if (gamestate.currentGameState == "m_d1_s2")
-                    {
-                        currentCanvas = loby;
-                        UpdateScene();
+                        mothmanB.GetComponent<Image>().enabled = true;
+                        mothmanB.enabled = true;
                     }
                     else
                     {
+                        mothmanB.GetComponent<Image>().enabled = false;
+                        mothmanB.enabled = false;
+                    }
+                    if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2")
+                    {
+                        nessieB.GetComponent<Image>().enabled = true;
+                        nessieB.enabled = true;
+                    }
+                    else
+                    {
+                        nessieB.GetComponent<Image>().enabled = false;
+                        nessieB.enabled = false;
+                    }
                         currentCanvas = loby;
-                        UpdateScene();
-                        }
+                    UpdateScene();
                     break;
             }
         }
@@ -109,7 +118,7 @@ public class NeoSceneChange : MonoBehaviour
         }
         else if (currentCanvas == talk)
         {
-            if (dir == 3 && gamestate.currentGameState != "scene1" && gamestate.currentGameState != "scene2")
+            if (dir == 3 && gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2")
             {
                 currentCanvas = desk;
                 UpdateScene();
@@ -129,6 +138,7 @@ public class NeoSceneChange : MonoBehaviour
     {
         currentCanvas = talk;
         UpdateScene();
+        gamestate.agent.npcTalking = "Mothman";
 
         gamestate.talking.enabled = true;
 
@@ -144,13 +154,14 @@ public class NeoSceneChange : MonoBehaviour
     {
         currentCanvas = talk;
         UpdateScene();
+        gamestate.agent.npcTalking = "Nessie";
 
         gamestate.talking.enabled = true;
 
         if      (gamestate.currentGameState == "n_d1_s1")
-            gamestate.agent.inkJSONAsset = gamestate.m_d1_s1;
+            gamestate.agent.inkJSONAsset = gamestate.n_d1_s1;
         else if (gamestate.currentGameState == "n_d1_s2")
-            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
 
         gamestate.agent.StartStory();
     }

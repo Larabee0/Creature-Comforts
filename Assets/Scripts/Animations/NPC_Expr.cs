@@ -11,29 +11,30 @@ public class NPC_Expr : MonoBehaviour
         public List<Sprite> heads;
         public List<Sprite> arms;
         public List<Sprite> bodys;
-        public List<Sprite> hair;
-        public Character(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> t)
+        public List<Sprite> hairs;
+        public Character(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> p)
         {
             name = n;
             heads = h;
             arms = a;
             bodys = b;
-            hair = t;
+            hairs = p;
         }
     }
 
     public List<Character> characters = new List<Character>();
 
-    public Character MakeCharacter(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> t)
+    public Character MakeCharacter(string n, List<Sprite> h, List<Sprite> a, List<Sprite> b, List<Sprite> p)
     {
-        return new Character(n, h, a, b, t);
+        return new Character(n, h, a, b, p);
     }
 
-    public Sprite[] GetSprites(string n, int h, int a, int b)
+    public Sprite[] GetSprites(string n, int h, int a, int b, int p)
     {
         Sprite head = null;
         Sprite arms = null;
         Sprite body = null;
+        Sprite hair = null;
 
         for (int i = 0; i < characters.Count; i++)
         {
@@ -42,6 +43,7 @@ public class NPC_Expr : MonoBehaviour
                 head = characters[i].heads[h];
                 arms = characters[i].arms[a];
                 body = characters[i].bodys[b];
+                hair = characters[i].hairs[p];
             }
         }
         Sprite[] arr = { head, arms, body };
@@ -87,13 +89,13 @@ public class NPC_Expr : MonoBehaviour
         return null;
     }
 
-    public Sprite GetHair(string n, int t)
+    public Sprite GetHair(string n, int p)
     {
         for (int i = 0; i < characters.Count; i++)
         {
             if (characters[i].name == n)
             {
-                return characters[i].arms[t];
+                return characters[i].hairs[p];
             }
         }
         Debug.Log("err: no character name match found");

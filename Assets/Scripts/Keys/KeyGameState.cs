@@ -181,7 +181,7 @@ public class KeyGameState : MonoBehaviour
                 gs.grade2 = 1;
         }
         gs.UpdateGamestate();
-        if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2")
+        if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2" || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2")
         {
             gs.ShowDialogueHud();
         }

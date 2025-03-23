@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class DialogueAgent : MonoBehaviour {
-	string npcTalking = "Mothman";
+	public string npcTalking = "Mothman";
 
 	TextScrollingScript tss;
 
@@ -27,7 +27,7 @@ public class DialogueAgent : MonoBehaviour {
 
 	public NPC_Expr npcExpr;
 	[SerializeField]
-	Image head, arms, body;
+	Image head, arms, body, hair;
 
 	public GameState gs;
 
@@ -163,6 +163,10 @@ public class DialogueAgent : MonoBehaviour {
 				case "a":
                     arms.sprite = npcExpr.GetArms(npcTalking, int.Parse(tag.Split(" ")[1]));
                     break;
+
+				case "p":
+					hair.sprite = npcExpr.GetHair(npcTalking, int.Parse(tag.Split(" ")[1]));
+					break;
 
 				default:
 					Debug.Log("tag err: " + tag);
