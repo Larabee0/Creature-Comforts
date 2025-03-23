@@ -19,8 +19,9 @@
 
  “Isn’t the purple carpet just… so… colorful!” # p 3
 
-<i>Her attempts at flattery mean nothing to you. Besides, you kind of hate the ugly purple carpet.
-You’re not really supposed to express ill will towards the decor as your Boss picked it out.</i> # s You # p 1
+<i>Her attempts at flattery mean nothing to you. Besides, you kind of hate the ugly purple carpet.</i> # s You
+
+<i>You’re not really supposed to express ill will towards the decor as your Boss picked it out.</i> # s You # p 1
 
 <i>She is clearly hanging about waiting for something… do you want to engage?</i>
 
@@ -50,7 +51,9 @@ You’re not really supposed to express ill will towards the decor as your Boss 
 
 “Oh! Right! To chat!” # h 5 
 
-“Hi, how are you? I’m Nessie, Nessie L, the L stands for Loch- now I <i>know</i> that sounds sooo silly but I wasn’t in charge of picking my name…” # h 1 # p 3
+“Hi, how are you? I’m Nessie, Nessie L, the L stands for Loch-"
+
+"Now I <i>know</i> that sounds sooo silly but I wasn’t in charge of picking my name…” # h 1 # p 3
 
 <i>Nessie goes on like this for several minutes.</i> # s You
 
@@ -60,7 +63,9 @@ You’re not really supposed to express ill will towards the decor as your Boss 
 
 “Cool. So, what kind of science are you into?” # s You # h 6
 
-“Oooh nobody ever asks me that! I’m a <i>very</i> qualified plant expert, but I mainly look into weird bits of wood that get stuck in lakes and river systems and the like. I am technically not a full scientist yet, but I’m working on it!!” # s Nessie # a 2 # h 2
+“Oooh nobody ever asks me that! I’m a <i>very</i> qualified plant expert!!"
+
+"I mainly look into weird bits of wood that get stuck in lakes and river systems and the like. I am technically not a full scientist yet, but I’m working on it!!” # s Nessie # a 2 # h 2
 
 <i>You wonder where on earth is taking research interns that want to look at damp tree trunks.</i> # s You
 
@@ -73,7 +78,8 @@ You’re not really supposed to express ill will towards the decor as your Boss 
 
 <i>You thankfully admit that you are not a qualified scientist and therefore have nothing more to add to this conversation.</i> # s You
 
-“Awww mannn you’re no fun! I finally thought someone was actually taking an interest in my career. I’ve heard there’s a famous author staying here too, there’s no way I can compete with that!!!” # s Nessie # h 5 # a 1 # p 2
+“Awww mannn you’re no fun! I finally thought someone was actually taking an interest in my career."
+"I’ve heard there’s a famous author staying here too, there’s no way I can compete with that!!!” # s Nessie # h 5 # a 1 # p 2
 
  <i>You smile remembering the state of said famous author this morning. I think the bar is pretty low- on the floor, even.</i> # s You
 ->graphs
@@ -90,9 +96,13 @@ You’re not really supposed to express ill will towards the decor as your Boss 
 
 <i>She whispers it this time as if to prove some sort of point. You have to hand it to your new guest, she is actually kind of amusing.</i> # s Nessie
 
-“Since you are a proven plant enthusiast, I can actually tell you the title of my research! It is looking into the effects of hydration on dead tree matter, particularly bark. So basically when wood is left in water for too long how does that affect its molecular structure!” # s Nessie # a 1 # h 1 # p 1
+“Since you are a proven plant enthusiast, I can actually tell you the title of my research!"
 
-“Proper sciencey stuff. If my supervisors like it, then I will be all set for becoming a proper researcher! I work for the Scientific Institution for Aquatic Creatures, a <i>very</i> well known establishment.”
+"It is looking into the effects of hydration on dead tree matter, particularly bark." 
+!So basically, when wood is left in water for too long- how does that affect its molecular structure?” # s Nessie # a 1 # h 1 # p 1
+
+“Proper sciencey stuff. If my supervisors like it, then I will be all set for becoming a proper researcher!"
+"I work for the Scientific Institution for Aquatic Creatures, a <i>very</i> well known establishment.”
 
 <i>She seems very proud of her position. It's probably a big deal, even though you have never heard of it.</i> # s You # h 2 # a 2
 -> graphs

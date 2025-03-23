@@ -14,11 +14,17 @@
 
 <i>You immediately realise how stupid that sounds given the context. Nessies face falls, clearly not taking the joke well.</i> # h 4 # p 2
 
-“No, it is NOT alright! You know how I went to look for my computer so I could show you my very declassified totally awesome plant facts???? Well, my stuff is MISSING!!!” # s Nessie # p 3 # h 5 # a 1
+“No, it is NOT alright! You know how I went to look for my computer so I could show you my very declassified totally awesome plant facts????" # s Nessie # p 3 # h 5 # a 1
 
-“Before you ask, yes I have checked everywhere already. I took in all my bags myself when I arrived and I could have sworn I had everything. Look, I even brought my bag-” # h 4 # p 2
+"Well, my stuff is MISSING!!!” 
 
-<i>She stops mid sentence, half way through pulling up some sort of luminous green rucksack onto your desk. It is dripping with water and you really hope she just keeps it where it is.</i> # s You
+“Before you ask, yes I have checked everywhere already."
+
+"I took in all my bags myself when I arrived and I could have sworn I had everything. Look, I even brought my bag-” # h 4 # p 2
+
+<i>She stops mid sentence, half way through pulling up some sort of luminous green rucksack onto your desk.</i> # s You
+
+<i>It is dripping with water and you really hope she just keeps it where it is.</i> # s You
 
 <i>Water damage on the desk would equal instant reprimands from your Boss.</i> 
 
@@ -34,7 +40,9 @@
 
 <i>Uh oh. You suddenly remember her mentioning going through the lake to get here. The pieces are coming together.</i> # s You
 
-“<i>Please</i> tell me you have some sort of diving equipment. I can’t swim below certain depths and I’ll be in major trouble if what I think has happened… has happened…” # s Nessie # h 6 # p 1 # a 2
+“<i>Please</i> tell me you have some sort of diving equipment." #s Nessie
+
+"I can’t swim below certain depths and I’ll be in major trouble if what I think has happened… has happened…” # s Nessie # h 6 # p 1 # a 2
 
 *[<i>Awkwardly shake your head.</i>] -> nodive
 *[<i>Try and dodge the question.</i>] -> playsilly
@@ -52,7 +60,9 @@
 
 “Do you want a hug or something?”
 
-“Aww, you’re so sweet! I’m a little too anxious at the moment and I don’t know you so well, but thanks anyway. The offer itself makes me feel more cheerful already!” # s Nessie # h 2 # a 1 # p 1
+“Aww, you’re so sweet! I’m a little too anxious at the moment and I don’t know you so well, but thanks anyway." # s Nessie # h 2 # a 1 # p 1
+
+"The offer itself makes me feel more cheerful already!”
 -> notlake
 
 === playsilly ===
@@ -126,6 +136,8 @@
 
 “Guess I’ll see you around then. Byee!!” # a 3
 
-<i>She runs off for the second time today. You really can’t keep up with her energy. Hopefully that equipment doesn’t put other tourists off using the lake. You’re sure there will be some way to recover it…</i> # s You # b 0 # a 0  # p 0  # h 0
+<i>She runs off for the second time today. You really can’t keep up with her energy.</i> # s You # b 0 # a 0  # p 0  # h 0
+
+<i>Hopefully that equipment doesn’t put other tourists off using the lake. You’re sure there will be some way to recover it…</i> 
 
 -> END
