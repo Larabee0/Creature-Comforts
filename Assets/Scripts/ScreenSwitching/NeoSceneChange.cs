@@ -112,6 +112,10 @@ public class NeoSceneChange : MonoBehaviour
         {
             if (dir == 3 && gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2")
             {
+                if (gamestate.currentGameState == "report")
+                {
+                    Report();
+                }
                 currentCanvas = desk;
                 UpdateScene();
             }
@@ -200,5 +204,37 @@ public class NeoSceneChange : MonoBehaviour
             note.enabled = false;
             loby.enabled = true ;
         }
+    }
+
+    void Report()
+    {
+        string g = "Keys: ";
+        for (int i = 0; i < gamestate.gradeList.Count; i++)
+        {
+            if (gamestate.gradeList[i] == 4)
+            {
+                g += "A";
+            }
+            else if (gamestate.gradeList[i] == 3)
+            {
+                g += "B";
+            }
+            else if (gamestate.gradeList[i] == 2)
+            {
+                g += "C";
+            }
+            else if (gamestate.gradeList[i] == 1)
+            {
+                g += "D";
+            }
+
+            if (i < gamestate.gradeList.Count - 1)
+            {
+                g += ", ";
+            }
+        }
+        gamestate.grades.text = g;
+
+        gamestate.reportSlide.SlideReport();
     }
 }

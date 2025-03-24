@@ -21,8 +21,7 @@ public class GameState : MonoBehaviour
     public TextAsset n_d1_s1;
     public TextAsset n_d1_s2;
     public KeyGameState keyGame;
-    public Transform hand;
-    public Transform report;
+    public ReportSlide reportSlide;
     public TextMeshProUGUI grades;
     public List<Image> keyHud = new List<Image>();
     public List<Image> dialogueHud = new List<Image>();
