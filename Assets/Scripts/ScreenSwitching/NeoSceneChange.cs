@@ -57,17 +57,9 @@ public class NeoSceneChange : MonoBehaviour
                 case 0:
                     currentCanvas = keys;
                     UpdateScene();
-                    if (gamestate.currentGameState == "key1")
+                    if (gamestate.currentGameState == "key1" || gamestate.currentGameState == "key2" || gamestate.currentGameState == "key3")
                     {
-                        gamestate.keyGame.StartKeyGame(5);
-                    }
-                    else if (gamestate.currentGameState == "key2")
-                    {
-                        gamestate.keyGame.StartKeyGame(10);
-                    }
-                    else if (gamestate.currentGameState == "key3")
-                    {
-                        gamestate.keyGame.StartKeyGame(15);
+                        gamestate.keyGame.ShowPlayButton();
                     }
                     break;
                 case 1:

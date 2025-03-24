@@ -11,8 +11,7 @@ public class GameState : MonoBehaviour
     
     public string currentGameState = "m_d1_s1";
 
-    public int grade1 = 0;
-    public int grade2 = 0;
+    public List<int> gradeList = new List<int>();
 
     [Header("Outside Connections")]
     public DialogueAgent agent;

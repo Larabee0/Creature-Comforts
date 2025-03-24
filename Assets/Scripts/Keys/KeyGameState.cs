@@ -22,6 +22,8 @@ public class KeyGameState : MonoBehaviour
 
     public GameState gs;
 
+    public Button playButton;
+
     KeyData data;
     int[] localBoard; //refrence to the board layout
 
@@ -29,6 +31,10 @@ public class KeyGameState : MonoBehaviour
 
     void Start()
     {
+        playButton.onClick.AddListener(PlayButtonClicked);
+        playButton.GetComponentInChildren<TextMeshProUGUI>().raycastTarget = false;
+        HidePlayButton();
+
         heldKey.GetComponent<Image>().enabled = false;
         heldKey.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
@@ -41,6 +47,14 @@ public class KeyGameState : MonoBehaviour
         {
             int x = i + 1;
             buttons[i].GetComponent<Button>().onClick.AddListener(() => ButtonClicked(x));
+        }
+
+        data.GenerateBoard(); //randomise the board
+        localBoard = data.boardVals; //update board to reflect new randomness
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            int x = i + 1;
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = data.GetHookValAtLocation(x).ToString();
         }
     }
 
@@ -158,32 +172,60 @@ public class KeyGameState : MonoBehaviour
         winImg.enabled = true;
         gameRunning = false;
         Debug.Log("winscrn");
-        if (gs.grade1 == 0)
+        if (gs.currentGameState == "key1")
         {
             if (clock < 13)
-                gs.grade1 = 4;
+                gs.gradeList.Add(4);
             else if (clock < 17)
-                gs.grade1 = 3;
+                gs.gradeList.Add(3);
             else if (clock < 20)
-                gs.grade1 = 2;
+                gs.gradeList.Add(2);
             else
-                gs.grade1 = 1;
+                gs.gradeList.Add(1);
         }
-        else
+        else if (gs.currentGameState == "key2")
         {
             if (clock < 27)
-                gs.grade2 = 4;
+                gs.gradeList.Add(4);
             else if (clock < 31)
-                gs.grade2 = 3;
+                gs.gradeList.Add(3);
             else if (clock < 36)
-                gs.grade2 = 2;
+                gs.gradeList.Add(2);
             else
-                gs.grade2 = 1;
+                gs.gradeList.Add(1);
         }
         gs.UpdateGamestate();
         if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2" || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2")
         {
             gs.ShowDialogueHud();
         }
+    }
+
+    void PlayButtonClicked()
+    {
+        if (gs.currentGameState == "key1")
+            StartKeyGame(5);
+        else if (gs.currentGameState == "key2")
+            StartKeyGame(10);
+        else if (gs.currentGameState == "key3")
+            StartKeyGame(15);
+
+        HidePlayButton();
+    }
+
+    public void HidePlayButton()
+    {
+        playButton.enabled = false;
+        playButton.GetComponent<Image>().enabled = false;
+        playButton.GetComponent<Image>().raycastTarget = false;
+        playButton.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+    }
+
+    public void ShowPlayButton()
+    {
+        playButton.enabled = true;
+        playButton.GetComponent<Image>().enabled = true;
+        playButton.GetComponent<Image>().raycastTarget = true;
+        playButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
     }
 }
