@@ -12,7 +12,9 @@
 
 “Is everything alright?” # a 2 # p 1
 
-<i>You immediately realise how stupid that sounds given the context. Nessies face falls, clearly not taking the joke well.</i> # h 4 # p 2
+<i>You immediately realise how stupid that sounds given the context.</i>
+
+ <i>Nessies face falls, clearly not taking the joke well.</i># h 4 # p 2
 
 “No, it is NOT alright! You know how I went to look for my computer so I could show you my very declassified totally awesome plant facts????" # s Nessie # p 3 # h 5 # a 1
 
@@ -30,7 +32,9 @@
 
 “I’m going to have to ask you not to put that on my desk.” # a 1
 
-<i>Your request goes unheard as she’s still frozen, like someone hit the pause switch. Your mind drifts to images of lizards sleeping on hot rocks under the sun.</i>
+<i>Your request goes unheard as she’s still frozen, like someone hit the pause switch.</i>
+
+<i>Your mind drifts to images of lizards sleeping on hot rocks under the sun.</i>
 
 “Why… is there a hole in the bottom of my bag.” # s Nessie # p 1 # h 3
 
