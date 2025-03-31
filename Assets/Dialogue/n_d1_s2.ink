@@ -54,7 +54,7 @@
 
 === nodive ===
 
-<i>There is literally no way to lie your way out of this one. Better to be honest with her.</i> # s You
+<i>There is literally no way to lie your way out of this one. Better to be honest with her.</i> # s You # plus 1
 
 “Sorry, we don’t carry anything like that.” # a 1 # h 4
 
@@ -71,7 +71,7 @@
 
 === playsilly ===
 
-“Hmm last time I checked, we don’t carry anything like that. Foggy Lake has lots of other amenities though!” # s You # h 4
+“Hmm last time I checked, we don’t carry anything like that. Foggy Lake has lots of other amenities though!” # s You # h 4 # plus 0
 
 <i>You do your best to put on a customer service smile, listing out all the things you can possibly think of that the Motel has.</i> # p 2 # a 2
 
@@ -84,7 +84,7 @@
 
 === whymotel ===
 
-“Well I don’t know?!” # s Nessie # h 5 # p 3 # a 1
+“Well I don’t know?!” # s Nessie # h 5 # p 3 # a 1 # minus 1
 
 “You’re literally sitting next to a giant lake, and the name of your Motel reaffirms this!!” # a 3
 
@@ -107,7 +107,7 @@
 
 === sorrywet ===
 
-<i>You try your best to be helpfully unhelpful, reassuring Nessie that there should be some way to recover or replace her lost stuff.</i> # s You # a 2 # h 4 # p 2
+<i>You try your best to be helpfully unhelpful, reassuring Nessie that there should be some way to recover or replace her lost stuff.</i> # s You # a 2 # h 4 # p 2 # plus 1
 
 “My future is on the line here so of course I am going to come up with a plan… eventually.” # s Nessie # h 6 # p 1
 
@@ -119,7 +119,7 @@
 
 === whyswim ===
 
-<i>Nessie looks extremely unamused.</i> # s You # p 1 # h 5 # a 1
+<i>Nessie looks extremely unamused.</i> # s You # p 1 # h 5 # a 1 # minus 1
 
 “I don’t know, maybe because I am an amphibian who can’t travel long distances out in the open???” # s Nessie # a 2 # p 3 # h 6
 

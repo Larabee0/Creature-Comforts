@@ -17,9 +17,10 @@
 
 === seen1 ===
 
-<i>This is a blatant lie, but you have to find some way to keep yourself entertained in this dreary establishment.</i> # s You
+<i>This is a blatant lie, but you have to find some way to keep yourself entertained in this dreary establishment.</i> # s You # minus 1
 
 “That’s just <i>great</i>. I may already have a huge problem on my hands...” # s Mothman # h 5
+
 “Honestly, why does trouble <i>always</i> seem to follow my vacation leave!” # h 10
 
 
@@ -29,7 +30,7 @@
 
 === seen2 ===
 
-“Excuse me? You’re far too nosy for a receptionist.” # s Mothman # h 10
+“Excuse me? You’re far too nosy for a receptionist.” # s Mothman # h 10 # plus 0
 “I’m sure there are better things to do than pry into guests' personal matters.” # h 1 # b 1 # a 1
 
 <i>You wish he was correct, but he couldn’t be more wrong.</i> # s You
@@ -45,7 +46,7 @@
 
 === seen3 ===
 
-“Splendid. There may still be time yet to fix this. Perhaps they merely haven’t arrived yet.” # s Mothman # h 3
+“Splendid. There may still be time yet to fix this. Perhaps they merely haven’t arrived yet.” # s Mothman # h 3 # plus 1
 “My punctuality has always been a burden when it comes to situations like this.” # h 1
 
 <i>The obvious bragging does not escape your attention. You wonder who they might be expecting.</i> # s You # h 3
@@ -75,7 +76,7 @@
 
 === lastnight1 ===
 
-“Seriously? Is this what you call customer service in this part of the woods?” # s Mothman # h 11 # b 2 # a 2
+“Seriously? Is this what you call customer service in this part of the woods?” # s Mothman # h 11 # b 2 # a 2 # minus 1
 “I could really use even a <i>tiny</i> ounce of co-operation right now.” # h 7
   
 <i>Oops. You seem to have annoyed him with your nonchalant act.</i> # s You # h 11
@@ -89,7 +90,7 @@
 
 === lastnight2 ===
 
-“Sorry to break it to you, <i>you</i> were the last guest to check in last night.” # s You # h 5
+“Sorry to break it to you, <i>you</i> were the last guest to check in last night.” # s You # h 5 # plus 1
  
  <i>Well.. apart from that frazzled reptile woman. She doesn’t seem to fit the description though.</i>
 
@@ -120,7 +121,7 @@
 
 === managerloc1 ===
 
-“Moths <i>no</i>, you’ve proved yourself rather useless already.” # s Mothman # h 10 # b 2 # a 2
+“Moths <i>no</i>, you’ve proved yourself rather useless already.” # s Mothman # h 10 # b 2 # a 2 # minus 1
 “It’s not as if you can make a person suddenly appear, and that is the only thing that will currently solve my problem.” # h 11
 “Ugh, I need a cup of coffee. Where is the machine?” # h 10
 
@@ -134,9 +135,11 @@
 
 === managerloc2 ===
 
-“I cannot <i>believe</i> I’ve lost my damn Press Manager… My publishers won’t like a word of this and I’m already on thin ice for straying from schedule.” # s Mothman # h 10 # b 2 # a 2
+“I cannot <i>believe</i> I’ve lost my damn Press Manager… My publishers won’t like a word of this and I’m already on thin ice for straying from schedule.” # s Mothman # h 10 # b 2 # a 2 # plus 1
 “They might be even more mad about the books though… I am too, but less so.” # h 5
+
 “I can manage without that tasteless garbage being distributed under my name.” # h 1
+
 “Honestly, who thought the 'Roman Empire' was going to be more interesting than the Renaissance, or even the 1800s…” # h 7
 
 <i>He doesn’t appear to be paying attention to you any more, but realises this far too late.</i> # s You # b 1 # a 3 # h 10

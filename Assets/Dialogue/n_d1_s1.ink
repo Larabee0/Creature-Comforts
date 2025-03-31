@@ -31,7 +31,7 @@
 
 === goodjob ===
 
-“So… do you need anything?” # s You
+“So… do you need anything?” # s You # plus 1
 
 <i>She stares at you blankly for a minute before ceasing her zoning out.</i> # a 1 # h 1
 
@@ -41,7 +41,7 @@
 -> spacedout
 
 === tired ===
-<i>You remain awkwardly silent.</i> # s You # a 2
+<i>You remain awkwardly silent.</i> # s You # a 2 # minus 1
 
 <i>She also remains awkwardly silent.</i> # h 5
 
@@ -83,7 +83,7 @@
 
 === dumb ===
 
-<i>You thankfully admit that you are not a qualified scientist and therefore have nothing more to add to this conversation.</i> # s You # a 1
+<i>You thankfully admit that you are not a qualified scientist and therefore have nothing more to add to this conversation.</i> # s You # a 1 # minus 1
 
 “Awww mannn you’re no fun! I finally thought someone was actually taking an interest in my career." # h 5
 
@@ -94,7 +94,7 @@
 
 === smart ===
 
-<i>You hurriedly spout out some words about seaweeds and the local lake foliage. It seems to work pretty well.</i> # s You # h 2
+<i>You hurriedly spout out some words about seaweeds and the local lake foliage. It seems to work pretty well.</i> # s You # h 2 # plus 1
 
 “Yay, a fellow plant enthusiast?? SO COOL." # s Nessie # a 3 # h 1 # p 3
 

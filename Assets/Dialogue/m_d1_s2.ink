@@ -36,7 +36,7 @@
 *[“I’ll let you know if anyone calls!”] -> manager2
 
 === manager1 ===
-“<i>Former Manager</i>, would be a more polite way to phrase it now, I suppose.” # s Mothman # h 2 # b 2 # a 2
+“<i>Former Manager</i>, would be a more polite way to phrase it now, I suppose.” # s Mothman # h 2 # b 2 # a 2 # plus 1
 “Whilst I do hope nothing bad has befallen them, I must say that it is a rather fortunate turn of events they won’t be staying during my holiday.” # h 3
 “It was already a chore convincing them to let me come here for a couple days at all.” # h 1
 “We often do not get along, even at the best of times. Opposing views on genre and such. ” # h 10 # b 2 # a 2
@@ -47,7 +47,7 @@
 -> job
 
 === manager2 ===
-“Thank you. I wouldn't suspect it would be before tomorrow morning, but just in case.” # s Mothman # h 2 # b 2 # a 2
+“Thank you. I wouldn't suspect it would be before tomorrow morning, but just in case.” # s Mothman # h 2 # b 2 # a 2 # plus 0
 
 -> job
 
@@ -64,7 +64,7 @@
 *[“Never heard of you.”] -> known2
 
 === known1 ===
-“I rather think it should! M. Mothman is a household staple.” # s Mothman # h 10
+“I rather think it should! M. Mothman is a household staple.” # s Mothman # h 10 # plus 1
 “For connoisseurs of historical fiction, that is…” # h 3
 “I’ve written such classics as <i>‘The Dawning of the Lamp’</i> and <i>‘Beyond the Forest Trees Part 2 featuring new Addendums'."</i> # h 9
 “In fact, right at this very moment I’m working on my greatest work yet! # h 6
@@ -77,7 +77,7 @@
 
 === known2 ===
 <i> He stares at you in mock offence. Silent. This is awkward… </i> # s Mothman # h 4
-“Never…heard…of…me??” # h 7
+“Never…heard…of…me??” # h 7 # minus 1
 “You must be lying. I can’t believe it! Either that, or you have no taste.” # h 10
 “It seems I’ve come to expect that from this reception.” # h 11
 “<i>Never</i> heard of me… honestly, I’m a <i>multi award winning bestseller.</i> Look me up.” # h 8
