@@ -82,7 +82,6 @@ public class DialogueAgent : MonoBehaviour {
 			{
 				gs.ShowKeyHud();
 			}
-
         }
 
 		// Display all the choices, if there are any!
@@ -114,12 +113,13 @@ public class DialogueAgent : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
+		pause = true;
+		tss.ScrollText("TEMP", text);
 		if (story.currentTags.Count > 0)
 		{
 			ParseTags();
 		}
-		pause = true;
-		tss.ScrollText("TEMP", text);
+		Debug.Log(text + " : " + story.currentTags.Count);
 	}
 
 	void ParseTags ()
@@ -136,10 +136,10 @@ public class DialogueAgent : MonoBehaviour {
 				case "s":
 					nameTag.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 					string suffix = tag.Split(" ")[1].ToLower();
-					if (suffix == "mothman")
-						nameTag.sprite = nameTags[0];
-					else if (suffix == "you")
+					if (suffix == "you")
 						nameTag.sprite = nameTags[1];
+					else if (suffix == "mothman")
+						nameTag.sprite = nameTags[0];
 					else if (suffix == "nessie")
 						nameTag.sprite = nameTags[2];
 					else if (suffix == "boss")
