@@ -5,7 +5,8 @@
 // a [num]  = arms [sprite num]
 // p [num]  = hair [sprite num]
 
-<i>This customer was ringing the bell so aggressively you are almost tempted to ignore it. But, duty calls. Reception chores aren’t going anywhere any time soon.</i> # s You # b 1 # a 3 # h 1 # p 1
+<i>This customer was ringing the bell so aggressively you are almost tempted to ignore it.</i> # s You # b 1 # a 3 # h 1 # p 1
+<i>But, duty calls. Reception chores aren’t going anywhere any time soon.</i>
 
 “Gooood morning!!!!” # s Nessie
 
@@ -40,7 +41,11 @@
 -> spacedout
 
 === tired ===
-<i>You remain awkwardly silent. She also remains awkwardly silent. You suddenly have no idea what you were trying to achieve here.</i> # s You # a 2
+<i>You remain awkwardly silent.</i> # s You # a 2
+
+<i>She also remains awkwardly silent.</i>
+
+<i>You suddenly have no idea what you were trying to achieve here.</i>
 
 <i>You probably should be doing your actual job by greeting the guests correctly. Oh well.</i>
 -> spacedout
@@ -59,13 +64,15 @@
 
 “... You see, I’ve come down here to this part of the woods to research some extra special flora and fauna, but it was such a hassle to make it here, I’m simply EXHAUSTED.” # s Nessie # p 1 
 
-<i>You feel like now is as good a time as any to interject her train of thought with your meager attempts at small talk.<i/>
+<i>You feel like now is as good a time as any to interject her train of thought with your meager attempts at small talk.</i>
 
 “Cool. So, what kind of science are you into?” # s You # h 6
 
 “Oooh nobody ever asks me that! I’m a <i>very</i> qualified plant expert!!"
 
-"I mainly look into weird bits of wood that get stuck in lakes and river systems and the like. I am technically not a full scientist yet, but I’m working on it!!” # s Nessie # a 2 # h 2
+"I mainly look into weird bits of wood that get stuck in lakes and river systems and the like.” # s Nessie # a 2 # h 2
+
+"I am technically not a full scientist yet, but I’m working on it!!"
 
 <i>You wonder where on earth is taking research interns that want to look at damp tree trunks.</i> # s You
 
@@ -79,6 +86,7 @@
 <i>You thankfully admit that you are not a qualified scientist and therefore have nothing more to add to this conversation.</i> # s You
 
 “Awww mannn you’re no fun! I finally thought someone was actually taking an interest in my career."
+
 "I’ve heard there’s a famous author staying here too, there’s no way I can compete with that!!!” # s Nessie # h 5 # a 1 # p 2
 
  <i>You smile remembering the state of said famous author this morning. I think the bar is pretty low- on the floor, even.</i> # s You
@@ -99,9 +107,10 @@
 “Since you are a proven plant enthusiast, I can actually tell you the title of my research!"
 
 "It is looking into the effects of hydration on dead tree matter, particularly bark." 
-!So basically, when wood is left in water for too long- how does that affect its molecular structure?” # s Nessie # a 1 # h 1 # p 1
+"So basically, when wood is left in water for too long- how does that affect its molecular structure?” # s Nessie # a 1 # h 1 # p 1
 
 “Proper sciencey stuff. If my supervisors like it, then I will be all set for becoming a proper researcher!"
+
 "I work for the Scientific Institution for Aquatic Creatures, a <i>very</i> well known establishment.”
 
 <i>She seems very proud of her position. It's probably a big deal, even though you have never heard of it.</i> # s You # h 2 # a 2
