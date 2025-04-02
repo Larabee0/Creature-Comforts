@@ -144,7 +144,15 @@ public class DialogueAgent : MonoBehaviour {
 						nameTag.sprite = nameTags[3];
 					break;
 
-				case "h":
+				case "plus":
+					gs.ModifySentiment(npcTalking, int.Parse(tag.Split(" ")[1]));
+					break;
+
+				case "minus":
+                    gs.ModifySentiment(npcTalking, 0 - int.Parse(tag.Split(" ")[1]));
+                    break;
+
+                case "h":
 					head.sprite = npcExpr.GetHead(npcTalking ,int.Parse(tag.Split(" ")[1]));
 					break;
 

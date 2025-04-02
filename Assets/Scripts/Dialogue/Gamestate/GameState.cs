@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
     public TextMeshProUGUI grades;
     public List<Image> keyHud = new List<Image>();
     public List<Image> dialogueHud = new List<Image>();
+    public int nessieSentiment = 0, mothmanSentiment = 0;
 
     public void UpdateGamestate()
     {
@@ -90,5 +91,17 @@ public class GameState : MonoBehaviour
     public string GetGamestate()
     {
         return currentGameState;
+    }
+
+    public void ModifySentiment(string name, int modification)
+    {
+        if (name == "Mothman")
+        {
+            mothmanSentiment += modification;
+        }
+        else if (name == "Nessie")
+        {
+            nessieSentiment += modification;
+        }
     }
 }
