@@ -137,6 +137,8 @@ public class NeoSceneChange : MonoBehaviour
         gamestate.agent.npcTalking = "Mothman";
 
         gamestate.talking.enabled = true;
+        mothmanB.GetComponent<Image>().enabled = false;
+        mothmanB.enabled = false;
 
         if      (gamestate.currentGameState == "m_d1_s1")
             gamestate.agent.inkJSONAsset = gamestate.m_d1_s1;
@@ -153,6 +155,8 @@ public class NeoSceneChange : MonoBehaviour
         gamestate.agent.npcTalking = "Nessie";
 
         gamestate.talking.enabled = true;
+        mothmanB.GetComponent<Image>().enabled = false;
+        mothmanB.enabled = false;
 
         if      (gamestate.currentGameState == "n_d1_s1")
             gamestate.agent.inkJSONAsset = gamestate.n_d1_s1;

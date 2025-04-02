@@ -38,7 +38,7 @@ public class DialogueAgent : MonoBehaviour {
 
     private void Update()
     {
-        if (story != null && story.currentChoices.Count == 0 && !pause && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+        if (story != null && story.currentChoices.Count == 0 && !pause && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0)))
 		{
 			RefreshView();
 		}
@@ -48,7 +48,6 @@ public class DialogueAgent : MonoBehaviour {
     public void StartStory () {
 		pause = false;
 		story = new Story (inkJSONAsset.text);
-		gs.HideDialogueHud();
 		RefreshView();
 	}
 	
@@ -119,7 +118,7 @@ public class DialogueAgent : MonoBehaviour {
 		{
 			ParseTags();
 		}
-		Debug.Log(text + " : " + story.currentTags.Count);
+		//Debug.Log(text + " : " + story.currentTags.Count);
 	}
 
 	void ParseTags ()
@@ -134,7 +133,6 @@ public class DialogueAgent : MonoBehaviour {
 			switch (prefix)
 			{
 				case "s":
-					nameTag.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 					string suffix = tag.Split(" ")[1].ToLower();
 					if (suffix == "you")
 						nameTag.sprite = nameTags[1];
@@ -144,12 +142,6 @@ public class DialogueAgent : MonoBehaviour {
 						nameTag.sprite = nameTags[2];
 					else if (suffix == "boss")
 						nameTag.sprite = nameTags[3];
-					else
-					{
-						nameTag.sprite = nameTags[4];
-						nameTag.GetComponentInChildren<TextMeshProUGUI>().enabled=true;
-                        nameTag.GetComponentInChildren<TextMeshProUGUI>().text = tag.Split(" ")[1];
-                    }
 					break;
 
 				case "h":

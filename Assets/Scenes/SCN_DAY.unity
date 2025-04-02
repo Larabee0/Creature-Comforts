@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 466277740}
   tmp: {fileID: 599929591}
-  speaker: {fileID: 1936936301}
+  speaker: {fileID: 0}
   endMarker: {fileID: 1395457739}
 --- !u!82 &466277736
 AudioSource:
@@ -13068,18 +13068,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932192198}
   m_CullTransparentMesh: 1
---- !u!114 &1936936301 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7027885232787357857, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
-    type: 3}
-  m_PrefabInstance: {fileID: 2137916916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1945941201
 GameObject:
   m_ObjectHideFlags: 0
@@ -14334,7 +14322,7 @@ PrefabInstance:
     - target: {fileID: 1347298261618738333, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2350423343977992510, guid: 19cd849eb07ab2840ab9adf3a4b69b96,
         type: 3}
@@ -14478,7 +14466,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7931985328066126424, guid: 19cd849eb07ab2840ab9adf3a4b69b96, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1347298261618738333, guid: 19cd849eb07ab2840ab9adf3a4b69b96, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19cd849eb07ab2840ab9adf3a4b69b96, type: 3}
