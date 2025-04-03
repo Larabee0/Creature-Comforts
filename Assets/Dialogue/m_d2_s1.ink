@@ -60,7 +60,7 @@
 *[“I don’t think I’m qualified to give an opinion on this…”] -> notqualified
 
 === needsbreak ===
-<i>The sound of laughter comes through the other end of the line.</i> # s You
+<i>The sound of laughter comes through the other end of the line.</i> # s You # plus 1
 
 “Has he been complaining to you or something? You have <i>got</i> to be kidding me.” # s Publisher
 
@@ -76,7 +76,7 @@
 -> phoneend
 
 === publisheragree ===
-<i>Begrudgingly, you share this man's sentiment. It wasn’t very professional to run away from work responsibilities. You’ve learnt this the hard way in the past.</i> # s You
+<i>Begrudgingly, you share this man's sentiment. It wasn’t very professional to run away from work responsibilities. You’ve learnt this the hard way in the past.</i> # s You # minus 1
 
 “Great to see you have some common sense in you. We are working on locating Aubrey and the missing books this very minute. All will be sorted in due time.” # s Publisher
 
@@ -88,7 +88,7 @@
 -> END
 
 === notqualified ===
-“That is something you and I can agree on.” # s Publisher
+“That is something you and I can agree on.” # s Publisher # plus 0
 
 <i>The thought of reducing yourself to a simple customer service worker is a little bit depressing.</i> # s You
 

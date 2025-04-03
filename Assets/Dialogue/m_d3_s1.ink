@@ -35,7 +35,7 @@
 
 === contract ===
 
-“I don’t know why I expected someone of your caliber to be on the same page as me.” # s Mothman # h 10
+“I don’t know why I expected someone of your caliber to be on the same page as me.” # s Mothman # h 10 # minus 1
 
 “Maybe my hopes were wrongly placed…” # h 11
 
@@ -45,7 +45,7 @@
 
 === unfair ===
 
-“Aren’t they just! I’m glad we see eye to eye, like kindred spirits.” # s Mothman # h 6
+“Aren’t they just! I’m glad we see eye to eye, like kindred spirits.” # s Mothman # h 6 # plus 1
 
 <i>He seems very pleased with your agreement. You really do think his Publishers seem very controlling over him.</i> # s You # 
 
@@ -90,7 +90,7 @@
 
 === support ===
 
-“I think you might have a bestseller on your hands!” # s You
+“I think you might have a bestseller on your hands!” # s You # plus 1
 
 <i>The chances are closer to 50/50, but you really do want to see him succeed with his creative passion.</i> 
 
@@ -133,7 +133,7 @@
 
 === deny ===
 
-<i>You have to be honest with him. It would be too painful otherwise</i> # s You
+<i>You have to be honest with him. It would be too painful otherwise</i> # s You # minus 1
 
 “I’m not sure that’s the most original idea…” # h 4
 

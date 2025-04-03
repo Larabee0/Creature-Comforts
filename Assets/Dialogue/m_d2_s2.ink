@@ -19,7 +19,7 @@
 
 === lie ===
 
-“Is there <i>anything</i> that works in this Moth forsaken Motel?” # s Mothman # h 10
+“Is there <i>anything</i> that works in this Moth forsaken Motel?” # s Mothman # h 10 # minus 1
 
 <i>You smile sheepishly, hoping he doesn’t notice your anxiety. You always were a terrible liar.</i> # s You
 
@@ -39,7 +39,7 @@
 
 === truth ===
 
-<i>You choose to admit you handled the call yourself, since you were so curious.</i> # s You
+<i>You choose to admit you handled the call yourself, since you were so curious.</i> # s You # plus 1
 
 “You…” # s Mothman # h 4
 
@@ -100,7 +100,7 @@
 
 === romannah ===
 
-<i>You express your absolute and utter abhorrence for the phrases that just left his mouth. That is not literature, you exclaim in feverish tones, that is tasteless rubbish!!</i> # s You # h 3
+<i>You express your absolute and utter abhorrence for the phrases that just left his mouth. That is not literature, you exclaim in feverish tones, that is tasteless rubbish!!</i> # s You # h 3 # plus 1
 
 “At last, an opinion of merit, spoken with such class!” # s Mothman # b 1 # a 1 # h 6
 
@@ -112,7 +112,7 @@
 
 === romanyes ===
 
-<i>He stares at you, aghast. Obviously not the words he wanted to hear, but sometimes you have to strike a little bit of reality into the heart of someone absorbed so constantly by their ego.</i> # s You # h 4
+<i>He stares at you, aghast. Obviously not the words he wanted to hear, but sometimes you have to strike a little bit of reality into the heart of someone absorbed so constantly by their ego.</i> # s You # h 4 # minus 1
 
 “You sound just like Aubrey.” # s Mothman # h 1
 
