@@ -8,6 +8,7 @@ using UnityEngine.UI;
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class DialogueAgent : MonoBehaviour {
 	public string npcTalking = "Mothman";
+	string text;
 
 	TextScrollingScript tss;
 
@@ -44,6 +45,10 @@ public class DialogueAgent : MonoBehaviour {
 		{
 			RefreshView();
 		}
+		else if (story != null && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+		{
+			tss.SkipLine(text);
+		}
     }
 
     // Creates a new Story object with the compiled story which we can then play!
@@ -61,7 +66,7 @@ public class DialogueAgent : MonoBehaviour {
 		if (story.canContinue)
 		{
 			// Continue gets the next line of the story
-			string text = story.Continue();
+			text = story.Continue();
 			// This removes any white space from the text.
 			text = text.Trim();
 			// Display the text on screen!
@@ -115,7 +120,7 @@ public class DialogueAgent : MonoBehaviour {
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
 		pause = true;
-		tss.ScrollText("TEMP", text);
+		tss.ScrollText(text);
 		if (story.currentTags.Count > 0)
 		{
 			ParseTags();

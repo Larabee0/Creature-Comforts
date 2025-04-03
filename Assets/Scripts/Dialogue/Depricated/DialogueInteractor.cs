@@ -68,7 +68,7 @@ public class DialogueInteractor : MonoBehaviour
             }
         }
 
-        tss.ScrollText(nameToPrint, textToPrint);
+        tss.ScrollText(textToPrint);
         pause = true;
     }
 

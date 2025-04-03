@@ -14,14 +14,17 @@ public class TextScrollingScript : MonoBehaviour
 
     public Image endMarker;
 
+    int lineKey = 0;
+
     private void Start()
     {
         agent = GetComponent<DialogueAgent>();
     }
 
-    public void ScrollText(string name = "NO_NAME_GIVEN", string inputText = "NO_TEXT_GIVEN")
-    { 
+    public void ScrollText(string inputText = "NO_TEXT_GIVEN")
+    {
         endMarker.enabled = false; //turns off endmarker at the start of line scroll
+        lineKey++;
 
         List<string> constructionParts = new List<string>(); // list to hold all the parts of the line
         string stringPart = ""; // this stores the part of the string that is being constructed
@@ -59,31 +62,44 @@ public class TextScrollingScript : MonoBehaviour
         {
             if (constructionParts[i][0] == '<')
             {
-                StartCoroutine(PrintInOrder(placeKeeper, constructionParts[i]));
+                StartCoroutine(PrintInOrder(placeKeeper, constructionParts[i], lineKey));
             }
             else
             {
                 for (int j = 0; j < constructionParts[i].Length; j++)
                 {
-                    StartCoroutine(PrintInOrder(placeKeeper + j, ""+constructionParts[i][j]));
+                    StartCoroutine(PrintInOrder(placeKeeper + j, "" + constructionParts[i][j], lineKey));
                 }
             }
             placeKeeper += constructionParts[i].Length;
         }
-        StartCoroutine(UnpauseInputs(strLen));
+        StartCoroutine(UnpauseInputs(strLen, lineKey));
     }
 
-    IEnumerator PrintInOrder(int i, string s)
+    public void SkipLine(string inputText)
     {
-        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        buildUpString += s;
-        tmp.text = buildUpString;
-    }
-
-    IEnumerator UnpauseInputs(int i)
-    {
-        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        endMarker.enabled = true;
+        lineKey++;
+        tmp.text = inputText;
         agent.pause = false;
+    }
+
+    IEnumerator PrintInOrder(int i, string s, int t)
+    {
+        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
+        if (t == lineKey)
+        {
+            buildUpString += s;
+            tmp.text = buildUpString;
+        }
+    }
+
+    IEnumerator UnpauseInputs(int i, int t)
+    {
+        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
+        if (t == lineKey)
+        {
+            endMarker.enabled = true;
+            agent.pause = false;
+        }
     }
 }
