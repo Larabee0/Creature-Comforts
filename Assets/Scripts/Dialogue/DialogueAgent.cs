@@ -30,6 +30,7 @@ public class DialogueAgent : MonoBehaviour {
 	Image head, arms, body, hair;
 
 	public GameState gs;
+	public MoveAndFade heartAnim, brokenHeartAnim;
 
     private void Start()
     {
@@ -146,10 +147,15 @@ public class DialogueAgent : MonoBehaviour {
 
 				case "plus":
 					gs.ModifySentiment(npcTalking, int.Parse(tag.Split(" ")[1]));
+					if (int.Parse(tag.Split(" ")[1]) > 0)
+					{
+						heartAnim.StartAnim();
+					}
 					break;
 
 				case "minus":
                     gs.ModifySentiment(npcTalking, 0 - int.Parse(tag.Split(" ")[1]));
+					brokenHeartAnim.StartAnim();
                     break;
 
                 case "h":
