@@ -310,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &73706661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -382,8 +382,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fading: 0
-  fadeTime: 0
-  holdTime: 0
+  fadeTime: 2
+  holdTime: 3
+  gs: {fileID: 466277741}
 --- !u!1 &82756406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,8 +3186,6 @@ MonoBehaviour:
   - {fileID: 1360581945}
   brokenHeartAnim:
   - {fileID: 954391151}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &466277741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3207,6 +3206,12 @@ MonoBehaviour:
   m_d1_s2: {fileID: 4900000, guid: fa54bc2a253f30645bccb595553ac165, type: 3}
   n_d1_s1: {fileID: 4900000, guid: 02d1be71265d18940a8964d77703c5c8, type: 3}
   n_d1_s2: {fileID: 4900000, guid: 68d510447b5c7464ba4095341b62d1fe, type: 3}
+  m_d2_s1: {fileID: 4900000, guid: c89a4542d7ba50b47b895e5d75e6a975, type: 3}
+  m_d2_s2: {fileID: 4900000, guid: 95af59c77c6200645927769a298c5f9f, type: 3}
+  n_d2_s1: {fileID: 4900000, guid: 4f55c78826505464292fcd2e78910352, type: 3}
+  n_d2_s2: {fileID: 4900000, guid: 2556e1a95787fbc40aa3688bd1147e6d, type: 3}
+  m_d3_s1: {fileID: 4900000, guid: 0b081621b773908439eea4e0a4158bbc, type: 3}
+  n_d3_s1: {fileID: 4900000, guid: 37cd06d9edbcabb47bddd8b0ff878691, type: 3}
   keyGame: {fileID: 466277742}
   reportSlide: {fileID: 466277745}
   grades: {fileID: 618359229}
@@ -3221,6 +3226,7 @@ MonoBehaviour:
   - {fileID: 269304064}
   nessieSentiment: 0
   mothmanSentiment: 0
+  dc: {fileID: 73706664}
 --- !u!114 &466277742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,6 +3320,21 @@ MonoBehaviour:
   endPoint: {fileID: 1087677746}
   moveInSpeed: 1
   moveOutSpeed: 2
+  finalGrade: {fileID: 1191785139}
+  bossQoute: {fileID: 1365419221}
+  gradeImgs:
+  - {fileID: 21300000, guid: 825e68bd90b92bc439a80a25e77e9672, type: 3}
+  - {fileID: 21300000, guid: 51a2e8d9ae4f42a4793d82489c0db0aa, type: 3}
+  - {fileID: 21300000, guid: c961978a2ceb2fd42ab301a93b44d5aa, type: 3}
+  - {fileID: 21300000, guid: 8b80ea48fd00b1048adf63e09ad8a60e, type: 3}
+  - {fileID: 21300000, guid: 4d7b4b97a9962b1428065e047142ce1a, type: 3}
+  bossQoutes:
+  - {fileID: 21300000, guid: cf974e379b700ac4f829f3997479206d, type: 3}
+  - {fileID: 21300000, guid: 57425ed36493ed14da8d3b763c14d184, type: 3}
+  - {fileID: 21300000, guid: d4ced6880281b404ca73b9f14850e9b6, type: 3}
+  - {fileID: 21300000, guid: 7650e82cffb1d7f4f9c8f434ddd4f03d, type: 3}
+  - {fileID: 21300000, guid: 7aba1e422116df449a6bbba540a5245f, type: 3}
+  gs: {fileID: 466277741}
 --- !u!1 &469239265
 GameObject:
   m_ObjectHideFlags: 0
@@ -12662,7 +12683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day: 2'
+  m_text: random text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c6eb5e3c3a0a8947838182c4a77f430, type: 2}
   m_sharedMaterial: {fileID: 6956954939319063344, guid: 4c6eb5e3c3a0a8947838182c4a77f430,

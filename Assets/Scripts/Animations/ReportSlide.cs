@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReportSlide : MonoBehaviour
 {
@@ -10,14 +11,21 @@ public class ReportSlide : MonoBehaviour
                      endPoint;
 
     public float moveInSpeed, moveOutSpeed;
+
+    public Image finalGrade, bossQoute;
+    public List<Sprite> gradeImgs = new List<Sprite>(), 
+                        bossQoutes = new List<Sprite>();
+
     float clock;
 
     bool moving = false;
+
+    public GameState gs;
     private void Update()
     {
         if (moving)
         {
-            if (clock < 1)
+            if (clock <= 1)
             {
                 clock += Time.deltaTime * moveInSpeed;
                 Vector3 pos = Vector3.Lerp(startPoint.position, endPoint.position, clock);
@@ -31,9 +39,10 @@ public class ReportSlide : MonoBehaviour
                 hand.position = pos;
                 report.position = endPoint.position;
             }
-            if (clock >= 2)
+            if (clock >= 10)
             {
                 moving = false;
+                gs.UpdateGamestate();
             }
         }
     }
@@ -42,5 +51,13 @@ public class ReportSlide : MonoBehaviour
     {
         moving = true;
         clock = 0;
+    }
+
+    public void ResetReport()
+    {
+        clock = 0;
+        moving = false;
+        report.position = startPoint.position;
+        gs.gradeList.Clear();
     }
 }

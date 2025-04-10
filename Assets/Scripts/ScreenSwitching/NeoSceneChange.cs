@@ -67,7 +67,7 @@ public class NeoSceneChange : MonoBehaviour
                     UpdateScene();
                     break;
                 case 2:
-                    if (gamestate.currentGameState ==  "m_d1_s1" || gamestate.currentGameState == "m_d1_s2")
+                    if (gamestate.currentGameState ==  "m_d1_s1" || gamestate.currentGameState == "m_d1_s2" || gamestate.currentGameState == "m_d2_s1" || gamestate.currentGameState == "m_d2_s2" || gamestate.currentGameState == "m_d3_s1")
                     {
                         mothmanB.GetComponent<Image>().enabled = true;
                         mothmanB.enabled = true;
@@ -77,7 +77,7 @@ public class NeoSceneChange : MonoBehaviour
                         mothmanB.GetComponent<Image>().enabled = false;
                         mothmanB.enabled = false;
                     }
-                    if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2")
+                    if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2" || gamestate.currentGameState == "n_d2_s1" || gamestate.currentGameState == "n_d2_s2" || gamestate.currentGameState == "n_d3_s1")
                     {
                         nessieB.GetComponent<Image>().enabled = true;
                         nessieB.enabled = true;
@@ -110,13 +110,14 @@ public class NeoSceneChange : MonoBehaviour
         }
         else if (currentCanvas == talk)
         {
-            if (dir == 3 && gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2")
+            if (dir == 3 && gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2" && gamestate.currentGameState != "m_d2_s1" && gamestate.currentGameState != "m_d2_s2" && gamestate.currentGameState != "n_d2_s1" && gamestate.currentGameState != "n_d2_s2" && gamestate.currentGameState != "m_d3_s1" && gamestate.currentGameState != "n_d3_s1")
             {
                 if (gamestate.currentGameState == "report")
                 {
                     Report();
                 }
                 currentCanvas = desk;
+                gamestate.HideDialogueHud();
                 UpdateScene();
             }
         }
@@ -144,6 +145,12 @@ public class NeoSceneChange : MonoBehaviour
             gamestate.agent.inkJSONAsset = gamestate.m_d1_s1;
         else if (gamestate.currentGameState == "m_d1_s2")
             gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+        else if (gamestate.currentGameState == "m_d2_s1")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+        else if (gamestate.currentGameState == "m_d2_s2")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+        else if (gamestate.currentGameState == "m_d3_s1")
+            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
 
         gamestate.agent.StartStory();
     }
@@ -161,6 +168,12 @@ public class NeoSceneChange : MonoBehaviour
         if      (gamestate.currentGameState == "n_d1_s1")
             gamestate.agent.inkJSONAsset = gamestate.n_d1_s1;
         else if (gamestate.currentGameState == "n_d1_s2")
+            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+        else if (gamestate.currentGameState == "n_d2_s1")
+            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+        else if (gamestate.currentGameState == "n_d2_s2")
+            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+        else if (gamestate.currentGameState == "n_d3_s1")
             gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
 
         gamestate.agent.StartStory();
@@ -229,7 +242,7 @@ public class NeoSceneChange : MonoBehaviour
             }
             else if (gamestate.gradeList[i] == 1)
             {
-                g += "D";
+                g += "F";
             }
 
             if (i < gamestate.gradeList.Count - 1)
@@ -238,6 +251,14 @@ public class NeoSceneChange : MonoBehaviour
             }
         }
         gamestate.grades.text = g;
+
+        int val = 0;
+        for (int i = 0; i < gamestate.gradeList.Count; i++)
+        {
+            val += gamestate.gradeList[i]; 
+        }
+        gamestate.reportSlide.finalGrade.sprite = gamestate.reportSlide.gradeImgs [(int)((float)val / (float)gamestate.gradeList.Count)];
+        gamestate.reportSlide.bossQoute.sprite  = gamestate.reportSlide.bossQoutes[(int)((float)val / (float)gamestate.gradeList.Count)];
 
         gamestate.reportSlide.SlideReport();
     }

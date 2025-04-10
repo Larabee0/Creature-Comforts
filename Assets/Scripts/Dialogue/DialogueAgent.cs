@@ -88,6 +88,7 @@ public class DialogueAgent : MonoBehaviour {
 			{
 				gs.ShowKeyHud();
 			}
+			story = null;
         }
 
 		// Display all the choices, if there are any!

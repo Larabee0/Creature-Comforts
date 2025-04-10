@@ -11,6 +11,8 @@ public class DayChange : MonoBehaviour
     public float fadeTime, holdTime;
     Image blkScrn;
     TextMeshProUGUI tmp;
+    bool reportHidden = false;
+    public GameState gs;
 
     void Start()
     {
@@ -30,6 +32,14 @@ public class DayChange : MonoBehaviour
             {
                 FadeIn();
             }
+            else if (clock >= fadeTime && clock < fadeTime + holdTime)
+            {
+                if (!reportHidden)
+                {
+                    gs.reportSlide.ResetReport();
+                    reportHidden = true;
+                }
+            }
             else if (clock >= fadeTime + holdTime)
             {
                 FadeOut();
@@ -37,14 +47,18 @@ public class DayChange : MonoBehaviour
                 {
                     fading = false;
                     clock = 0;
+                    gs.UpdateGamestate();
                 }
             }
         }
     }
 
-    public void StartFade()
+    public void StartFade(int day)
     {
+        clock = 0;
         fading = true;
+        reportHidden = false;
+        tmp.text = "Day: " + day;
     }
 
     void FadeIn()

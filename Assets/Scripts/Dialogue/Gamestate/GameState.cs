@@ -20,12 +20,19 @@ public class GameState : MonoBehaviour
     public TextAsset m_d1_s2;
     public TextAsset n_d1_s1;
     public TextAsset n_d1_s2;
+    public TextAsset m_d2_s1;
+    public TextAsset m_d2_s2;
+    public TextAsset n_d2_s1;
+    public TextAsset n_d2_s2;
+    public TextAsset m_d3_s1;
+    public TextAsset n_d3_s1;
     public KeyGameState keyGame;
     public ReportSlide reportSlide;
     public TextMeshProUGUI grades;
     public List<Image> keyHud = new List<Image>();
     public List<Image> dialogueHud = new List<Image>();
     public int nessieSentiment = 0, mothmanSentiment = 0;
+    public DayChange dc;
 
     public void UpdateGamestate()
     {
@@ -52,6 +59,60 @@ public class GameState : MonoBehaviour
                 break;
             case 7:
                 currentGameState = "report";
+                break;
+            case 8:
+                currentGameState = "newDay";
+                dc.StartFade(2);
+                break;
+            case 9:
+                currentGameState = "m_d2_s1";
+                break;
+            case 10:
+                currentGameState = "key2";
+                break;
+            case 11:
+                currentGameState = "n_d2_s1";
+                break;
+            case 12:
+                currentGameState = "key2";
+                break;
+            case 13:
+                currentGameState = "n_d2_s2";
+                break;
+            case 14:
+                currentGameState = "key3";
+                break;
+            case 15:
+                currentGameState = "m_d2_s2";
+                break;
+            case 16:
+                currentGameState = "report";
+                break;
+            case 17:
+                currentGameState = "newDay";
+                dc.StartFade(3);
+                break;
+            case 18:
+                currentGameState = "key2";
+                break;
+            case 19:
+                currentGameState = "n_d3_s1";
+                break;
+            case 20:
+                currentGameState = "key3";
+                break;
+            case 21:
+                currentGameState = "m_d3_s1";
+                break;
+            case 22:
+                currentGameState = "key3";
+                break;
+            case 23:
+                currentGameState = "report";
+                break;
+            case 24:
+                currentGameState = "newDay";
+                dc.StartFade(4);
                 break;
         }
     }
