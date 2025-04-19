@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
@@ -34,6 +34,13 @@ public class DialogueAgent : MonoBehaviour {
 	public List<MoveAndFade> heartAnim = new List<MoveAndFade>();
 	public List<MoveAndFade> brokenHeartAnim = new List<MoveAndFade>();
 
+	[SerializeField] private float doubleTapTimeout = 0.5f;
+	private bool doubleTapGuard;
+	private Coroutine timeout;
+
+    // simplified access to buttons that skip diagloue
+    private bool SkipTrigger => Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0);
+
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
@@ -41,14 +48,52 @@ public class DialogueAgent : MonoBehaviour {
 
     private void Update()
     {
-        if (story != null && story.currentChoices.Count == 0 && !pause && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0)))
+		if (story != null) // guard agaist the story being null once
 		{
-			RefreshView();
-		}
-		else if (story != null && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0)))
-		{
-			tss.SkipLine(text);
-		}
+			if (doubleTapGuard && SkipTrigger) // on second click
+            {
+                if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
+                {
+                    RefreshView();
+                }
+                else // if skipping the whole block is not avaliable then try skip a single line??
+                {
+                    tss.SkipLine(text); 
+                }
+				StopDoubleTapTimeout(); // consume double click
+            }
+			else if (SkipTrigger) // skip a single line of diagloue
+            {
+                tss.SkipLine(text); 
+
+                StopDoubleTapTimeout(); // reset incase the corotuine is till running
+                StartCoroutine(DoubleTapTimeout()); // set double click flag and start timeout for it.
+            }
+        }
+    }
+
+	// manual way to end the double tap time out early
+	// this is used in case of a second button press to consume that double tap
+	// meaning the next button repss will skip a line instead of the whole page.
+    private void StopDoubleTapTimeout()
+    {
+        doubleTapGuard = false;
+        if (timeout != null)
+        {
+            StopCoroutine(timeout);
+            timeout = null;
+        }
+    }
+
+	// simple double press system, after first press, seet this flag to true
+	// after the duration passes set it to false and the coroutine to null
+    private IEnumerator DoubleTapTimeout()
+	{
+		doubleTapGuard = true;
+		yield return new WaitForSeconds(doubleTapTimeout);
+        doubleTapGuard = false;
+        timeout = null;
+
     }
 
     // Creates a new Story object with the compiled story which we can then play!
