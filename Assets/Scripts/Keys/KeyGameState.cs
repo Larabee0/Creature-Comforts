@@ -54,7 +54,7 @@ public class KeyGameState : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             int x = i + 1;
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = data.GetHookValAtLocation(x).ToString();
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = GetKeyText(data.GetHookValAtLocation(x));
         }
     }
 
@@ -67,6 +67,17 @@ public class KeyGameState : MonoBehaviour
             clock += Time.deltaTime;
             timer.GetComponentInChildren<TextMeshProUGUI>().text = (int)clock + "." + ((int)(clock * 10) - (int)clock*10) + "s";
         }
+    }
+
+
+
+    private string GetKeyText(int heldVal)
+    {
+        if(heldVal == 6 ||  heldVal == 9)
+        {
+            return string.Format("{0}.", heldVal);
+        }
+        return heldVal.ToString();
     }
 
     void ButtonClicked(int buttonNo)
@@ -90,7 +101,7 @@ public class KeyGameState : MonoBehaviour
                     TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
                     thisKey.enabled = true;
                     thistmp.enabled = true;
-                    thistmp.text = "" + heldKeyVal;
+                    thistmp.text = GetKeyText(heldKeyVal);
                     won = data.CheckForSuccess();
                     if (won)
                     {
@@ -147,7 +158,7 @@ public class KeyGameState : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             int x = i + 1;
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = data.GetHookValAtLocation(x).ToString();
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = GetKeyText(data.GetHookValAtLocation(x)).ToString();
         }
 
         for (int i = 0; i < buttons.Count; i++)
@@ -164,7 +175,7 @@ public class KeyGameState : MonoBehaviour
             TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
             thisKey.enabled = true;
             thistmp.enabled = true;
-            thistmp.text = "" + kvp.Key;
+            thistmp.text = GetKeyText(kvp.Key);
             Debug.Log("" + kvp.Key);
         }
     }
