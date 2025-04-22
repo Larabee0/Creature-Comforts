@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
@@ -114,6 +115,7 @@ public class DialogueAgent : MonoBehaviour
 		story = new Story(inkJSONAsset.text);
 		RefreshView();
         storyStartedThisFrame = true;
+        EventSystem.current.SetSelectedGameObject(null);
 
     }
 
@@ -173,6 +175,7 @@ public class DialogueAgent : MonoBehaviour
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton(Choice choice)
 	{
+		if (story == null) return;
 		if (!pause && choice.index < story.currentChoices.Count)
 		{
 
@@ -183,6 +186,7 @@ public class DialogueAgent : MonoBehaviour
 		{
 			Debug.LogWarningFormat(gameObject, "Choice index out of range {0} Target: {1}, Source: {0}", choice.index, choice.targetPath, choice.sourcePath);
 		}
+		EventSystem.current.SetSelectedGameObject(null);
 	}
 
 	// Creates a textbox showing the the line of text
