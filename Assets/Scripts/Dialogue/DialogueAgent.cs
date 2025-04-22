@@ -156,10 +156,15 @@ public class DialogueAgent : MonoBehaviour {
 
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
-		if (!pause)
+		if (!pause && choice.index < story.currentChoices.Count)
 		{
+			
 			story.ChooseChoiceIndex (choice.index);
 			RefreshView();
+		}
+		else if(choice.index >= story.currentChoices.Count)
+		{
+			Debug.LogWarningFormat(gameObject, "Choice index out of range {0} Target: {1}, Source: {0}", choice.index, choice.targetPath, choice.sourcePath);
 		}
 	}
 
