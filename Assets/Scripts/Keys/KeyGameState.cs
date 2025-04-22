@@ -199,6 +199,7 @@ public class KeyGameState : MonoBehaviour
         {
             gs.ShowDialogueHud();
         }
+
     }
 
     void PlayButtonClicked()

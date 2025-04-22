@@ -109,7 +109,6 @@ public class TextScrollingScript : MonoBehaviour
     private IEnumerator ScrollTextCoroutine(List<string> constructionParts)
     {
         buildUpString = new(); // creates a place to store text as it is made
-        int placeKeeper = 0; // create a value to keep the place in line
         for (int i = 0; i < constructionParts.Count; i++) // for each chunk of dialogue and MD tag
         {
             if (constructionParts[i].StartsWith('<'))
@@ -121,7 +120,6 @@ public class TextScrollingScript : MonoBehaviour
             {
                 yield return PrintSection(constructionParts[i], lineKey);
             }
-            placeKeeper += constructionParts[i].Length;
         }
         yield return new WaitForSeconds(1 / (SettingsScript.textScrollSpeed * 10));
         endMarker.enabled = true;

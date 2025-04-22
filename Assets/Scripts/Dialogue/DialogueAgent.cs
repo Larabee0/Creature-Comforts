@@ -149,6 +149,7 @@ public class DialogueAgent : MonoBehaviour
 				gs.ShowKeyHud();
 			}
 			story = null;
+			return;
 		}
 
 		// Display all the choices, if there are any!
