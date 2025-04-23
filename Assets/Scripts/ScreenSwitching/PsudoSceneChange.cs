@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PsudoSceneChange : MonoBehaviour
 {
-    public AudioSFX sfx;
     public Bell bell;
     //public HungKeyEnabler hke;
     public DialogueInteractor di;

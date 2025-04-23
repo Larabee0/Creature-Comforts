@@ -34,6 +34,8 @@ public class DialogueAgent : MonoBehaviour {
 	public List<MoveAndFade> heartAnim = new List<MoveAndFade>();
 	public List<MoveAndFade> brokenHeartAnim = new List<MoveAndFade>();
 
+	public UIAudio uIAudio, altUIAudio;
+
     private void Start()
     {
         tss = GetComponent<TextScrollingScript>();
@@ -115,6 +117,7 @@ public class DialogueAgent : MonoBehaviour {
 		{
 			story.ChooseChoiceIndex (choice.index);
 			RefreshView();
+			altUIAudio.PlayMenuButton();
 		}
 	}
 
@@ -156,6 +159,7 @@ public class DialogueAgent : MonoBehaviour {
 					gs.ModifySentiment(npcTalking, int.Parse(tag.Split(" ")[1]));
 					if (int.Parse(tag.Split(" ")[1]) > 0)
 					{
+						uIAudio.PlayCorrectChoice();
 						foreach (MoveAndFade i in heartAnim) 
 						{
 							i.StartAnim();
@@ -165,6 +169,7 @@ public class DialogueAgent : MonoBehaviour {
 
 				case "minus":
                     gs.ModifySentiment(npcTalking, 0 - int.Parse(tag.Split(" ")[1]));
+					uIAudio.PlayIncorrectChoice();
 					foreach (MoveAndFade i in brokenHeartAnim)
 					{
 						i.StartAnim();

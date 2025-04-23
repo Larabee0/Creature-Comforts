@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class KeyGameState : MonoBehaviour
 {
+    public KeyGameAudio kGAudio;
+    public UIAudio uIAudio;
+
     public GameObject heldKey;
     bool holdingKey = false;
     int heldKeyVal;
 
-    public AudioSFX sfx;
     public Image bellIcon;
 
     public Image winImg;
@@ -92,6 +94,7 @@ public class KeyGameState : MonoBehaviour
                     thistmp.enabled = true;
                     thistmp.text = "" + heldKeyVal;
                     won = data.CheckForSuccess();
+                    kGAudio.PlayPlace();
                     if (won)
                     {
                         WinScreen();
@@ -113,6 +116,7 @@ public class KeyGameState : MonoBehaviour
                     TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
                     thisKey.enabled = false;
                     thistmp.enabled = false;
+                    kGAudio.PlayPickup();
                 }
             }
         }
@@ -169,6 +173,7 @@ public class KeyGameState : MonoBehaviour
 
     void WinScreen()
     {
+        uIAudio.PlayCorrectChoice();
         winImg.enabled = true;
         gameRunning = false;
         Debug.Log("winscrn");

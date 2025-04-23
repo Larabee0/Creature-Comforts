@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class DialogueInteractor : MonoBehaviour
 {
-    public AudioSFX sfx;
     public Canvas end;
     public Image mothman;
     public Image nessie;
@@ -201,7 +200,6 @@ public class DialogueInteractor : MonoBehaviour
                 i = 0;
                 questionLinks.Clear();
                 PrintLine();
-                sfx.Bell();
             }
         }
     }

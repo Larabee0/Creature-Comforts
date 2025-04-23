@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Tut_DialogueInteractor : MonoBehaviour
 {
-    public AudioSFX sfx;
     public Image mothman;
     public Image jeremy;
     public DialogueInteractor di;
@@ -218,7 +217,6 @@ public class Tut_DialogueInteractor : MonoBehaviour
                 i = 0;
                 questionLinks.Clear();
                 PrintLine();
-                sfx.Bell();
             }
         }
     }

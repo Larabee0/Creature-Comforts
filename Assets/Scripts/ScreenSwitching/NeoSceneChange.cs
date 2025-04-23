@@ -258,7 +258,7 @@ public class NeoSceneChange : MonoBehaviour
             val += gamestate.gradeList[i]; 
         }
         gamestate.reportSlide.finalGrade.sprite = gamestate.reportSlide.gradeImgs [(int)((float)val / (float)gamestate.gradeList.Count)];
-        gamestate.reportSlide.bossQoute.sprite  = gamestate.reportSlide.bossQoutes[(int)((float)val / (float)gamestate.gradeList.Count)];
+        gamestate.reportSlide.bossQoute .sprite = gamestate.reportSlide.bossQoutes[(int)((float)val / (float)gamestate.gradeList.Count)];
 
         gamestate.reportSlide.SlideReport();
     }
