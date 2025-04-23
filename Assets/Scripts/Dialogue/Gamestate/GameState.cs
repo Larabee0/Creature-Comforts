@@ -31,6 +31,8 @@ public class GameState : MonoBehaviour
     public TextMeshProUGUI grades;
     public List<Image> keyHud = new List<Image>();
     public List<Image> dialogueHud = new List<Image>();
+    public Image mothmanDialogueHudLobby;
+    public Image nessieDialogueHudLobby;
     public int nessieSentiment = 0, mothmanSentiment = 0;
     public DayChange dc;
 
@@ -147,6 +149,26 @@ public class GameState : MonoBehaviour
         {
             dialogueHud[i].enabled = false;
         }
+    }
+
+    public void ShowMothmanDialgoueHud()
+    {
+        mothmanDialogueHudLobby.enabled = true;
+    }
+
+    public void ShowNessieDialgoueHud()
+    {
+        nessieDialogueHudLobby.enabled = true;
+    }
+
+    public void HideMothmanDialgoueHud()
+    {
+        mothmanDialogueHudLobby.enabled = false;
+    }
+
+    public void HideNessieDialgoueHud()
+    {
+        nessieDialogueHudLobby.enabled = false;
     }
 
     public string GetGamestate()

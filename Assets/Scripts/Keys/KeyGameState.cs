@@ -56,7 +56,7 @@ public class KeyGameState : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             int x = i + 1;
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = data.GetHookValAtLocation(x).ToString();
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = GetKeyText(data.GetHookValAtLocation(x));
         }
     }
 
@@ -69,6 +69,17 @@ public class KeyGameState : MonoBehaviour
             clock += Time.deltaTime;
             timer.GetComponentInChildren<TextMeshProUGUI>().text = (int)clock + "." + ((int)(clock * 10) - (int)clock*10) + "s";
         }
+    }
+
+
+
+    private string GetKeyText(int heldVal)
+    {
+        if(heldVal == 6 ||  heldVal == 9)
+        {
+            return string.Format("{0}.", heldVal);
+        }
+        return heldVal.ToString();
     }
 
     void ButtonClicked(int buttonNo)
@@ -92,7 +103,7 @@ public class KeyGameState : MonoBehaviour
                     TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
                     thisKey.enabled = true;
                     thistmp.enabled = true;
-                    thistmp.text = "" + heldKeyVal;
+                    thistmp.text = GetKeyText(heldKeyVal);
                     won = data.CheckForSuccess();
                     kGAudio.PlayPlace();
                     if (won)
@@ -124,50 +135,52 @@ public class KeyGameState : MonoBehaviour
 
     public void StartKeyGame(int difficulty = 1)
     {
-        if (!gameRunning) 
+        if (gameRunning)
         {
-            gs.HideKeyHud();
+            return;
+        }
 
-            timer.enabled = true;
-            timer.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
-            clock = 0;
-            gameRunning = true;
-            won = false;
-            winImg.enabled = false;
+        gs.HideKeyHud();
 
-            data.keyToLocationPairs = new Dictionary<int, int>();
-            data.locationToHookPairs = new Dictionary<int, int>();
+        timer.enabled = true;
+        timer.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        clock = 0;
+        gameRunning = true;
+        won = false;
+        winImg.enabled = false;
 
-            data.GenerateBoard(); //randomise the board
-            localBoard = data.boardVals; //update board to reflect new randomness
-            data.GenerateKeys(difficulty);
+        data.keyToLocationPairs = new Dictionary<int, int>();
+        data.locationToHookPairs = new Dictionary<int, int>();
 
-            heldKey.GetComponent<Image>().enabled = false; //hide the key in hand
-            heldKey.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+        data.GenerateBoard(); //randomise the board
+        localBoard = data.boardVals; //update board to reflect new randomness
+        data.GenerateKeys(difficulty);
 
-            for (int i = 0; i < buttons.Count; i++)
-            {
-                int x = i + 1;
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = data.GetHookValAtLocation(x).ToString();
-            }
+        heldKey.GetComponent<Image>().enabled = false; //hide the key in hand
+        heldKey.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
 
-            for (int i = 0; i < buttons.Count; i++)
-            {
-                Image thisKey = buttons[i].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
-                TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
-                thisKey.enabled = false;
-                thistmp.enabled = false;
-            }
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            int x = i + 1;
+            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = GetKeyText(data.GetHookValAtLocation(x)).ToString();
+        }
 
-            foreach (KeyValuePair<int, int> kvp in data.keyToLocationPairs)
-            {
-                Image thisKey = buttons[kvp.Value - 1].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
-                TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
-                thisKey.enabled = true;
-                thistmp.enabled = true;
-                thistmp.text = "" + kvp.Key;
-                Debug.Log("" + kvp.Key);
-            }
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Image thisKey = buttons[i].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
+            TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
+            thisKey.enabled = false;
+            thistmp.enabled = false;
+        }
+
+        foreach (KeyValuePair<int, int> kvp in data.keyToLocationPairs)
+        {
+            Image thisKey = buttons[kvp.Value - 1].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
+            TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
+            thisKey.enabled = true;
+            thistmp.enabled = true;
+            thistmp.text = GetKeyText(kvp.Key);
+            Debug.Log("" + kvp.Key);
         }
     }
 
@@ -204,6 +217,7 @@ public class KeyGameState : MonoBehaviour
         {
             gs.ShowDialogueHud();
         }
+
     }
 
     void PlayButtonClicked()
@@ -228,6 +242,7 @@ public class KeyGameState : MonoBehaviour
 
     public void ShowPlayButton()
     {
+        winImg.enabled = false;
         playButton.enabled = true;
         playButton.GetComponent<Image>().enabled = true;
         playButton.GetComponent<Image>().raycastTarget = true;

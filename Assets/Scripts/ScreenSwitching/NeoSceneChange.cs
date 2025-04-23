@@ -52,45 +52,56 @@ public class NeoSceneChange : MonoBehaviour
         if (currentCanvas == desk)
         {
             if (gamestate.currentGameState != "report")
-            switch (dir)
-            {
-                case 0:
-                    currentCanvas = keys;
-                    UpdateScene();
-                    if (gamestate.currentGameState == "key1" || gamestate.currentGameState == "key2" || gamestate.currentGameState == "key3")
-                    {
-                        gamestate.keyGame.ShowPlayButton();
-                    }
-                    break;
-                case 1:
-                    currentCanvas = note;
-                    UpdateScene();
-                    break;
-                case 2:
-                    if (gamestate.currentGameState ==  "m_d1_s1" || gamestate.currentGameState == "m_d1_s2" || gamestate.currentGameState == "m_d2_s1" || gamestate.currentGameState == "m_d2_s2" || gamestate.currentGameState == "m_d3_s1")
-                    {
-                        mothmanB.GetComponent<Image>().enabled = true;
-                        mothmanB.enabled = true;
-                    }
-                    else
-                    {
-                        mothmanB.GetComponent<Image>().enabled = false;
-                        mothmanB.enabled = false;
-                    }
-                    if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2" || gamestate.currentGameState == "n_d2_s1" || gamestate.currentGameState == "n_d2_s2" || gamestate.currentGameState == "n_d3_s1")
-                    {
-                        nessieB.GetComponent<Image>().enabled = true;
-                        nessieB.enabled = true;
-                    }
-                    else
-                    {
-                        nessieB.GetComponent<Image>().enabled = false;
-                        nessieB.enabled = false;
-                    }
+                switch (dir)
+                {
+                    case 0:
+                        currentCanvas = keys;
+                        UpdateScene();
+                        if (gamestate.currentGameState == "key1" || gamestate.currentGameState == "key2" || gamestate.currentGameState == "key3")
+                        {
+                            gamestate.keyGame.ShowPlayButton();
+                        }
+                        break;
+                    case 1:
+                        currentCanvas = note;
+                        UpdateScene();
+                        break;
+                    case 2:
+                        if (gamestate.currentGameState == "m_d1_s1" || gamestate.currentGameState == "m_d1_s2" || gamestate.currentGameState == "m_d2_s1" || gamestate.currentGameState == "m_d2_s2" || gamestate.currentGameState == "m_d3_s1")
+                        {
+                            mothmanB.GetComponent<Image>().enabled = true;
+
+                            if (gamestate.currentGameState == "m_d1_s1" || gamestate.currentGameState == "m_d1_s2")
+                            {
+                                gamestate.ShowMothmanDialgoueHud();
+                            }
+                            mothmanB.enabled = true;
+                        }
+                        else
+                        {
+                            gamestate.HideMothmanDialgoueHud();
+                            mothmanB.GetComponent<Image>().enabled = false;
+                            mothmanB.enabled = false;
+                        }
+                        if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2" || gamestate.currentGameState == "n_d2_s1" || gamestate.currentGameState == "n_d2_s2" || gamestate.currentGameState == "n_d3_s1")
+                        {
+                            if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2")
+                            {
+                                gamestate.ShowNessieDialgoueHud();
+                            }
+                            nessieB.GetComponent<Image>().enabled = true;
+                            nessieB.enabled = true;
+                        }
+                        else
+                        {
+                            gamestate.HideNessieDialgoueHud();
+                            nessieB.GetComponent<Image>().enabled = false;
+                            nessieB.enabled = false;
+                        }
                         currentCanvas = loby;
-                    UpdateScene();
-                    break;
-            }
+                        UpdateScene();
+                        break;
+                }
         }
         else if (currentCanvas == keys)
         {
