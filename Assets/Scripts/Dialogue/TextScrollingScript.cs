@@ -7,11 +7,10 @@ using UnityEngine.UI;
 
 public class TextScrollingScript : MonoBehaviour
 {
-    private static bool USE_NEW_SCROLLER = true;
     public DialogueAgent agent;
 
     public TextMeshProUGUI tmp;
-    public TextMeshProUGUI speaker;
+
     private StringBuilder buildUpString = new();
 
     private Coroutine scrollCoroutine;
@@ -44,58 +43,15 @@ public class TextScrollingScript : MonoBehaviour
         lineKey++;
         // get parts
         List<string> constructionParts = GenerateParts(inputText);
-        if (USE_NEW_SCROLLER)
+
+        if (scrollCoroutine != null)
         {
-            if(scrollCoroutine != null)
-            {
-                StopCoroutine(scrollCoroutine);
-            }
-            scrollCoroutine = StartCoroutine(ScrollTextCoroutine(constructionParts));
-            return;
+            StopCoroutine(scrollCoroutine);
         }
-        // speaker.text = name; // DEPRICATED
-        buildUpString = new(); // creates a place to store text as it is made
-        int strLen = inputText.Length; // find out length of line so that inputs can be unpaused
-        int placeKeeper = 0; // create a value to keep the place in line
-        for (int i = 0; i < constructionParts.Count; i++) // for each chunk of dialogue and MD tag
-        {
-            if (constructionParts[i][0] == '<')
-            {
-                StartCoroutine(PrintInOrder(placeKeeper, constructionParts[i], lineKey));
-            }
-            else
-            {
-                for (int j = 0; j < constructionParts[i].Length; j++)
-                {
-                    StartCoroutine(PrintInOrder(placeKeeper + j, "" + constructionParts[i][j], lineKey));
-                }
-            }
-            placeKeeper += constructionParts[i].Length;
-        }
-        StartCoroutine(UnpauseInputs(strLen, lineKey));
+        scrollCoroutine = StartCoroutine(ScrollTextCoroutine(constructionParts));
     }
 
-    private IEnumerator PrintInOrder(int i, string s, int t)
-    {
-        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        if (t == lineKey)
-        {
-            buildUpString.Append(s);
-            tmp.text = buildUpString.ToString();
-        }
-    }
-
-    private IEnumerator UnpauseInputs(int i, int t)
-    {
-        yield return new WaitForSeconds(i / (SettingsScript.textScrollSpeed * 10));
-        if (t <= lineKey)
-        {
-            endMarker.enabled = true;
-            agent.pause = false;
-        }
-    }
-
-    private IEnumerator PrintSection(string str, int t)
+    private IEnumerator PrintSection(string str)
     {
         for (int i = 0; i < str.Length; i++)
         {
@@ -118,7 +74,7 @@ public class TextScrollingScript : MonoBehaviour
             }
             else
             {
-                yield return PrintSection(constructionParts[i], lineKey);
+                yield return PrintSection(constructionParts[i]);
             }
         }
         yield return new WaitForSeconds(1 / (SettingsScript.textScrollSpeed * 10));
@@ -156,6 +112,7 @@ public class TextScrollingScript : MonoBehaviour
             {
                 stringPart.Append(inputText[i]); // add current character to string part
             }
+
             if (i == inputText.Length - 1) // if you have reached the end of the line
             {
                 constructionParts.Add(stringPart.ToString()); // add what you have made to construction parts
@@ -164,5 +121,4 @@ public class TextScrollingScript : MonoBehaviour
 
         return constructionParts;
     }
-
 }

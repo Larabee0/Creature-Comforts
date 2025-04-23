@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -36,9 +35,6 @@ public class DialogueAgent : MonoBehaviour
 	public List<MoveAndFade> heartAnim = new();
 	public List<MoveAndFade> brokenHeartAnim = new();
 
-	[SerializeField] private float doubleTapTimeout = 0.5f;
-	private bool doubleTapGuard;
-	private Coroutine timeout;
 	private bool storyStartedThisFrame = false;
 	public UIAudio uIAudio, altUIAudio;
 
@@ -54,60 +50,18 @@ public class DialogueAgent : MonoBehaviour
 	{
 		if (story != null && SkipTrigger) // guard agaist the story being null once
 		{
-			if (doubleTapGuard) // on second click
-			{
-				if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
-				{
-					RefreshView();
-				}
-				else // if skipping the whole block is not avaliable then try skip a single line??
-				{
-					tss.SkipLine(text);
-				}
-				StopDoubleTapTimeout(); // consume double click
-			}
-			else // skip a single line of diagloue
+            if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
             {
-                if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
-                {
-                    RefreshView();
-                }
-                else // if skipping the whole block is not avaliable then try skip a single line??
-                {
-                    tss.SkipLine(text);
-                }
-
-                StopDoubleTapTimeout(); // reset incase the corotuine is till running
-				StartCoroutine(DoubleTapTimeout()); // set double click flag and start timeout for it.
-			}
+                RefreshView();
+            }
+            else // if skipping the whole block is not avaliable then try skip a single line??
+            {
+                tss.SkipLine(text);
+            }
 		}
+
 		storyStartedThisFrame = false;
-
     }
-
-	// manual way to end the double tap time out early
-	// this is used in case of a second button press to consume that double tap
-	// meaning the next button repss will skip a line instead of the whole page.
-	private void StopDoubleTapTimeout()
-	{
-		doubleTapGuard = false;
-		if (timeout != null)
-		{
-			StopCoroutine(timeout);
-			timeout = null;
-		}
-	}
-
-	// simple double press system, after first press, seet this flag to true
-	// after the duration passes set it to false and the coroutine to null
-	private IEnumerator DoubleTapTimeout()
-	{
-		doubleTapGuard = true;
-		yield return new WaitForSeconds(doubleTapTimeout);
-		doubleTapGuard = false;
-		timeout = null;
-
-	}
 
 	// Creates a new Story object with the compiled story which we can then play!
 	public void StartStory()
@@ -182,12 +136,12 @@ public class DialogueAgent : MonoBehaviour
 
 			story.ChooseChoiceIndex(choice.index);
 			RefreshView();
-			altUIAudio.PlayMenuButton();
+			if (altUIAudio != null)
+			{
+				altUIAudio.PlayMenuButton();
+			}
 		}
-		else if (choice.index >= story.currentChoices.Count)
-		{
-			Debug.LogWarningFormat(gameObject, "Choice index out of range {0} Target: {1}, Source: {0}", choice.index, choice.targetPath, choice.sourcePath);
-		}
+
 		EventSystem.current.SetSelectedGameObject(null);
 	}
 
@@ -200,7 +154,6 @@ public class DialogueAgent : MonoBehaviour
 		{
 			ParseTags();
 		}
-		//Debug.Log(text + " : " + story.currentTags.Count);
 	}
 
 	void ParseTags()
@@ -228,7 +181,10 @@ public class DialogueAgent : MonoBehaviour
 					gs.ModifySentiment(npcTalking, int.Parse(tag.Split(" ")[1]));
 					if (int.Parse(tag.Split(" ")[1]) > 0)
 					{
-						uIAudio.PlayCorrectChoice();
+						if (uIAudio != null)
+						{
+							uIAudio.PlayCorrectChoice();
+						}
 						foreach (MoveAndFade i in heartAnim) 
 						{
 							i.StartAnim();
@@ -238,8 +194,12 @@ public class DialogueAgent : MonoBehaviour
 
 				case "minus":
                     gs.ModifySentiment(npcTalking, 0 - int.Parse(tag.Split(" ")[1]));
-					uIAudio.PlayIncorrectChoice();
-					foreach (MoveAndFade i in brokenHeartAnim)
+
+                    if (uIAudio != null)
+                    {
+                        uIAudio.PlayCorrectChoice();
+                    }
+                    foreach (MoveAndFade i in brokenHeartAnim)
 					{
 						i.StartAnim();
 					}

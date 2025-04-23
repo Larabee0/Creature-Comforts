@@ -29,7 +29,7 @@ public class KeyGameState : MonoBehaviour
     KeyData data;
     int[] localBoard; //refrence to the board layout
 
-    public List<GameObject> buttons = new List<GameObject>(); //refrence to the buttons
+    public List<GameObject> buttons = new(); //refrence to the buttons
 
     void Start()
     {
@@ -105,7 +105,11 @@ public class KeyGameState : MonoBehaviour
                     thistmp.enabled = true;
                     thistmp.text = GetKeyText(heldKeyVal);
                     won = data.CheckForSuccess();
-                    kGAudio.PlayPlace();
+
+                    if (kGAudio != null)
+                    {
+                        kGAudio.PlayPickup();
+                    }
                     if (won)
                     {
                         WinScreen();
@@ -127,7 +131,10 @@ public class KeyGameState : MonoBehaviour
                     TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
                     thisKey.enabled = false;
                     thistmp.enabled = false;
-                    kGAudio.PlayPickup();
+                    if (kGAudio != null)
+                    {
+                        kGAudio.PlayPickup();
+                    }
                 }
             }
         }
