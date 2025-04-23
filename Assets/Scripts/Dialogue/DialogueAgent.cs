@@ -42,11 +42,6 @@ public class DialogueAgent : MonoBehaviour
 	private bool storyStartedThisFrame = false;
 	public UIAudio uIAudio, altUIAudio;
 
-    private void Start()
-    {
-        tss = GetComponent<TextScrollingScript>();
-    }
-
 	// simplified access to buttons that skip diagloue
 	private bool SkipTrigger => !storyStartedThisFrame && (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0));
 
