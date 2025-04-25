@@ -35,6 +35,7 @@ public class GameState : MonoBehaviour
     public Image nessieDialogueHudLobby;
     public int nessieSentiment = 0, mothmanSentiment = 0;
     public DayChange dc;
+    public Music music;
 
     public void UpdateGamestate()
     {
@@ -51,6 +52,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key1";
                 break;
             case 4:
+                music.SwapSong();
                 currentGameState = "m_d1_s2";
                 break;
             case 5:
@@ -67,6 +69,7 @@ public class GameState : MonoBehaviour
                 dc.StartFade(2);
                 break;
             case 9:
+                music.SwapSong();
                 currentGameState = "m_d2_s1";
                 break;
             case 10:
@@ -79,6 +82,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key2";
                 break;
             case 13:
+                music.SwapSong();
                 currentGameState = "n_d2_s2";
                 break;
             case 14:
@@ -95,6 +99,7 @@ public class GameState : MonoBehaviour
                 dc.StartFade(3);
                 break;
             case 18:
+                music.SwapSong();
                 currentGameState = "key2";
                 break;
             case 19:
@@ -110,6 +115,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key3";
                 break;
             case 23:
+                music.SwapSong();
                 currentGameState = "report";
                 break;
             case 24:
