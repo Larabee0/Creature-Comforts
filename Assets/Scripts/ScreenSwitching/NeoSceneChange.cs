@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class NeoSceneChange : MonoBehaviour
     public Canvas loby;
     public Button mothmanB;
     public Button nessieB;
+    public Button keyNavRight;
 
     [SerializeField] Canvas currentCanvas;
 
@@ -42,7 +44,7 @@ public class NeoSceneChange : MonoBehaviour
             ChangeScene(3);
     }
 
-    void ChangeScene(int dir)
+    public void ChangeScene(int dir)
     {
         // dir 0 = left
         // dir 1 = right
@@ -107,6 +109,7 @@ public class NeoSceneChange : MonoBehaviour
         {
             if (dir == 1 && gamestate.currentGameState != "key1" && gamestate.currentGameState != "key2")
             {
+                keyNavRight.gameObject.SetActive(false);
                 currentCanvas = desk;
                 UpdateScene();
             }
@@ -126,6 +129,10 @@ public class NeoSceneChange : MonoBehaviour
                 if (gamestate.currentGameState == "report")
                 {
                     Report();
+                }
+                else if(gamestate.currentGameState == "final_report")
+                {
+                    FinalReport();
                 }
                 currentCanvas = desk;
                 gamestate.HideDialogueHud();
@@ -232,6 +239,11 @@ public class NeoSceneChange : MonoBehaviour
             note.enabled = false;
             loby.enabled = true ;
         }
+    }
+
+    private void FinalReport()
+    {
+        gamestate.reportSlide.SlideFinalReport();
     }
 
     void Report()

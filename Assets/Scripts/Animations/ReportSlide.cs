@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class ReportSlide : MonoBehaviour
     float clock;
 
     bool moving = false;
+
+    [SerializeField] private ReportCard finalReport;
+    [SerializeField] private GameObject dayReport;
 
     public GameState gs;
     private void Update()
@@ -59,5 +63,14 @@ public class ReportSlide : MonoBehaviour
         moving = false;
         report.position = startPoint.position;
         gs.gradeList.Clear();
+        finalReport.gameObject.SetActive(false);
+        dayReport.SetActive(true);
+    }
+
+    public void SlideFinalReport()
+    {
+        finalReport.SetCard(gs.mothmanSentiment, gs.nessieSentiment);
+        dayReport.SetActive(false);
+        SlideReport();
     }
 }

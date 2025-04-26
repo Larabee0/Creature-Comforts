@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
     
     public string currentGameState = "m_d1_s1";
 
-    public List<int> gradeList = new List<int>();
+    public List<int> gradeList = new();
 
     [Header("Outside Connections")]
     public DialogueAgent agent;
@@ -120,7 +120,10 @@ public class GameState : MonoBehaviour
                 break;
             case 24:
                 currentGameState = "newDay";
-                dc.StartFade(4);
+                dc.StartFinalFade();
+                break;
+            case 25:
+                currentGameState = "final_report";
                 break;
         }
     }

@@ -25,6 +25,7 @@ public class KeyGameState : MonoBehaviour
     public GameState gs;
 
     public Button playButton;
+    public Button keyNavRight;
 
     KeyData data;
     int[] localBoard; //refrence to the board layout
@@ -195,6 +196,8 @@ public class KeyGameState : MonoBehaviour
     {
         uIAudio.PlayCorrectChoice();
         winImg.enabled = true;
+
+        keyNavRight.gameObject.SetActive(true);
         gameRunning = false;
         Debug.Log("winscrn");
         if (gs.currentGameState == "key1")

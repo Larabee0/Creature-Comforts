@@ -61,6 +61,12 @@ public class DayChange : MonoBehaviour
         tmp.text = "Day: " + day;
     }
 
+    public void StartFinalFade()
+    {
+        StartFade(0);
+        tmp.text = "Final Report";
+    }
+
     void FadeIn()
     {
         Color col = Color.Lerp(Color.clear, Color.white, clock / fadeTime);
