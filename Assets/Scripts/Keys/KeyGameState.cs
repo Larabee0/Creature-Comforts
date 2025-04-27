@@ -70,7 +70,14 @@ public class KeyGameState : MonoBehaviour
             clock += Time.deltaTime;
             timer.GetComponentInChildren<TextMeshProUGUI>().text = (int)clock + "." + ((int)(clock * 10) - (int)clock*10) + "s";
         }
-    }
+
+#if UNITY_EDITOR
+        if (Input.GetKeyUp(KeyCode.F1))
+        {
+            WinScreen();
+        }
+#endif
+        }
 
 
 
@@ -126,7 +133,7 @@ public class KeyGameState : MonoBehaviour
                     heldKey.GetComponent<Image>().enabled = true;
                     heldKey.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
                     heldKeyVal = valAtLoc;
-                    heldKey.GetComponentInChildren<TextMeshProUGUI>().text = valAtLoc.ToString();
+                    heldKey.GetComponentInChildren<TextMeshProUGUI>().text = GetKeyText(valAtLoc);
                     heldKey.GetComponentInChildren<TextMeshProUGUI>().raycastTarget = false;
                     Image thisKey = buttons[buttonNo - 1].GetComponentInChildren<KeyLoc>().GetComponent<Image>();
                     TextMeshProUGUI thistmp = thisKey.GetComponentInChildren<TextMeshProUGUI>();
@@ -223,7 +230,11 @@ public class KeyGameState : MonoBehaviour
                 gs.gradeList.Add(1);
         }
         gs.UpdateGamestate();
-        if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2" || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2")
+        if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2"
+            || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2"
+            || gs.currentGameState == "m_d2_s1" || gs.currentGameState == "m_d2_s2"
+            || gs.currentGameState == "n_d2_s1" || gs.currentGameState == "n_d2_s2"
+            || gs.currentGameState == "m_d3_s1" || gs.currentGameState == "n_d3_s1")
         {
             gs.ShowDialogueHud();
         }

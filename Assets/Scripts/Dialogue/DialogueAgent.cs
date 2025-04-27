@@ -116,6 +116,12 @@ public class DialogueAgent : MonoBehaviour
 			{
 				gs.ShowKeyHud();
             }
+
+			if(gs.currentGameState == "report" || gs.currentGameState == "final_report")
+			{
+				gs.ShowBossReport();
+			}
+
             dialogueNav.SetActive(true);
             story = null;
 			return;
@@ -234,7 +240,7 @@ public class DialogueAgent : MonoBehaviour
 					break;
 
 				default:
-					Debug.Log("tag err: " + tag);
+					Debug.LogErrorFormat("Invalid tag: {0} Story: {1}", tag,story.path.ToString());
 					break;
 			}
 		}

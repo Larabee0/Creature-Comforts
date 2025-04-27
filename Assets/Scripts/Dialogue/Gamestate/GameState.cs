@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,6 +31,7 @@ public class GameState : MonoBehaviour
     public ReportSlide reportSlide;
     public TextMeshProUGUI grades;
     public List<Image> keyHud = new List<Image>();
+    public List<Image> bossHud = new List<Image>();
     public List<Image> dialogueHud = new List<Image>();
     public Image mothmanDialogueHudLobby;
     public Image nessieDialogueHudLobby;
@@ -116,14 +118,12 @@ public class GameState : MonoBehaviour
                 break;
             case 23:
                 music.SwapSong();
-                currentGameState = "report";
-                break;
-            case 24:
                 currentGameState = "newDay";
                 dc.StartFinalFade();
                 break;
-            case 25:
+            case 24:
                 currentGameState = "final_report";
+                reportSlide.SlideFinalReport();
                 break;
         }
     }
@@ -194,6 +194,21 @@ public class GameState : MonoBehaviour
         else if (name == "Nessie")
         {
             nessieSentiment += modification;
+        }
+    }
+
+    public void ShowBossReport()
+    {
+        for (int i = 0; i < bossHud.Count; i++)
+        {
+            bossHud[i].enabled = true;
+        }
+    }
+    public void HideBossReport()
+    {
+        for (int i = 0; i < bossHud.Count; i++)
+        {
+            bossHud[i].enabled = false;
         }
     }
 }

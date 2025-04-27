@@ -30,6 +30,7 @@ public class NeoSceneChange : MonoBehaviour
         mothmanB.onClick.AddListener(MothmanButtonClick);
         nessieB.onClick.AddListener(NessieButtonClick);
         gamestate.HideKeyHud();
+        gamestate.HideBossReport();
     }
 
     void Update()
@@ -58,10 +59,10 @@ public class NeoSceneChange : MonoBehaviour
                 {
                     case 0:
                         currentCanvas = keys;
-                        keyNavRight.gameObject.SetActive(false);
                         UpdateScene();
                         if (gamestate.currentGameState == "key1" || gamestate.currentGameState == "key2" || gamestate.currentGameState == "key3")
                         {
+                            keyNavRight.gameObject.SetActive(false);
                             gamestate.keyGame.ShowPlayButton();
                         }
                         break;
@@ -74,10 +75,7 @@ public class NeoSceneChange : MonoBehaviour
                         {
                             mothmanB.GetComponent<Image>().enabled = true;
 
-                            if (gamestate.currentGameState == "m_d1_s1" || gamestate.currentGameState == "m_d1_s2")
-                            {
-                                gamestate.ShowMothmanDialgoueHud();
-                            }
+                            gamestate.ShowMothmanDialgoueHud();
                             mothmanB.enabled = true;
                         }
                         else
@@ -88,10 +86,7 @@ public class NeoSceneChange : MonoBehaviour
                         }
                         if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2" || gamestate.currentGameState == "n_d2_s1" || gamestate.currentGameState == "n_d2_s2" || gamestate.currentGameState == "n_d3_s1")
                         {
-                            if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2")
-                            {
-                                gamestate.ShowNessieDialgoueHud();
-                            }
+                            gamestate.ShowNessieDialgoueHud();
                             nessieB.GetComponent<Image>().enabled = true;
                             nessieB.enabled = true;
                         }
@@ -110,9 +105,12 @@ public class NeoSceneChange : MonoBehaviour
         {
             if (dir == 1 && gamestate.currentGameState != "key1" && gamestate.currentGameState != "key2")
             {
-                keyNavRight.gameObject.SetActive(false);
                 currentCanvas = desk;
                 UpdateScene();
+            }
+            if (dir == 1 && gamestate.currentGameState == "final_report")
+            {
+                FinalReport();
             }
         }
         else if (currentCanvas == note)
@@ -165,11 +163,11 @@ public class NeoSceneChange : MonoBehaviour
         else if (gamestate.currentGameState == "m_d1_s2")
             gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
         else if (gamestate.currentGameState == "m_d2_s1")
-            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.m_d2_s1;
         else if (gamestate.currentGameState == "m_d2_s2")
-            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.m_d2_s2;
         else if (gamestate.currentGameState == "m_d3_s1")
-            gamestate.agent.inkJSONAsset = gamestate.m_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.m_d3_s1;
 
         gamestate.agent.StartStory();
     }
@@ -189,24 +187,26 @@ public class NeoSceneChange : MonoBehaviour
         else if (gamestate.currentGameState == "n_d1_s2")
             gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
         else if (gamestate.currentGameState == "n_d2_s1")
-            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.n_d2_s1;
         else if (gamestate.currentGameState == "n_d2_s2")
-            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.n_d2_s2;
         else if (gamestate.currentGameState == "n_d3_s1")
-            gamestate.agent.inkJSONAsset = gamestate.n_d1_s2;
+            gamestate.agent.inkJSONAsset = gamestate.n_d3_s1;
 
         gamestate.agent.StartStory();
     }
 
     void UpdateScene()
     {
-        if      (currentCanvas == desk)
+        if(currentCanvas == desk)
         {
             desk.enabled = true ;
             keys.enabled = false;
             talk.enabled = false;
             note.enabled = false;
             loby.enabled = false;
+
+            gamestate.HideBossReport();
         }
         else if (currentCanvas == keys)
         {
