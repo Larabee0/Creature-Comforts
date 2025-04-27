@@ -58,6 +58,7 @@ public class NeoSceneChange : MonoBehaviour
                 {
                     case 0:
                         currentCanvas = keys;
+                        keyNavRight.gameObject.SetActive(false);
                         UpdateScene();
                         if (gamestate.currentGameState == "key1" || gamestate.currentGameState == "key2" || gamestate.currentGameState == "key3")
                         {

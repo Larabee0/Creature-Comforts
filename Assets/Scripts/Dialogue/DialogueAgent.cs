@@ -36,10 +36,12 @@ public class DialogueAgent : MonoBehaviour
 	public List<MoveAndFade> brokenHeartAnim = new();
 
 	private bool storyStartedThisFrame = false;
+	[SerializeField] private bool debugSkip = false;
 	public UIAudio uIAudio, altUIAudio;
+	public GameObject dialogueNav;
 
-	// simplified access to buttons that skip diagloue
-	private bool SkipTrigger => !storyStartedThisFrame && (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0));
+    // simplified access to buttons that skip diagloue
+    private bool SkipTrigger => !storyStartedThisFrame && (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return) || Input.GetMouseButtonUp(0));
 
 	private void Start()
 	{
@@ -48,16 +50,24 @@ public class DialogueAgent : MonoBehaviour
 
 	private void Update()
 	{
-		if (story != null && SkipTrigger) // guard agaist the story being null once
+		if (story != null && (SkipTrigger || debugSkip)) // guard agaist the story being null once
 		{
-            if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
-            {
-                RefreshView();
-            }
-            else // if skipping the whole block is not avaliable then try skip a single line??
+			if (debugSkip && story.currentChoices.Count == 0)
             {
                 tss.SkipLine(text);
             }
+            else
+            {
+				debugSkip = false;
+            }
+			if (story.currentChoices.Count == 0 && !pause) //  try skip the whole block
+			{
+				RefreshView();
+			}
+			else // if skipping the whole block is not avaliable then try skip a single line??
+			{
+				tss.SkipLine(text);
+			}
 		}
 
 		storyStartedThisFrame = false;
@@ -66,7 +76,8 @@ public class DialogueAgent : MonoBehaviour
 	// Creates a new Story object with the compiled story which we can then play!
 	public void StartStory()
 	{
-		pause = false;
+        dialogueNav.SetActive(false);
+        pause = false;
 		story = new Story(inkJSONAsset.text);
 		RefreshView();
         storyStartedThisFrame = true;
@@ -104,8 +115,9 @@ public class DialogueAgent : MonoBehaviour
 			if (gs.currentGameState == "key1" || gs.currentGameState == "key2")
 			{
 				gs.ShowKeyHud();
-			}
-			story = null;
+            }
+            dialogueNav.SetActive(true);
+            story = null;
 			return;
 		}
 

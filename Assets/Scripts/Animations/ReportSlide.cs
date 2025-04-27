@@ -25,6 +25,13 @@ public class ReportSlide : MonoBehaviour
     [SerializeField] private GameObject dayReport;
 
     public GameState gs;
+
+    private void Start()
+    {
+        finalReport.gameObject.SetActive(false);
+        dayReport.SetActive(true);
+    }
+
     private void Update()
     {
         if (moving)
