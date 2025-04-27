@@ -55,7 +55,7 @@
 
 <i>You notice he visibly relaxes at this realization, a smile creeping onto his face.</i> # s You # h 3
 
-“Your gesture is… strangely valiant. To come to the aid of someone in peril, even when faced with the unknown…” # s Mothman # b 1 # a3 # h 9
+“Your gesture is… strangely valiant. To come to the aid of someone in peril, even when faced with the unknown…” # s Mothman # b 1 # a 3 # h 9
 
 “How bizarrely romantic.” # h 8
 
