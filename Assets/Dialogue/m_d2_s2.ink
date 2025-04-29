@@ -89,7 +89,9 @@
 
 “Don’t get me started. I can recite the blurb to you, seeing as I was forced to memorise it.” # s Mothman # a 3 # h 1
 
-<i>“A tale of two opposing forces on the brink of destruction, set against the backdrop of the Roman Empire. A story filled with action packed violence, desperation and brutal drama. Who will be left conquered, and who will be the conqueror?”</i> # h 9
+<i>“A tale of two opposing forces on the brink of destruction, set against the backdrop of the Roman Empire...</i> # h 9
+
+<i>A story filled with action packed violence, desperation and brutal drama. Who will be left conquered, and who will be the conqueror?”</i> 
 
 “Such boring drivel, I didn’t even get a say in what was written for that. I believe it was Aubrey, probably.” # b 2 # a 2 # h 1
 
@@ -100,11 +102,15 @@
 
 === romannah ===
 
-<i>You express your absolute and utter abhorrence for the phrases that just left his mouth. That is not literature, you exclaim in feverish tones, that is tasteless rubbish!!</i> # s You # h 3 # plus 1
+<i>You express your absolute and utter abhorrence for the phrases that just left his mouth.</i> # s You # h 3 # plus 1
+
+ <i>That is not literature, you exclaim in feverish tones... that is tasteless rubbish!!
 
 “At last, an opinion of merit, spoken with such class!” # s Mothman # b 1 # a 1 # h 6
 
-<i>He is beaming proudly, clearly feeling satisfied you agree with him so wholeheartedly. The book didn’t sound great, but you also don’t share his interest and knowledge in history.</i> # s You
+<i>He is beaming proudly, clearly feeling satisfied you agree with him so wholeheartedly.</i> # s You
+
+<i>The book didn’t sound great, but you also don’t share his interest and knowledge in history.</i>
 
 <i>Truthfully, you just wanted to say something that would cheer him up.</i>
 
@@ -112,7 +118,9 @@
 
 === romanyes ===
 
-<i>He stares at you, aghast. Obviously not the words he wanted to hear, but sometimes you have to strike a little bit of reality into the heart of someone absorbed so constantly by their ego.</i> # s You # h 4 # minus 1
+<i>He stares at you, aghast.</i> # s You # h 4 # minus 1
+
+<i>Obviously not the words he wanted to hear, but sometimes you have to strike a little bit of reality into the heart of someone absorbed so constantly by their ego.</i>
 
 “You sound just like Aubrey.” # s Mothman # h 1
 
