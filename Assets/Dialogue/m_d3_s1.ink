@@ -4,9 +4,9 @@
 // b [num]  = body [sprite num]
 // a [num]  = arms [sprite num]
 
-“Oh thank goodness! I wanted to come and see you as soon as I was able.” # s Mothman # b 3 # a 0  # h 11
+“Oh thank goodness! I wanted to come and see you as soon as I was able.” # s Mothman # b 3 # a 0 # h 11 # p 0
 
-<i>He appears to be in a hurry but trying to hide it. You haven’t seen him put his jacket on since the night he arrived.</i> # s You 
+<i>He appears to be in a hurry but trying to hide it. You haven’t seen him put his jacket on since the night he arrived.</i># s You 
 
 “Is everything alright?”
 
@@ -14,7 +14,7 @@
 
 “At first I didn’t understand how they found it… my vacation phone. The one I use to scroll on the internet without the threat of looming work…” # h 2
 
-“Then it dawned on me. Only one person knows about that phone.”
+“Then it dawned on me. Only one person knows about that phone.” # h 11
 
 “<i>Aubrey.</i>” # h 1
 
@@ -26,7 +26,7 @@
 
 “In all honesty, I’m not sure anything could convince me that the stress of this book release would be any better than the stress I am under already..." # h 11
 
-"Waiting for my Publishers to break down your door at any moment… It's <i>maddening</i>.”
+"Waiting for my Publishers to break down your door at any moment… It's <i>maddening</i>.” # h 10
 
 <i>This is the time to build up some trust, who feels like the more reasonable party here?</i> # s You
 
@@ -63,7 +63,9 @@
 
 “I want to pitch you my new manuscript idea, the one I have been working on the past couple nights.” # s Mothman # h 2
 
-<i>Finally, he’s about to spill all of his mysterious secrets!! This is the most excited you’ve been since they first installed the coffee machine in the hallway.</i> # s You
+<i>Finally, he’s about to spill all of his mysterious secrets!!</i> # s You
+
+<i>This is the most excited you’ve been since they first installed the coffee machine in the hallway.</i> 
 
 “Of course, pitch away!”
 
@@ -110,13 +112,13 @@
 
 “If I gather some press attention on my own… Yes, that settles it.” # s Mothman # h 9
 
-<i>He stares at you with the calmest expression you’ve seen from him in days.</i> # s You # 3
+<i>He stares at you with the calmest expression you’ve seen from him in days.</i> # s You # h 3
 
 “Congratulations! I formally appoint you as my new (semi) official Press Manager!” # s Mothman # h 6
 
 <i>His…what??? This is not a job you agreed to not be payed for.</i> # s You
 
-“This new book <i>will</i> be going to market, and I trust you will help me in this endeavour.” # s Mothman
+“This new book <i>will</i> be going to market, and I trust you will help me in this endeavour.” # s Mothman # h 9
 
 “Your unwavering support has ruffled my feathers, and I look forward to this partnership.” # h 3
 
@@ -128,12 +130,15 @@
 
 “Adieu, dear Manager.” # h 8
 
-<i>Now you’re the one holding back the blush. You have no idea what you just agreed to do, but if it’s an excuse to get closer to Mothman, you’re sure you will figure out a way to complete whatever he throws your way.</i> # s You # a 0 # h 0 # b 0
+<i>Now you’re the one holding back the blush.</i> # s You # a 0 # h 0 # b 0
+
+<i>You have no idea what you just agreed to do, but if it’s an excuse to get closer to Mothman, you’re sure you will figure out a way to complete whatever he throws your way.</i>
+
 -> END
 
 === deny ===
 
-<i>You have to be honest with him. It would be too painful otherwise</i> # s You # minus 1
+<i>You have to be honest with him. It would be too painful otherwise...</i> # s You # minus 1
 
 “I’m not sure that’s the most original idea…” # h 4
 
@@ -143,7 +148,9 @@
 
 “It’s ok, I can still find the target demographic…” # h 12
 
-<i>You feel terrible for crashing him down to reality, but better you than his horrible Publishers. You try and convince yourself it's better for him in the long run.</i> # s You
+<i>You feel terrible for crashing him down to reality, but better you than his horrible Publishers.</i> # s You
+
+<i>You try and convince yourself it's better for him in the long run.</i>
 
 “After everything, if that’s all you have to say to me, I suppose I will retire to my room.” # s Mothman # h 10
 
