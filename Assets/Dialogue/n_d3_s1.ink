@@ -17,17 +17,17 @@
 
 “Well… go on and close your eyes. I won’t be a minute!” # h 1
 
-<i>You oblige, covering your face. You wonder what crazy plan she’s come up with this time…</i> # s You
+<i>You oblige, covering your face. You wonder what crazy plan she’s come up with this time…</i> # s You # b 0 # p 0 # h 0 # a 0 
 
-“You can open them now!” # s Nessie # b 2 # a 0 # h 0 # p 0
+“You can open them now!” # s Nessie 
 
-<i>You uncover your eyes to reveal Nessie in a wetsuit. How did she find equipment this quickly??</i> # s You
+<i>You uncover your eyes to reveal Nessie in a wetsuit. How did she find equipment this quickly??</i> # s You # b 2 # a 0 # h 0 # p 0
 
-“Wow! Mission success, I take it?” 
+“Wow! Mission success, I take it?”  
 
 “Uhhh, kind of.” # s Nessie
 
-<i>Her face remains cheerful, but her voice doesn’t match. She quickly puts her lab coat back on, covering up the diving gear.</i> # s You # b 1 # h 1 # a 1 # p 1
+<i>Her face remains cheerful, but her voice doesn’t match. She quickly puts her lab coat back on, covering up the diving gear.</i> # s You # b 1 # h 1 # a 3 # p 1
 
 “I got a very angry text this morning from my supervisors…” # s Nessie # h 4 # p 2 # a 2
 
@@ -35,13 +35,13 @@
 
 “Needless to say, they were <i>NOT</i> impressed with me.” # h 4 # p 2
 
-“If my research isn’t recovered, my internship may be at risk!!” # a 3 # p 3 # h 5
+“If my research isn’t recovered, my internship may be at risk!!” # a 3 # h 5
 
 <i>She sighs, eyes tearing up.</i> # s You # h 4 # p 1
 
 “I worked so hard for this, so it seems such a waste to lose it all for a silly mistake.” # s Nessie # a 1 # p 2
 
-“The hydrated logs need my help!!” # a 3 # h 5 # p 3
+“The hydrated logs need my help!!” # a 3 # h 5 # p 1
 
 *[“You need to be more careful.”] -> careful
 *[<i>Express that it isn’t her fault.</i>] -> notyou
@@ -62,11 +62,11 @@
 
 === notyou ===
 
-“They should be more understanding. Accidents happen!” # s You # plus 1
+“They should be more understanding. Accidents happen!” # s You # plus 1 # a 1
 
-“I know, right?? Especially since our facility is near water, for water based creatures.” # s Nessie # a 3 # h 1 # p 1
+“I know, right?? Especially since our facility is near water, for water based creatures.” # s Nessie # h 1 # p 1
 
-“I would have thought this is a common issue with an easy solution.” # a 1 # h 5 # p 2
+“I would have thought this is a common issue with an easy solution.” # a 2 # h 5 # p 2
 
 “I suppose they are just being harsh to encourage me… Still, I really want this job!”  # h 3 # p 3 
 
@@ -81,9 +81,9 @@
 
 “That um, wasn’t all my bad news though…”  # a 2 # h 4
 
-<i>You notice she makes a concerted effort to maintain composure.</i> # p 1
+<i>You notice she makes a concerted effort to maintain composure.</i> # p 1 # h 1
 
-“You’ve seen my new wetsuit, but I am still missing some stuff.” # a 1 # h 5
+“You’ve seen my new wetsuit, but I am still missing some stuff.” # a 1 # h 6
 
 “I still need a diving tank to be able to reach the right water level…” # p 2
 
@@ -122,7 +122,7 @@
 
 <i>Her voice echoes down the hall as she skips away happily. You feel warm inside knowing you were able to solve another person's problems.</i> # s You
 
- <i>You reassure yourself. Everything will be ok. Nessie will make it through this, and so will you.</i>
+ <i>You reassure yourself. Everything will be ok. Nessie will make it through this, and so will you.</i> #b 0 # a 0 # h 0 # p 0
 
 -> END
 

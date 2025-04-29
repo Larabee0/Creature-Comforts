@@ -6,25 +6,25 @@
 // p [num]  = hair [sprite num]
 
 
-“MAJOR CATASTROPHE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!” # s Nessie # b 1 # h 5 # a 3 # p 3
+“MAJOR CATASTROPHE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!” # s Nessie # b 1 # h 4 # a 1 # p 3
 
-<i>Nessie waves her arms in front of you haphazardly, distracting you from the paperwork you had definitely not been putting off.</i> # s You
+<i>Nessie waves her arms in front of you haphazardly, distracting you from the paperwork you had definitely not been putting off.</i> # s You # a 3
 
-“Is everything alright?” # a 2 # p 1
+“Is everything alright?” # a 2 # p 1 # h 5
 
 <i>You immediately realise how stupid that sounds given the context.</i> # a 1
 
  <i>Nessies face falls, clearly not taking the joke well.</i># h 4 # p 2
 
-“No, it is NOT alright! You know how I went to look for my computer so I could show you my very declassified totally awesome plant facts????" # s Nessie # p 3 # h 5 # a 3
+“No, it is NOT alright! You know how I went to look for my computer so I could show you my very declassified totally awesome plant facts????" # s Nessie # a 3
 
-"Well, my stuff is MISSING!!!” # p 2 # h 4
+"Well, my stuff is MISSING!!!” # h 5
 
-“Before you ask, yes I have checked everywhere already."# h 5 
+“Before you ask, yes I have checked everywhere already." # a 2 
 
 "I took in all my bags myself when I arrived and I could have sworn I had everything. Look, I even brought my bag-” # h 4 # p 1
 
-<i>She stops mid sentence, half way through pulling up some sort of luminous green rucksack onto your desk.</i> # s You # p 3 # a 2
+<i>She stops mid sentence, half way through pulling up some sort of luminous green rucksack onto your desk.</i> # s You # h 1 # a 2
 
 <i>It is dripping with water and you really hope she just keeps it where it is.</i> # s You
 
@@ -32,7 +32,7 @@
 
 “I’m going to have to ask you not to put that on my desk.” # a 1
 
-<i>Your request goes unheard as she’s still frozen, like someone hit the pause switch.</i> # h 3 # p 1
+<i>Your request goes unheard as she’s still frozen, like someone hit the pause switch.</i> # h 3
 
 <i>Your mind drifts to images of lizards sleeping on hot rocks under the sun.</i>
 
@@ -90,7 +90,7 @@
 
 “I don’t think my suggestion is <i>that</i> crazy.” # p 1 # h 6 
 
-<i>Honestly when she puts it like that, you can see her point.</i> # s You
+<i>Honestly when she puts it like that, you can see her point.</i> # s You # a 1
 
 -> notlake
 
@@ -98,9 +98,9 @@
 
 “Look, this situation isn’t ideal for me. As far as I can tell, all of my equipment is currently sitting at the bottom of your scenic lake.” # s Nessie # h 3 # a 2
 
-“I’m currently working on this project to advance my rank as a junior researcher so it’s really important to me that I can fix this.” # h 1 # p 2 
+“I’m currently working on this project to advance my rank as a junior researcher so it’s really important to me that I can fix this.” # h 1 
 
-<i>You notice she is spiraling further down into a panic. What do you think she needs right now?</i> # s You # h 4
+<i>You notice she is spiraling further down into a panic. What do you think she needs right now?</i> # s You # h 4 # p 2
 
 *[<i>Express your condolences.</i>] -> sorrywet
 *[“Why did you swim here?”] -> whyswim
@@ -134,9 +134,9 @@
 
 “I won’t bother you all day about my issues, so I will come back once I actually have something you can help me with for real this time!” # s Nessie # h 1 # a 2 # p 1
 
-<i>She cocks her head, looking behind you at something.</i> # s You # h 6 # p 3
+<i>She cocks her head, looking behind you at something.</i> # s You # h 6 
 
-“Ooh, you have a computer back there?? Cool!” # s Nessie # p 1 # h 1 # a 1
+“Ooh, you have a computer back there?? Cool!” # s Nessie # h 1 # a 1
 
 “Guess I’ll see you around then. Byee!!” # a 3
 

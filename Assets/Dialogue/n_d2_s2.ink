@@ -15,7 +15,7 @@
  
 “Things are a little desperate, so no harm in just trying, right?” # a 1 # h 6
  
-<i>You are a little shocked at this brazen proposal. Didn’t she just mention not being able to swim very deep??<i/> # s You # h 1
+<i>You are a little shocked at this brazen proposal. Didn’t she just mention not being able to swim very deep??</i> # s You # h 1
  
 <i>Regardless, you don’t want to deal with the legal fallout of a guest harming themselves on Motel property.</i>
  
@@ -32,13 +32,15 @@ Really?????? You think I haven’t heard that one before?” # s Nessie # h 6 # 
 
 “I thought you wanted to help me out, not insult me!” # a 3 # h 3 # p 3
 
-<i>You try to explain that you didn’t think the comment through, but the effort to convince her outweighs the result. The insult has already sunk in.</i> # s You # a 1  # h 5
+<i>You try to explain that you didn’t think the comment through, but the effort to convince her outweighs the result.</i>  # s You # a 1  # h 5 # p 1
+
+<i>The insult has already sunk in.</i> # p 2
 
  -> fuss
  
  === lakedanger ===
  
-“Since when have calm, scenic lakes been a source of danger?" # s Nessie # plus 1 # a 1 # h 1 # p 1
+“Since when have calm, scenic lakes been a source of danger?" # s Nessie # plus 1 # a 1 # h 5 # p 1
  
 "Besides, I swam through there on my way in!” # a 3 # h 2 
  
@@ -52,7 +54,9 @@ Really?????? You think I haven’t heard that one before?” # s Nessie # h 6 # 
  
 “I don’t know what all your fuss is about, considering I am literally part aquatic.” # s Nessie # a 3 # h 6 # p 3
  
-<i>You realise your momentary panic about Motel health insurance and injury claims somewhat caused you to forget that your guest is a little more equipped for this scenario than another creature would be.</i> # s You
+<i>You realise your momentary panic about Motel health insurance and injury claims is meaningless. </i> # s You # p 1
+
+<i> You forgot that your guest is a little more equipped for this scenario than another creature would be.</i> 
 
 “Go on, ask your questions, I can tell you are curious. Believe me, I get it all the time…” # s Nessie # a 1 # h 1 # p 1
 
@@ -105,7 +109,7 @@ Really?????? You think I haven’t heard that one before?” # s Nessie # h 6 # 
 
 “I’m gonna go ask around for flippers……” # h 6 # p 2
 
-<i>You really do hope she manages to heave better luck with the guests than you.</i> # s You # b 0 # h 0 # a 0 # p 0
+<i>You really do hope she manages to have better luck with the guests than you.</i> # s You # b 0 # h 0 # a 0 # p 0
 
 <i>Looking back at your computer fills you with a sense of guilt. Maybe you can sort something out. Maybe…</i>
  -> END

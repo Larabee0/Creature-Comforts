@@ -12,11 +12,11 @@
 
 <i>Boy do you wish that were true.</i> # s You
 
-“Did you figure out what to do about the lake yet?” # a 1 # p 2
+“Did you figure out what to do about the lake yet?” # a 1 # p 2 # h 4
 
 “Oh! Uhhhhh…nope." # s Nessie # a 2 # h 6
 
-"Not yet.” # h 6
+"Not yet.” # h 4
 
 <i>She seems shifty, as if she wants to say something but isn’t sure.</i> # s You # p 1
 
@@ -26,7 +26,7 @@
 
 <i>Yeah, this is odd.</i> # s You # a 1
 
-<i>You are very conscious about your answer here, just in case your Boss is somehow miraculously listening in.</i>
+<i>You are very conscious about your answer here, just in case your Boss is somehow miraculously listening in.</i> # h 1
 
 *[<i>Give her the corporate answer.</i>] -> corporate
 *[<i>Tell her the truth.</i>] -> bosstruth
@@ -34,19 +34,19 @@
 
 === corporate ===
 
-“Foggy Lake Motel excels at employee welfare and always strives to make the workplace a habitable environment for all.” # s You # minus 1 # h 1 # p 3
+“Foggy Lake Motel excels at employee welfare and always strives to make the workplace a habitable environment for all.” # s You # minus 1 # h 1 # p 1
 
-<i>Nessie looks as if she’s trying not to laugh.</i> 
+<i>Nessie looks as if she’s trying not to laugh.</i> # p 2
 
 “Did your Boss tell you to say that if anyone asked??” # s Nessie # a 2 #  # p 1 # h 5
 
-<i>You shrug nonchalantly. She doesn’t need to know about his seemingly omnipresent awareness of criticisms.</i> # s You
+<i>You shrug nonchalantly. She doesn’t need to know about his seemingly omnipresent awareness of criticisms.</i> # s You 
 
 -> honesty
 
 === bosstruth ===
 
-“Job’s fine. As strict as any other workplace.” # s You # plus 0  # p 3
+“Job’s fine. As strict as any other workplace.” # s You # plus 0  # h 1
 
 “Hmm… interesting.” # s Nessie # a 2 # h 6 # p 1
 
@@ -76,7 +76,7 @@
 
 “I <i>REALLY</i> need to access your computer." # h 5 # a 3 # p 3
 
-"As soon as possible.” # a 2 # h 1
+"As soon as possible.” # a 2 # h 1 # p 2
 
 <i>Uh oh. Computer access is employees only, no messing about.</i> # s You
 
@@ -87,11 +87,11 @@
 
 === yespc ===
 
-<i>You really are sorry you can’t offer her anything else.</i> # s You # plus 1 # a 2 # h 4
+<i>You really are sorry you can’t offer her anything else.</i> # s You # plus 1 # a 2 # h 4 # p 2
 
 <i>To let a guest use the Motel Systems would spell disaster.</i>
 
-“I see… It’s ok. I get it.” # s Nessie # a 1 # p 2
+“I see… It’s ok. I get it.” # s Nessie # a 1 # h 1
 
 “I don’t want to get you in trouble if I can avoid it!!” # h 3 # p 3
 
@@ -101,13 +101,13 @@
 
 === nopc ===
 
-“Pretty pretty please?? I promise I won’t break it, or download any weird programs...” # s Nessie # minus 1 # a 3 # h 1
+“Pretty pretty please?? I promise I won’t break it, or download any weird programs...” # s Nessie # minus 1 # a 3 # h 4 # p 2
 
-<i>She grins nervously, which only makes you suspicious of her prior track record with borrowing computers.</i> # s You # a 2
+<i>She grins nervously, which only makes you suspicious of her prior track record with borrowing computers.</i> # s You # a 2 # h 1
 
-“I can’t let you do that, I’d get in heaps of trouble.” # a 1 # h 5 # p 2
+“I can’t let you do that, I’d get in heaps of trouble.” # a 1 # h 5 
 
-<i>She looks downtrodden, but gets back to muttering things about more plans and workarounds, so you suppose it takes more than that to stop her optimism.</i> # a 2
+<i>She looks downtrodden, but gets back to muttering things about more plans and workarounds, so you suppose it takes more than that to stop her optimism.</i> # a 2 
 
 -> planfoiled
 
