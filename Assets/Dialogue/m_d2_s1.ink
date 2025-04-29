@@ -33,7 +33,7 @@
 
 “Not ideal, but I can work with this. Please have a pen ready.” # s Publisher
 
-<i>You wait with bated breath, pulling up a notepad.</i>
+<i>You wait with bated breath, pulling up a notepad.</i> # s You
 
 “First to discuss, I have been dutifully instructed to inform Mr Mothman that unsanctioned travel to a location off of his schedule, during a work period, is and <i>always</i> has been, impermissible.” # s Publisher
  
@@ -80,12 +80,13 @@
 
 “Great to see you have some common sense in you. We are working on locating Aubrey and the missing books this very minute. All will be sorted in due time.” # s Publisher
 
-“Can’t believe he’d mock us by booking a stay at a 4.5 star establishment.<i>Honestly.</i>”
+“Can’t believe he’d mock us by booking a stay at a 4.5 star establishment. <i>Honestly.</i>”
 
 <i>Mr Kappa must have forgotten he is speaking on a public line… You cough quietly to bring him back to reality.</i> # s You
 
 <i>He startles, before resuming his suave corporate lingo.</i>
--> END
+
+-> phoneend
 
 === notqualified ===
 “That is something you and I can agree on.” # s Publisher # plus 0
@@ -93,7 +94,8 @@
 <i>The thought of reducing yourself to a simple customer service worker is a little bit depressing.</i> # s You
 
 <i>He is somewhat right though, this is a situation you aren’t exactly prepared to weigh in on…</i>
--> END
+
+-> phoneend
 
 === phoneend ===
 “Did you write all that down? Good.” # s Publisher
