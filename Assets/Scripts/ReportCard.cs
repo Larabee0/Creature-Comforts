@@ -21,23 +21,24 @@ public class ReportCard : MonoBehaviour
         mothmanGradeBar.SetFill(mothmanScore);
         nessieGradeBar.SetFill(nessieScore);
 
-        if(mothmanScore == nessieScore && mothmanScore  == 5)
+        // scores are equal and equal to 5
+        if (mothmanScore == nessieScore && mothmanScore  >= 5)
         {
             bossDraw.SetActive(true);
-        }
+        } // both less than or equal to four
         else if(mothmanScore <= 4 && nessieScore <= 4)
         {
             bossFail.SetActive(true);
-        }
+        } // mothman greater than 4 and greater than nessie
         else if(mothmanScore > nessieScore && mothmanScore > 4)
         {
             mothmanImpressed.SetActive(true);
-        }
-        else if(nessieScore > mothmanScore && nessieScore > 4)
+        } // nessie greater than 4 and greater than mothman
+        else if(nessieScore > mothmanScore && nessieScore > 4) 
         {
             nessieProud.SetActive(true);
         }
-        else
+        else // catch all case
         {
             bossDraw.SetActive(true);
         }
