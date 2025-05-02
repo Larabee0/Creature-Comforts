@@ -215,7 +215,7 @@ public class DialogueAgent : MonoBehaviour
 
                     if (uIAudio != null)
                     {
-                        uIAudio.PlayCorrectChoice();
+                        uIAudio.PlayIncorrectChoice();
                     }
                     foreach (MoveAndFade i in brokenHeartAnim)
 					{

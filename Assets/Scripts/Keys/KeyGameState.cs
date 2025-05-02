@@ -116,7 +116,7 @@ public class KeyGameState : MonoBehaviour
 
                     if (kGAudio != null)
                     {
-                        kGAudio.PlayPickup();
+                        kGAudio.PlayPlace();
                     }
                     if (won)
                     {
