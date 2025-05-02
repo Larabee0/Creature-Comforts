@@ -50,6 +50,14 @@ public class DialogueAgent : MonoBehaviour
 
 	private void Update()
 	{
+
+#if UNITY_EDITOR
+		if (Input.GetKeyUp(KeyCode.F2))
+		{
+			debugSkip = true;
+		}
+#endif
+
 		if (story != null && (SkipTrigger || debugSkip)) // guard agaist the story being null once
 		{
 			if (debugSkip && story.currentChoices.Count == 0)
