@@ -80,7 +80,7 @@ public class NeoSceneChange : MonoBehaviour
                         if (gamestate.currentGameState == "m_d1_s1" || gamestate.currentGameState == "m_d1_s2" || gamestate.currentGameState == "m_d2_s1" || gamestate.currentGameState == "m_d2_s2" || gamestate.currentGameState == "m_d3_s1")
                         {
                             mothmanB.GetComponent<Image>().enabled = true;
-
+                            gamestate.ShowDialogueHud();    
                             gamestate.ShowMothmanDialgoueHud();
                             mothmanB.enabled = true;
                         }
@@ -93,6 +93,7 @@ public class NeoSceneChange : MonoBehaviour
                         if (gamestate.currentGameState == "n_d1_s1" || gamestate.currentGameState == "n_d1_s2" || gamestate.currentGameState == "n_d2_s1" || gamestate.currentGameState == "n_d2_s2" || gamestate.currentGameState == "n_d3_s1")
                         {
                             gamestate.ShowNessieDialgoueHud();
+                            gamestate.ShowDialogueHud();
                             nessieB.GetComponent<Image>().enabled = true;
                             nessieB.enabled = true;
                         }
