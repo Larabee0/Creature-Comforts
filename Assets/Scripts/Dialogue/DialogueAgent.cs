@@ -22,8 +22,11 @@ public class DialogueAgent : MonoBehaviour
 	[SerializeField]
 	List<Button> buttons = new();
 
+	[SerializeField] List<Button> buttonsPhone = new();
+
 	[SerializeField]
 	Image nameTag;
+	[SerializeField]Image nameTagPhone;
 	[SerializeField]
 	List<Sprite> nameTags = new();
 
@@ -107,11 +110,15 @@ public class DialogueAgent : MonoBehaviour
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
-			foreach (Button button in buttons)
+            for (int i = 0; i < buttons.Count; i++)
 			{
-				button.GetComponent<Image>().enabled = false;
+                Button button = buttons[i];
+                button.GetComponent<Image>().enabled = false;
 				button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
-			}
+				button = buttonsPhone[i];
+                button.GetComponent<Image>().enabled = false;
+                button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+            }
 		}
 
 		// If we've read all the content and there's no choices, the story is finished!
@@ -119,8 +126,9 @@ public class DialogueAgent : MonoBehaviour
 		{
 			gs.UpdateGamestate();
 			gs.talking.enabled = false;
+			gs.talkingPhone.enabled = false;
 			pause = true;
-			if (gs.currentGameState == "key1" || gs.currentGameState == "key2")
+			if (gs.currentGameState == "key1" || gs.currentGameState == "key2" || gs.currentGameState == "key3")
 			{
 				gs.ShowKeyHud();
             }
@@ -149,7 +157,15 @@ public class DialogueAgent : MonoBehaviour
 				{
 					OnClickChoiceButton(choice);
 				});
-			}
+                buttonsPhone[i].GetComponent<Image>().enabled = true;
+                buttonsPhone[i].GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+                buttonsPhone[i].GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
+                // Tell the button what to do when we press it
+                buttonsPhone[i].onClick.AddListener(delegate
+                {
+                    OnClickChoiceButton(choice);
+                });
+            }
 		}
 	}
 
@@ -194,15 +210,26 @@ public class DialogueAgent : MonoBehaviour
 				case "s":
 					string suffix = tag.Split(" ")[1].ToLower();
 					if (suffix == "you")
-						nameTag.sprite = nameTags[1];
+					{
+                        nameTagPhone.sprite = nameTag.sprite = nameTags[1];
+
+					}
 					else if (suffix == "mothman")
-						nameTag.sprite = nameTags[0];
+					{
+                        nameTagPhone.sprite = nameTag.sprite = nameTags[0];
+                    }
 					else if (suffix == "nessie")
-						nameTag.sprite = nameTags[2];
+					{
+                        nameTagPhone.sprite = nameTag.sprite = nameTags[2];
+                    }
 					else if (suffix == "boss")
-						nameTag.sprite = nameTags[3];
-					else if(suffix == "publisher") 
-						nameTag.sprite = nameTags[5];
+					{
+                        nameTagPhone.sprite = nameTag.sprite = nameTags[3];
+                    }
+					else if (suffix == "publisher")
+                    {
+                        nameTagPhone.sprite = nameTag.sprite = nameTags[5];
+                    }
 						break;
 
 				case "plus":

@@ -201,6 +201,12 @@ public class KeyGameState : MonoBehaviour
 
     void WinScreen()
     {
+        StartCoroutine(DelayWin());
+    }
+
+    private IEnumerator DelayWin()
+    {
+        yield return new WaitForSeconds(0.25f);
         uIAudio.PlayCorrectChoice();
         winImg.enabled = true;
 
@@ -238,11 +244,11 @@ public class KeyGameState : MonoBehaviour
         {
             gs.ShowDialogueHud();
         }
-
     }
 
     void PlayButtonClicked()
     {
+        HidePlayButton();
         if (gs.currentGameState == "key1")
             StartKeyGame(5);
         else if (gs.currentGameState == "key2")
@@ -250,11 +256,12 @@ public class KeyGameState : MonoBehaviour
         else if (gs.currentGameState == "key3")
             StartKeyGame(15);
 
-        HidePlayButton();
     }
 
     public void HidePlayButton()
     {
+        timer.enabled = false;
+        timer.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         playButton.enabled = false;
         playButton.GetComponent<Image>().enabled = false;
         playButton.GetComponent<Image>().raycastTarget = false;
@@ -264,9 +271,11 @@ public class KeyGameState : MonoBehaviour
     public void ShowPlayButton()
     {
         winImg.enabled = false;
+        timer.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         playButton.enabled = true;
         playButton.GetComponent<Image>().enabled = true;
         playButton.GetComponent<Image>().raycastTarget = true;
         playButton.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        timer.enabled = false;
     }
 }

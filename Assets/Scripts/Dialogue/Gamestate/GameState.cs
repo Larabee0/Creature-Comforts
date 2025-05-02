@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour
     [Header("Outside Connections")]
     public DialogueAgent agent;
     public Canvas talking;
+    public Canvas talkingPhone;
     public TextAsset m_d1_s1;
     public TextAsset m_d1_s2;
     public TextAsset n_d1_s1;

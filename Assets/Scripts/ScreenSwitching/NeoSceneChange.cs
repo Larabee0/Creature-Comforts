@@ -9,6 +9,7 @@ public class NeoSceneChange : MonoBehaviour
     public Canvas desk;
     public Canvas keys;
     public Canvas talk;
+    public Canvas talkPhone;
     public Canvas note;
     public Canvas loby;
     public Button mothmanB;
@@ -27,6 +28,7 @@ public class NeoSceneChange : MonoBehaviour
         note.enabled = false;
         loby.enabled = false;
         gamestate.talking.enabled = false;
+        gamestate.talkingPhone.enabled = false;
         mothmanB.onClick.AddListener(MothmanButtonClick);
         nessieB.onClick.AddListener(NessieButtonClick);
         gamestate.HideKeyHud();
@@ -54,7 +56,11 @@ public class NeoSceneChange : MonoBehaviour
 
         if (currentCanvas == desk)
         {
-            if (gamestate.currentGameState != "report")
+            if (gamestate.currentGameState == "m_d2_s1")
+            {
+
+            }
+            else if (gamestate.currentGameState != "report")
                 switch (dir)
                 {
                     case 0:
@@ -121,21 +127,29 @@ public class NeoSceneChange : MonoBehaviour
                 UpdateScene();
             }
         }
-        else if (currentCanvas == talk)
+        else if (currentCanvas == talk || currentCanvas == talkPhone)
         {
-            if (dir == 3 && gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2" && gamestate.currentGameState != "m_d2_s1" && gamestate.currentGameState != "m_d2_s2" && gamestate.currentGameState != "n_d2_s1" && gamestate.currentGameState != "n_d2_s2" && gamestate.currentGameState != "m_d3_s1" && gamestate.currentGameState != "n_d3_s1")
-            {
-                if (gamestate.currentGameState == "report")
+            if (gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2" && gamestate.currentGameState != "m_d2_s1" && gamestate.currentGameState != "m_d2_s2" && gamestate.currentGameState != "n_d2_s1" && gamestate.currentGameState != "n_d2_s2" && gamestate.currentGameState != "m_d3_s1" && gamestate.currentGameState != "n_d3_s1") {
+                if (dir == 3)
                 {
-                    Report();
+                    if (gamestate.currentGameState == "report")
+                    {
+                        Report();
+                    }
+                    else if (gamestate.currentGameState == "final_report")
+                    {
+                        FinalReport();
+                    }
+                    currentCanvas = desk;
+                    gamestate.HideDialogueHud();
+                    UpdateScene();
                 }
-                else if(gamestate.currentGameState == "final_report")
+                else if (currentCanvas == talkPhone)
                 {
-                    FinalReport();
+                    currentCanvas = desk;
+                    gamestate.HideDialogueHud();
+                    UpdateScene();
                 }
-                currentCanvas = desk;
-                gamestate.HideDialogueHud();
-                UpdateScene();
             }
         }
         else if (currentCanvas = loby)
@@ -196,6 +210,24 @@ public class NeoSceneChange : MonoBehaviour
         gamestate.agent.StartStory();
     }
 
+    public void PhoneButtonClick()
+    {
+        if (gamestate.currentGameState == "m_d2_s1")
+        {
+            currentCanvas = talkPhone;
+            UpdateScene();
+            gamestate.agent.npcTalking = "Mothman";
+
+
+            mothmanB.GetComponent<Image>().enabled = false;
+            mothmanB.enabled = false;
+
+            gamestate.agent.inkJSONAsset = gamestate.m_d2_s1;
+
+            gamestate.agent.StartStory();
+        }
+    }
+
     void UpdateScene()
     {
         if(currentCanvas == desk)
@@ -203,6 +235,7 @@ public class NeoSceneChange : MonoBehaviour
             desk.enabled = true ;
             keys.enabled = false;
             talk.enabled = false;
+            talkPhone.enabled = false;
             note.enabled = false;
             loby.enabled = false;
 
@@ -213,6 +246,7 @@ public class NeoSceneChange : MonoBehaviour
             desk.enabled = false;
             keys.enabled = true ;
             talk.enabled = false;
+            talkPhone.enabled = false;
             note.enabled = false;
             loby.enabled = false;
         }
@@ -221,6 +255,16 @@ public class NeoSceneChange : MonoBehaviour
             desk.enabled = false;
             keys.enabled = false;
             talk.enabled = true ;
+            talkPhone.enabled = false;
+            note.enabled = false;
+            loby.enabled = false;
+        }
+        else if(currentCanvas == talkPhone)
+        {
+            desk.enabled = true;
+            keys.enabled = false;
+            talk.enabled = false;
+            talkPhone.enabled = true;
             note.enabled = false;
             loby.enabled = false;
         }
@@ -229,7 +273,8 @@ public class NeoSceneChange : MonoBehaviour
             desk.enabled = false;
             keys.enabled = false;
             talk.enabled = false;
-            note.enabled = true ;
+            talkPhone.enabled = false;
+            note.enabled = true;
             loby.enabled = false;
         }
         else if (currentCanvas == loby)
@@ -237,8 +282,9 @@ public class NeoSceneChange : MonoBehaviour
             desk.enabled = false;
             keys.enabled = false;
             talk.enabled = false;
+            talkPhone.enabled = false;
             note.enabled = false;
-            loby.enabled = true ;
+            loby.enabled = true;
         }
     }
 

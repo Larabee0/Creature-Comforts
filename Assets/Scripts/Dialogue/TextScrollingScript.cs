@@ -10,12 +10,14 @@ public class TextScrollingScript : MonoBehaviour
     public DialogueAgent agent;
 
     public TextMeshProUGUI tmp;
+    public TextMeshProUGUI tmpPhone;
 
     private StringBuilder buildUpString = new();
 
     private Coroutine scrollCoroutine;
 
     public Image endMarker;
+    public Image endMarkerPhone;
 
     int lineKey = 0;
 
@@ -27,9 +29,9 @@ public class TextScrollingScript : MonoBehaviour
     public void SkipLine(string inputText)
     {
         lineKey++;
-        tmp.text = inputText;
+        tmpPhone.text = tmp.text = inputText;
         agent.pause = false;
-        endMarker.enabled = true;
+        endMarkerPhone.enabled = endMarker.enabled = true;
         if (scrollCoroutine != null)
         {
             StopCoroutine(scrollCoroutine);
@@ -39,7 +41,7 @@ public class TextScrollingScript : MonoBehaviour
 
     public void ScrollText(string inputText = "NO_TEXT_GIVEN")
     {
-        endMarker.enabled = false; //turns off endmarker at the start of line scroll
+        endMarkerPhone.enabled = endMarker.enabled = false; //turns off endmarker at the start of line scroll
         lineKey++;
         // get parts
         List<string> constructionParts = GenerateParts(inputText);
@@ -56,7 +58,7 @@ public class TextScrollingScript : MonoBehaviour
         for (int i = 0; i < str.Length; i++)
         {
             buildUpString.Append(str[i]);
-            tmp.text = buildUpString.ToString();
+            tmpPhone.text = tmp.text = buildUpString.ToString();
             yield return new WaitForSeconds(1 / (SettingsScript.textScrollSpeed * 10));
         }
     }
@@ -70,7 +72,7 @@ public class TextScrollingScript : MonoBehaviour
             if (constructionParts[i].StartsWith('<'))
             {
                 buildUpString.Append(constructionParts[i]);
-                tmp.text = buildUpString.ToString();
+                tmpPhone.text = tmp.text = buildUpString.ToString();
             }
             else
             {
@@ -78,7 +80,7 @@ public class TextScrollingScript : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(1 / (SettingsScript.textScrollSpeed * 10));
-        endMarker.enabled = true;
+        endMarkerPhone.enabled = endMarker.enabled = true;
         agent.pause = false;
         scrollCoroutine = null;
     }
