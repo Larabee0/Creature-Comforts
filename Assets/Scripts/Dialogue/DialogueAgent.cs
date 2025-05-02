@@ -201,7 +201,9 @@ public class DialogueAgent : MonoBehaviour
 						nameTag.sprite = nameTags[2];
 					else if (suffix == "boss")
 						nameTag.sprite = nameTags[3];
-					break;
+					else if(suffix == "publisher") 
+						nameTag.sprite = nameTags[5];
+						break;
 
 				case "plus":
 					gs.ModifySentiment(npcTalking, int.Parse(tag.Split(" ")[1]));

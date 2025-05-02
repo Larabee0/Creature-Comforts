@@ -38,7 +38,7 @@ public class GameState : MonoBehaviour
     public int nessieSentiment = 0, mothmanSentiment = 0;
     public DayChange dc;
     public Music music;
-
+    public Wiggle _phoneWiggle;
     public void UpdateGamestate()
     {
         tracker++;
@@ -72,6 +72,7 @@ public class GameState : MonoBehaviour
                 break;
             case 9:
                 music.SwapSong();
+                _phoneWiggle.SetWiggling(true);
                 currentGameState = "m_d2_s1";
                 break;
             case 10:
