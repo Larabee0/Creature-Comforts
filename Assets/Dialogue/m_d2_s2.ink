@@ -89,9 +89,9 @@
 
 “Don’t get me started. I can recite the blurb to you, seeing as I was forced to memorise it.” # s Mothman # a 3 # h 1
 
-<i>“A tale of two opposing forces on the brink of destruction, set against the backdrop of the Roman Empire...</i> # h 9
+<i>“A tale of two opposing forces on the brink of destruction, set against the backdrop of the Roman Empire..."</i> # h 9
 
-<i>A story filled with action packed violence, desperation and brutal drama. Who will be left conquered, and who will be the conqueror?”</i> 
+<i>"A story filled with action packed violence, desperation and brutal drama. Who will be left conquered, and who will be the conqueror?”</i> 
 
 “Such boring drivel, I didn’t even get a say in what was written for that. I believe it was Aubrey, probably.” # b 2 # a 2 # h 1
 
