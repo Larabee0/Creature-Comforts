@@ -5,7 +5,7 @@
 // a [num]  = arms [sprite num]
 
 
-<i>So much for another uneventful morning. You go to answer the aggressively ringing phone, praying it isn’t your boss.</i> # s You
+<i>So much for another uneventful morning. You go to answer the aggressively ringing phone, praying it isn’t your Boss.</i> # s You
 
 “Hello? Is this Foggy Lake Motel?” # s Publisher
 
