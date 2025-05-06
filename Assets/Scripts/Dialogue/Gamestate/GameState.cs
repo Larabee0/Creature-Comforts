@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
     int tracker = 0;
     
-    public string currentGameState = "m_d1_s1";
+    public string currentGameState = "tut_script";
 
     public List<int> gradeList = new();
 
@@ -18,6 +15,7 @@ public class GameState : MonoBehaviour
     public DialogueAgent agent;
     public Canvas talking;
     public Canvas talkingPhone;
+    public TextAsset tut_script;
     public TextAsset m_d1_s1;
     public TextAsset m_d1_s2;
     public TextAsset n_d1_s1;
@@ -46,84 +44,88 @@ public class GameState : MonoBehaviour
         switch (tracker)
         {
             case 1:
-                currentGameState = "key1";
+                currentGameState = "m_d1_s1";
+                ShowDialogueHud();
                 break;
             case 2:
-                currentGameState = "n_d1_s1";
-                break;
-            case 3:
                 currentGameState = "key1";
                 break;
+            case 3:
+                currentGameState = "n_d1_s1";
+                break;
             case 4:
+                currentGameState = "key1";
+                break;
+            case 5:
                 music.SwapSong();
                 currentGameState = "m_d1_s2";
                 break;
-            case 5:
+            case 6:
                 currentGameState = "key2";
                 break;
-            case 6:
+            case 7:
                 currentGameState = "n_d1_s2";
                 break;
-            case 7:
+            case 8:
                 currentGameState = "report";
                 break;
-            case 8:
+            case 9:
                 currentGameState = "newDay";
                 dc.StartFade(2);
                 break;
-            case 9:
+            case 10:
                 music.SwapSong();
                 _phoneWiggle.SetWiggling(true);
                 currentGameState = "m_d2_s1";
                 break;
-            case 10:
-                currentGameState = "key2";
-                break;
             case 11:
-                currentGameState = "n_d2_s1";
+                currentGameState = "key2";
                 break;
             case 12:
-                currentGameState = "key2";
+                currentGameState = "n_d2_s1";
                 break;
             case 13:
+                currentGameState = "key2";
+                break;
+            case 14:
                 music.SwapSong();
                 currentGameState = "n_d2_s2";
                 break;
-            case 14:
+            case 15:
                 currentGameState = "key3";
                 break;
-            case 15:
+            case 16:
                 currentGameState = "m_d2_s2";
                 break;
-            case 16:
+            case 17:
                 currentGameState = "report";
                 break;
-            case 17:
+            case 18:
                 currentGameState = "newDay";
                 dc.StartFade(3);
                 break;
-            case 18:
+            case 19:
                 music.SwapSong();
                 currentGameState = "key2";
                 break;
-            case 19:
+            case 20:
                 currentGameState = "n_d3_s1";
                 break;
-            case 20:
-                currentGameState = "key3";
-                break;
             case 21:
-                currentGameState = "m_d3_s1";
+                currentGameState = "key3";
                 break;
             case 22:
-                currentGameState = "key3";
+                currentGameState = "m_d3_s1";
                 break;
             case 23:
+                currentGameState = "key3";
+                break;
+            case 24:
                 music.SwapSong();
                 currentGameState = "newDay";
                 dc.StartFinalFade();
                 break;
-            case 24:
+            case 25:
                 currentGameState = "final_report";
                 reportSlide.SlideFinalReport();
                 break;

@@ -34,12 +34,8 @@ public class Wiggle : MonoBehaviour
         if (wiggling)
         {
             clock += Time.deltaTime * speed;
-            wiggle();
-        }
-    }
 
-    void wiggle()
-    {
-        tf.rotation = Quaternion.Euler(startRot + new Vector3(0,0,Mathf.Sin(clock)*magnitude));
+            tf.rotation = Quaternion.Euler(startRot + new Vector3(0, 0, Mathf.Sin(clock) * magnitude));
+        }
     }
 }

@@ -3834,11 +3834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f977b817d1d6c234ab962e5e7634f928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameState: m_d1_s1
+  currentGameState: tut_script
   gradeList: 
   agent: {fileID: 466277740}
   talking: {fileID: 755305761}
   talkingPhone: {fileID: 1105592111}
+  tut_script: {fileID: 4900000, guid: 48bffffc1c206ad49862f4e007a01b7e, type: 3}
   m_d1_s1: {fileID: 4900000, guid: 67202373e3aa7804a8bb5620afa1caa1, type: 3}
   m_d1_s2: {fileID: 4900000, guid: fa54bc2a253f30645bccb595553ac165, type: 3}
   n_d1_s1: {fileID: 4900000, guid: 02d1be71265d18940a8964d77703c5c8, type: 3}

@@ -33,6 +33,8 @@ public class NeoSceneChange : MonoBehaviour
         nessieB.onClick.AddListener(NessieButtonClick);
         gamestate.HideKeyHud();
         gamestate.HideBossReport();
+        gamestate._phoneWiggle.SetWiggling(true);
+        gamestate.HideDialogueHud();
     }
 
     void Update()
@@ -56,7 +58,7 @@ public class NeoSceneChange : MonoBehaviour
 
         if (currentCanvas == desk)
         {
-            if (gamestate.currentGameState == "m_d2_s1")
+            if (gamestate.currentGameState == "m_d2_s1" || gamestate.currentGameState == "tut_script")
             {
 
             }
@@ -130,7 +132,7 @@ public class NeoSceneChange : MonoBehaviour
         }
         else if (currentCanvas == talk || currentCanvas == talkPhone)
         {
-            if (gamestate.currentGameState != "m_d1_s1" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2" && gamestate.currentGameState != "m_d2_s1" && gamestate.currentGameState != "m_d2_s2" && gamestate.currentGameState != "n_d2_s1" && gamestate.currentGameState != "n_d2_s2" && gamestate.currentGameState != "m_d3_s1" && gamestate.currentGameState != "n_d3_s1") {
+            if (gamestate.currentGameState != "tut_script" && gamestate.currentGameState != "m_d1_s2" && gamestate.currentGameState != "n_d1_s1" && gamestate.currentGameState != "n_d1_s2" && gamestate.currentGameState != "m_d2_s1" && gamestate.currentGameState != "m_d2_s2" && gamestate.currentGameState != "n_d2_s1" && gamestate.currentGameState != "n_d2_s2" && gamestate.currentGameState != "m_d3_s1" && gamestate.currentGameState != "n_d3_s1") {
                 if (dir == 3)
                 {
                     if (gamestate.currentGameState == "report")
@@ -142,13 +144,27 @@ public class NeoSceneChange : MonoBehaviour
                         FinalReport();
                     }
                     currentCanvas = desk;
-                    gamestate.HideDialogueHud();
+                    if (gamestate.currentGameState == "m_d1_s1")
+                    {
+                        gamestate.ShowDialogueHud();
+                    }
+                    else
+                    {
+                        gamestate.HideDialogueHud();
+                    }
                     UpdateScene();
                 }
                 else if (currentCanvas == talkPhone)
                 {
                     currentCanvas = desk;
-                    gamestate.HideDialogueHud();
+                    if (gamestate.currentGameState == "m_d1_s1")
+                    {
+                        gamestate.ShowDialogueHud();
+                    }
+                    else
+                    {
+                        gamestate.HideDialogueHud();
+                    }
                     UpdateScene();
                 }
             }
@@ -213,6 +229,20 @@ public class NeoSceneChange : MonoBehaviour
 
     public void PhoneButtonClick()
     {
+        if(gamestate.currentGameState == "tut_script")
+        {
+            currentCanvas = talkPhone;
+            UpdateScene();
+            gamestate.agent.npcTalking = "Mothman";
+
+
+            mothmanB.GetComponent<Image>().enabled = false;
+            mothmanB.enabled = false;
+
+            gamestate.agent.inkJSONAsset = gamestate.tut_script;
+
+            gamestate.agent.StartStory();
+        }
         if (gamestate.currentGameState == "m_d2_s1")
         {
             currentCanvas = talkPhone;
