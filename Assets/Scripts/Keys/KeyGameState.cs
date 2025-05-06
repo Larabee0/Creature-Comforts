@@ -235,7 +235,20 @@ public class KeyGameState : MonoBehaviour
             else
                 gs.gradeList.Add(1);
         }
-        gs.UpdateGamestate();
+        else if(gs.currentGameState == "key3")
+        {
+            if (clock < 45)
+                gs.gradeList.Add(4);
+            else if (clock < 65)
+                gs.gradeList.Add(3);
+            else if (clock < 85)
+                gs.gradeList.Add(2);
+            else
+                gs.gradeList.Add(1);
+        }
+
+
+            gs.UpdateGamestate();
         if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2"
             || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2"
             || gs.currentGameState == "m_d2_s1" || gs.currentGameState == "m_d2_s2"
