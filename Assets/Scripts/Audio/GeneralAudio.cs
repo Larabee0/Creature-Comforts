@@ -30,4 +30,11 @@ public class GeneralAudio : MonoBehaviour
         audioSource.clip = phone;
         audioSource.Play();
     }
+    public void StopPhone()
+    {
+        if(audioSource.clip == phone && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
 }

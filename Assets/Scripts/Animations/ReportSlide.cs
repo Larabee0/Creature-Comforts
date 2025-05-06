@@ -23,6 +23,7 @@ public class ReportSlide : MonoBehaviour
 
     [SerializeField] private ReportCard finalReport;
     [SerializeField] private GameObject dayReport;
+    [SerializeField] private GeneralAudio generalAudio;
 
     public GameState gs;
 
@@ -60,6 +61,7 @@ public class ReportSlide : MonoBehaviour
 
     public void SlideReport()
     {
+        generalAudio.PlayPaperSlide();
         moving = true;
         clock = 0;
     }
