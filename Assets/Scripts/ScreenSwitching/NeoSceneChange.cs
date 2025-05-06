@@ -15,6 +15,7 @@ public class NeoSceneChange : MonoBehaviour
     public Button mothmanB;
     public Button nessieB;
     public Button keyNavRight;
+    public Sprite mothManDay3;
 
     [SerializeField] Canvas currentCanvas;
 
@@ -55,6 +56,10 @@ public class NeoSceneChange : MonoBehaviour
         // dir 1 = right
         // dir 2 = up
         // dir 3 = down
+        if(gamestate.currentGameState == "n_d3_s1")
+        {
+            MothManDay3();
+        }
 
         if (currentCanvas == desk)
         {
@@ -117,9 +122,9 @@ public class NeoSceneChange : MonoBehaviour
                 currentCanvas = desk;
                 UpdateScene();
             }
-            if (dir == 1 && gamestate.currentGameState == "final_report")
+            if (dir == 1 && gamestate.currentGameState == "report")
             {
-                FinalReport();
+                Report();
             }
         }
         else if (currentCanvas == note)
@@ -166,10 +171,11 @@ public class NeoSceneChange : MonoBehaviour
                         gamestate.HideDialogueHud();
                     }
                     UpdateScene();
+                    ChangeScene(dir);
                 }
             }
         }
-        else if (currentCanvas = loby)
+        else if (currentCanvas == loby)
         {
             if (dir == 3)
             {
@@ -317,6 +323,11 @@ public class NeoSceneChange : MonoBehaviour
             note.enabled = false;
             loby.enabled = true;
         }
+    }
+
+    public void MothManDay3()
+    {
+        mothmanB.GetComponent<Image>().sprite = mothManDay3;
     }
 
     private void FinalReport()

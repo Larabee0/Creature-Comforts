@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneralAudio : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip paperSlide,
                      bell,
                      phone;

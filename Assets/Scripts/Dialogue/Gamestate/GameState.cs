@@ -38,6 +38,7 @@ public class GameState : MonoBehaviour
     public DayChange dc;
     public Music music;
     public Wiggle _phoneWiggle;
+    public GameObject day1Forms;
     public void UpdateGamestate()
     {
         tracker++;
@@ -71,6 +72,7 @@ public class GameState : MonoBehaviour
                 break;
             case 9:
                 currentGameState = "newDay";
+                day1Forms.SetActive(false);
                 dc.StartFade(2);
                 break;
             case 10:
@@ -106,6 +108,7 @@ public class GameState : MonoBehaviour
                 break;
             case 19:
                 music.SwapSong();
+                ShowKeyHud();
                 currentGameState = "key2";
                 break;
             case 20:
@@ -121,11 +124,14 @@ public class GameState : MonoBehaviour
                 currentGameState = "key3";
                 break;
             case 24:
+                currentGameState = "report";
+                break;
+            case 25:
                 music.SwapSong();
                 currentGameState = "newDay";
                 dc.StartFinalFade();
                 break;
-            case 25:
+            case 26:
                 currentGameState = "final_report";
                 reportSlide.SlideFinalReport();
                 break;
