@@ -4063,7 +4063,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7aba1e422116df449a6bbba540a5245f, type: 3}
   finalReport: {fileID: 1068700548}
   dayReport: {fileID: 704240611}
-  generalAudio: {fileID: 0}
+  generalAudio: {fileID: 1126283330}
   gs: {fileID: 466277741}
 --- !u!1 &469239265
 GameObject:
@@ -10324,7 +10324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c221062c36cec4d9b31f4d8e46831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1126283331}
   paperSlide: {fileID: 8300000, guid: 1fcad61e5eda9934caf74eec41c13ec3, type: 3}
   bell: {fileID: 8300000, guid: 86b8f05318cea594a997726b04d9ba00, type: 3}
   phone: {fileID: 8300000, guid: 4433a27279cf6ae41bbb218f53bdefce, type: 3}

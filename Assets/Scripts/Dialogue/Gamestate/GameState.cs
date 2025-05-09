@@ -40,6 +40,12 @@ public class GameState : MonoBehaviour
     public Wiggle _phoneWiggle;
     public GameObject day1Forms;
     public GeneralAudio generalAudio;
+
+    private void Start()
+    {
+        HideDialogueHud();
+    }
+
     public void UpdateGamestate()
     {
         tracker++;

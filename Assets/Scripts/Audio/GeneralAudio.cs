@@ -8,11 +8,7 @@ public class GeneralAudio : MonoBehaviour
     public AudioClip paperSlide,
                      bell,
                      phone;
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
+    
     public void PlayPaperSlide()
     {
         audioSource.clip = paperSlide;
