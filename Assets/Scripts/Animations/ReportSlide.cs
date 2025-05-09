@@ -24,6 +24,7 @@ public class ReportSlide : MonoBehaviour
     [SerializeField] private ReportCard finalReport;
     [SerializeField] private GameObject dayReport;
     [SerializeField] private GeneralAudio generalAudio;
+    [SerializeField] private PauseMenu pauseMenu;
 
     public GameState gs;
 
@@ -81,5 +82,13 @@ public class ReportSlide : MonoBehaviour
         finalReport.SetCard(gs.mothmanSentiment, gs.nessieSentiment);
         dayReport.SetActive(false);
         SlideReport();
+
+        StartCoroutine(EndGame());
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(20);
+        pauseMenu.EndGame();
     }
 }
