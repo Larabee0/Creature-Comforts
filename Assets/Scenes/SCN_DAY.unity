@@ -16059,7 +16059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825420716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16492,7 +16492,7 @@ GameObject:
   - component: {fileID: 1896213902}
   - component: {fileID: 1896213901}
   m_Layer: 5
-  m_Name: DialogueIcon
+  m_Name: BellIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -39,6 +39,7 @@ public class GameState : MonoBehaviour
     public Music music;
     public Wiggle _phoneWiggle;
     public GameObject day1Forms;
+    public GeneralAudio generalAudio;
     public void UpdateGamestate()
     {
         tracker++;
@@ -78,6 +79,7 @@ public class GameState : MonoBehaviour
             case 10:
                 music.SwapSong();
                 _phoneWiggle.SetWiggling(true);
+                HideDialogueHud();
                 currentGameState = "m_d2_s1";
                 break;
             case 11:
@@ -160,6 +162,7 @@ public class GameState : MonoBehaviour
         {
             dialogueHud[i].enabled = true;
         }
+        generalAudio.PlayBell();
     }
 
     public void HideDialogueHud()
@@ -167,6 +170,10 @@ public class GameState : MonoBehaviour
         for (int i = 0; i < dialogueHud.Count; i++)
         {
             dialogueHud[i].enabled = false;
+        }
+        if(generalAudio.audioSource.clip== generalAudio.bell && generalAudio.audioSource.isPlaying)
+        {
+            generalAudio.audioSource.Stop();
         }
     }
 
