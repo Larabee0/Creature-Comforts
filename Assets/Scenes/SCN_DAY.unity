@@ -3587,14 +3587,14 @@ RectTransform:
   m_GameObject: {fileID: 463015972}
   m_LocalRotation: {x: -0, y: -0, z: 0.07811461, w: 0.99694437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5000001, y: 1.5000001, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1719297124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.96}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 76.399994, y: -62.19999}
+  m_AnchoredPosition: {x: 77.3, y: -77.5}
   m_SizeDelta: {x: 100, y: 124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463015974
@@ -3948,6 +3948,7 @@ MonoBehaviour:
   music: {fileID: 2026498329}
   _phoneWiggle: {fileID: 932652408}
   day1Forms: {fileID: 1719297123}
+  generalAudio: {fileID: 1126283330}
 --- !u!114 &466277742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5256,14 +5257,14 @@ RectTransform:
   m_GameObject: {fileID: 651967673}
   m_LocalRotation: {x: -0, y: -0, z: -0.118628874, w: 0.9929387}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1719297124}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.626}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.399994, y: 62.199997}
+  m_AnchoredPosition: {x: -31.1, y: 88.2}
   m_SizeDelta: {x: 100, y: 124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651967675
@@ -10923,7 +10924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5004883, y: 356.00003}
+  m_AnchoredPosition: {x: -0.5004883, y: 365}
   m_SizeDelta: {x: 170, y: 211.21214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1191785137
@@ -15356,7 +15357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 202.4, y: 3.199997}
+  m_AnchoredPosition: {x: 204.53, y: 3.199997}
   m_SizeDelta: {x: 302.8, y: 310.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1729869246
@@ -17306,6 +17307,7 @@ MonoBehaviour:
   currentSong: {fileID: 8300000, guid: 1a40bbef0c67a6a44a28add0d1e37345, type: 3}
   morning: {fileID: 8300000, guid: 1a40bbef0c67a6a44a28add0d1e37345, type: 3}
   evening: {fileID: 8300000, guid: 76403b22d802fb344873a3c7d0af0948, type: 3}
+  autoPlay: 0
 --- !u!82 &2026498330
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17960,11 +17962,11 @@ RectTransform:
   - {fileID: 1087677746}
   - {fileID: 1922680477}
   - {fileID: 269304062}
+  - {fileID: 1719297124}
   - {fileID: 73706661}
   - {fileID: 155383554}
   - {fileID: 2125027179}
   - {fileID: 1203747251}
-  - {fileID: 1719297124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
