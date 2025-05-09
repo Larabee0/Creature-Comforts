@@ -10,6 +10,7 @@ public class Music : MonoBehaviour
     public AudioClip currentSong, morning, evening;
     bool fading = false;
     bool startedPlaying = false;
+    public bool autoPlay = false;
     AudioSource musicSource;
 
     public void SwapSong()
@@ -21,15 +22,16 @@ public class Music : MonoBehaviour
 
     void Start()
     {
-        musicSource = gameObject.GetComponent<AudioSource>();    
+        musicSource = gameObject.GetComponent<AudioSource>();
+        if (autoPlay)
+        {
+            musicSource.clip = evening;
+            musicSource.Play();
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SwapSong();
-        }
         if (fading)
         {
             clock += Time.deltaTime * fadeSpeed;
