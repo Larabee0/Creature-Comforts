@@ -7,7 +7,8 @@ public class Music : MonoBehaviour
     [SerializeField]
     float fadeSpeed;
     float clock = 0;
-    public AudioClip currentSong, morning, evening;
+    public AudioClip currentSong, morning, evening, keyGame;
+    public AudioClip target;
     bool fading = false;
     bool startedPlaying = false;
     public bool autoPlay = false;
@@ -15,6 +16,15 @@ public class Music : MonoBehaviour
 
     public void SwapSong()
     {
+        fading = true;
+        startedPlaying = false;
+        clock = 0;
+    }
+
+    public void FadeTo(AudioClip song)
+    {
+        if(currentSong == song) return;
+        target = song;
         fading = true;
         startedPlaying = false;
         clock = 0;
@@ -44,8 +54,8 @@ public class Music : MonoBehaviour
             {
                 if (!startedPlaying)
                 {
-                    musicSource.clip = currentSong == morning ? evening : morning;
-                    currentSong = currentSong == morning ? evening : morning;
+                    musicSource.clip = currentSong = target;
+                    target = null;
                     musicSource.Play();
                     startedPlaying = true;
                 }
