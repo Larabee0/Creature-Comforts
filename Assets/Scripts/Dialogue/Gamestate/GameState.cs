@@ -133,7 +133,6 @@ public class GameState : MonoBehaviour
                 break;
             case 24:
                 currentGameState = "report";
-                ShowBossReport();
                 break;
             case 25:
                 music.FadeTo(music.evening);
