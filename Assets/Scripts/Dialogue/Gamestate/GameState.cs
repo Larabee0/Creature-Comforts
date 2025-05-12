@@ -65,7 +65,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key1";
                 break;
             case 5:
-                music.SwapSong();
+                music.FadeTo(music.evening);
                 currentGameState = "m_d1_s2";
                 break;
             case 6:
@@ -83,7 +83,7 @@ public class GameState : MonoBehaviour
                 dc.StartFade(2);
                 break;
             case 10:
-                music.SwapSong();
+                music.FadeTo(music.morning);
                 _phoneWiggle.SetWiggling(true);
                 HideDialogueHud();
                 currentGameState = "m_d2_s1";
@@ -98,7 +98,7 @@ public class GameState : MonoBehaviour
                 currentGameState = "key2";
                 break;
             case 14:
-                music.SwapSong();
+                music.FadeTo(music.evening);
                 currentGameState = "n_d2_s2";
                 break;
             case 15:
@@ -115,7 +115,7 @@ public class GameState : MonoBehaviour
                 dc.StartFade(3);
                 break;
             case 19:
-                music.SwapSong();
+                music.FadeTo(music.morning);
                 ShowKeyHud();
                 currentGameState = "key2";
                 break;
@@ -133,9 +133,10 @@ public class GameState : MonoBehaviour
                 break;
             case 24:
                 currentGameState = "report";
+                ShowBossReport();
                 break;
             case 25:
-                music.SwapSong();
+                music.FadeTo(music.evening);
                 currentGameState = "newDay";
                 dc.StartFinalFade();
                 break;

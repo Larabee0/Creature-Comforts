@@ -4130,6 +4130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kGAudio: {fileID: 967152319}
+  music: {fileID: 2026498329}
   uIAudio: {fileID: 1241586323}
   heldKey: {fileID: 1945941201}
   bellIcon: {fileID: 0}
@@ -16753,7 +16754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1825420716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18137,6 +18138,8 @@ MonoBehaviour:
   currentSong: {fileID: 8300000, guid: 1a40bbef0c67a6a44a28add0d1e37345, type: 3}
   morning: {fileID: 8300000, guid: 1a40bbef0c67a6a44a28add0d1e37345, type: 3}
   evening: {fileID: 8300000, guid: 76403b22d802fb344873a3c7d0af0948, type: 3}
+  keyGame: {fileID: 8300000, guid: c2bd170c32e13a746a185c08be2fec9e, type: 3}
+  target: {fileID: 0}
   autoPlay: 0
 --- !u!82 &2026498330
 AudioSource:

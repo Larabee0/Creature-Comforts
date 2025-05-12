@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class KeyGameState : MonoBehaviour
 {
     public KeyGameAudio kGAudio;
+    public Music music;
     public UIAudio uIAudio;
 
     public GameObject heldKey;
@@ -154,6 +155,8 @@ public class KeyGameState : MonoBehaviour
         {
             return;
         }
+        
+        music.FadeTo(music.keyGame);
 
         gs.HideKeyHud();
 
@@ -206,11 +209,10 @@ public class KeyGameState : MonoBehaviour
 
     private IEnumerator DelayWin()
     {
-        yield return new WaitForSeconds(0.25f);
         uIAudio.PlayCorrectChoice();
+        yield return new WaitForSeconds(0.25f);
         winImg.enabled = true;
 
-        keyNavRight.gameObject.SetActive(true);
         gameRunning = false;
         Debug.Log("winscrn");
         if (gs.currentGameState == "key1")
@@ -247,8 +249,10 @@ public class KeyGameState : MonoBehaviour
                 gs.gradeList.Add(1);
         }
 
+        yield return new WaitForSeconds(0.25f);
 
-            gs.UpdateGamestate();
+        keyNavRight.gameObject.SetActive(true);
+        gs.UpdateGamestate();
         if (gs.currentGameState == "m_d1_s1" || gs.currentGameState == "m_d1_s2"
             || gs.currentGameState == "n_d1_s1" || gs.currentGameState == "n_d1_s2"
             || gs.currentGameState == "m_d2_s1" || gs.currentGameState == "m_d2_s2"
@@ -256,6 +260,18 @@ public class KeyGameState : MonoBehaviour
             || gs.currentGameState == "m_d3_s1" || gs.currentGameState == "n_d3_s1")
         {
             gs.ShowDialogueHud();
+        }
+
+        if (music.target == null)
+        {
+            if (gs.currentGameState.EndsWith("s2"))
+            {
+                music.FadeTo(music.evening);
+            }
+            else
+            {
+                music.FadeTo(music.morning);
+            }
         }
     }
 
