@@ -9,11 +9,6 @@ public class Bell : MonoBehaviour
     bool animating = false;
     float clock;
 
-    void Start()
-    {
-        startPos = transform.position;
-    }
-
     void Update()
     {
         if (animating)
@@ -30,6 +25,10 @@ public class Bell : MonoBehaviour
 
     public void Press()
     {
+        if (!animating)
+        {
+            startPos = transform.position;
+        }
         animating = true;
         clock = 0;
     }
